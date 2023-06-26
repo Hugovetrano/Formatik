@@ -1,0 +1,53 @@
+/* <---------- COULEURS ----------> */
+
+$pri-color: #0081C9;
+$sec-color: #5BC0F8;
+$thi-color: #86E5FF;
+$fou-color: #FFC93C;
+$white: white;
+
+/* <---------- TAILLES COMMUNES ----------> */
+
+/* <---------- CLASSES UTILITAIRES ----------> */
+
+// Style général
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+// Couleurs
+
+.pcolor {
+    color: $pri-color
+}
+.scolor {
+    color: $sec-color
+}
+.tcolor {
+    color: $thi-color
+}
+.fcolor {
+    color: $fou-color
+}
+.white {
+    color: white;
+}
+
+// Backgrounds colors
+
+.bg-pcolor {
+    background-color: $pri-color
+}
+.bg-scolor {
+    background-color: $sec-color
+}
+.bg-tcolor {
+    background-color: $thi-color
+}
+.bg-fcolor {
+    background-color: $fou-color
+}
+.bg-white {
+    background-color: white;
+}
