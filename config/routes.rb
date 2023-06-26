@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: "pages#dashboard"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :entreprises
+  resources :apprenants
+  resources :intervenants
+  resources :sessions
+  resources :programmes
+  resources :parcoursadmins, except: [:new, :edit, :destroy]
+  resources :inscriptions
 end
