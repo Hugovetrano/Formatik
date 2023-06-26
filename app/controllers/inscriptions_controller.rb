@@ -1,0 +1,2 @@
+class InscriptionsController < ApplicationController
+end

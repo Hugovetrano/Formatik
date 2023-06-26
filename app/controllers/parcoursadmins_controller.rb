@@ -1,0 +1,2 @@
+class ParcoursadminsController < ApplicationController
+end
