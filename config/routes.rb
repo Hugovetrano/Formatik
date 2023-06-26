@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :intervenants
   resources :sessions
   resources :programmes
-  resources :parcoursadmins, except: [:new, :edit, :destroy]
+  resources :parcoursadmins, except: %i[new edit destroy]
   resources :inscriptions
 end
