@@ -2,14 +2,14 @@
 
 .yield-container {
     // -------------------- Div container of the variable content
-    // Margin with navbar's and footer's values, because of they're positioned "fixed". (Hidding content) 
+    // Margin with navbar's and footer's values, because of they're positioned "fixed". (Hidding content)
     margin-left: $navbar-width;
     margin-top: $header-height;
 
-    padding-block: 10px;
+    padding: 25px;
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 10px;
 
 }
