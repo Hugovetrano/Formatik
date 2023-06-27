@@ -293,8 +293,8 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  flatpickr (~> 4.6)
   faker
+  flatpickr (~> 4.6)
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
