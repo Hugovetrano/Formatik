@@ -231,9 +231,9 @@ puts "------Created User :#{vincent.prenom} #{vincent.nom}------"
 
 karl = {
   genre: "Homme",
-  nom: "Vandenameele",
+  nom: "Vandenabeele",
   prenom: "Karl",
-  email: "karl.vandenameele@gmail.com",
+  email: "karl.vandenabeele@gmail.com",
   password: "password",
   fonction: "Co-founder"
 }
