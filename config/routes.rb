@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :programmes
   resources :parcoursadmins, except: %i[new edit destroy]
   resources :inscriptions
+
+  get "/getProgDetails/:id", to: "programmes#getDetails", as: :getProgDetails
 end

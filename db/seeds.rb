@@ -2,13 +2,6 @@ require 'faker'
 Faker::Config.locale = 'fr'
 require 'date'
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning database..."
 Inscription.destroy_all
 Session.destroy_all
@@ -249,3 +242,4 @@ puts "Created #{Programme.count} Programmes"
 puts "Created #{Session.count} Sessions"
 puts "Created #{Inscription.count} Inscriptions"
 puts "Created #{User.count} Users"
+
