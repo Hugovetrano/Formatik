@@ -39,8 +39,6 @@ class IntervenantsController < ApplicationController
     redirect_to intervenants_path, status: :see_other
   end
 
-
-
   private
 
   def intervenant_params
