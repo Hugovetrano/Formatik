@@ -1,0 +1,22 @@
+<h1>Liste des intervenants</h1>
+
+<%# INCLURE BARRE DE RECHERCHE %>
+
+<div>
+  <% @intervenants.each do |intervenant| %>
+  <div>
+    <div>
+      <% if cl_image_tag property.photos[0].key? %>
+        <%= cl_image_tag property.photos[0].key%>
+      <% else %>
+        <i class="fa-duotone fa-user-tie-hair"></i>
+      <% end %>
+    </div>
+    <div>
+      <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
+      <p><%= intervenant.telephone %></p>
+      <p><%= intervenant.email %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
