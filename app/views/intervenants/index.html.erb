@@ -1,0 +1,28 @@
+<h1>Liste des intervenants</h1>
+
+<%# INCLURE BARRE DE RECHERCHE %>
+
+<div>
+  <% @intervenants.each do |intervenant| %>
+  <div>
+    <div>
+      <% if intervenant.photo.key %>
+        <%= cl_image_tag intervenant.photo.key, width: 60, height: 60 %>
+      <% else %>
+        <i class="fa-solid fa-user-tie"></i>
+      <% end %>
+    </div>
+    <div>
+      <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
+      <p><%= intervenant.telephone %></p>
+      <p><%= intervenant.email %></p>
+    </div>
+    <div>
+      <%= link_to "Voir la fiche", intervenant_path(intervenant) %>
+      <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to "Créer nouvel intervenant", new_intervenant_path %>

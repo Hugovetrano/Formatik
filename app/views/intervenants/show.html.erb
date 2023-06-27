@@ -1,0 +1,32 @@
+<h1>Fiche intervenant</h1>
+<div>
+  <div>
+    <div>
+      <% if @intervenant.photo.key %>
+        <%= cl_image_tag @intervenant.photo.key, width: 60, height: 60 %>
+      <% else %>
+        <i class="fa-duotone fa-user-tie-hair"></i>
+      <% end %>
+    </div>
+    <div>
+      <div>
+        <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
+        <p><%= @intervenant.adresse %> <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
+        <p><%= @intervenant.telephone %> <%= @intervenant.email %></p>
+        <p>N° DA: <%= @intervenant.num_da %> SIRET: <%= @intervenant.siret %></p>
+      </div>
+      <div>
+        <p><%= @intervenant.tarif %> € / jour</p>
+      </div>
+    </div>
+    <div>
+    <%# AJOUT DU CALENDRIER %>
+    </div>
+  </div>
+</div>
+
+<div>
+<%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant) %>
+<%= link_to "Supprimer l'intervenant", intervenant_path(@intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
+</div>
+<%= link_to "Retour à la liste des intervenants", intervenants_path %>
