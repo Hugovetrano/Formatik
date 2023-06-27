@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :entreprises
   resources :apprenants
   resources :intervenants
-  resources :sessions
+  resources :sessions, as: :sessions_formation
   resources :programmes
   resources :parcoursadmins, except: %i[new edit destroy]
   resources :inscriptions
+
+  get "/getProgDetails/:id", to: "programmes#getDetails", as: :getProgDetails
 end

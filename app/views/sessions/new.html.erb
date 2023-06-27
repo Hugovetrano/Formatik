@@ -1,11 +1,15 @@
 <div class="container">
     <h1>Nouvelle session</h1>
 
-    <%= simple_form_for(@session) do |f| %>
-        <%= f.input :nom %>
-        <%= f.input :date_debut %>
-        <%= f.input :date_fin %>
-        <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { controller: 'new-session-form', action: 'change->new-session-form#updatePrice', new_session_form_programmePrice_value: "500" } } %>
+    <%= simple_form_for(@session, url: sessions_formation_index_path, data: { controller: 'new-session-form' }) do |f| %>
+        <%= f.input :nom, input_html: { data: { new_session_form_target: 'name' } } %>
+        <div class="flatpickr-container mb-3 string optional" data-controller="new-session-flatpickr">
+        <%= f.input :date_debut, as: :hidden, input_html: { data: { new_session_flatpickr_target: 'startDate' } } %>
+        <%= f.input :date_fin, as: :hidden, input_html: { data: { new_session_flatpickr_target: 'endDate' } } %>
+        <label class="form-label string optional" for="">Dates</label>
+        <input data-new-session-flatpickr-target="dates" class="form-control string optional" type="text" name="" id="">
+        </div>
+        <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { action: 'change->new-session-form#updateInputs' } } %>
         <%= f.association :intervenant, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize } %>
         <%= f.input :prix, input_html: { data: { new_session_form_target: 'price' } } %>
         <%= f.input :adresse %>
