@@ -1,0 +1,17 @@
+<h1>Liste des apprenants</h1>
+<table>
+  <thead>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Entreprise</th>
+  </thead>
+  <tbody>
+    <% Apprenant.all.each do |apprenant| %>
+      <tr>
+        <td><%= link_to apprenant.nom, apprenant_path(apprenant) %></td>
+        <td><%= apprenant.prenom %></td>
+        <td><%= apprenant.entreprise.nom %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

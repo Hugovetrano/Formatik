@@ -2,8 +2,8 @@
 
 header {
   // -------------------- Header item
-  height: $navbar-height;
-  width : 200px;
+  height: 100%;
+  width : $navbar-width;
   background-color: $white;
   color: $sec-color;
   box-shadow: 3px 3px 16px 16px rgba(125, 125, 125, .15);
