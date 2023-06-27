@@ -1,0 +1,15 @@
+<h1>Nouvelle fiche intervenant</h1>
+
+<%= simple_form_for(@intervenant) do |f| %>
+  <%= f.input :prenom %>
+  <%= f.input :nom %>
+  <%= f.input :adresse %>
+  <%= f.input :code_postal %>
+  <%= f.input :ville %>
+  <%= f.input :telephone %>
+  <%= f.input :email %>
+  <%= f.input :num_da %>
+  <%= f.input :siret %>
+  <%= f.input :photo, as: :file %>
+  <span><%= f.submit %></span>
+<% end %>

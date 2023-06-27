@@ -6,8 +6,9 @@
   <% @intervenants.each do |intervenant| %>
   <div>
     <div>
-      <% if cl_image_tag property.photos[0].key? %>
-        <%= cl_image_tag property.photos[0].key%>
+    <%# CLOUDINARY ? %>
+      <% if cl_image_tag intervenant.photo.present? %>
+        <%= cl_image_tag intervenant.photo, height: 60, width: 60 %>
       <% else %>
         <i class="fa-duotone fa-user-tie-hair"></i>
       <% end %>
@@ -21,3 +22,5 @@
   </div>
   <% end %>
 </div>
+
+<%= link_to "Créer nouvel intervenant", new_intervenant_path %>

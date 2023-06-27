@@ -24,7 +24,7 @@ class IntervenantsController < ApplicationController
 
   def intervenant_params
     params.require(:intervenant).permit(:prenom, :nom, :email, :adress, :code_postal, :ville,
-                                        :telephone, :num_da, :siret, :tarif)
+                                        :telephone, :num_da, :siret, :tarif, :photo)
   end
 
 
