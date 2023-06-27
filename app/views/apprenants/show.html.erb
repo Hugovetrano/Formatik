@@ -1,0 +1,27 @@
+<h1><%= @apprenant.prenom %> <%= @apprenant.nom %></h1>
+<p><%= @apprenant.email %></p>
+<p><%= @apprenant.telephone %></p>
+<p><%= @apprenant.profession %></p>
+<p><%= @apprenant.adresse_facturation %></p>
+<p><%= @apprenant.ville %></p>
+<p><%= @apprenant.code_postal %></p>
+<p><%= @apprenant.niveau_etude %></p>
+<p><%= @apprenant.entreprise.nom %></p>
+<table>
+  <thead>
+    <th>Début</th>
+    <th>Fin</th>
+    <th>Nom</th>
+    <th>Prix</th>
+  </thead>
+  <tbody>
+    <% Inscription.where(apprenant_id: @apprenant.id).each do |inscription| %>
+      <tr>
+        <td><%= inscription.session.date_debut %></td>
+        <td><%= inscription.session.date_fin %></td>
+        <td><%= inscription.session.nom %></td>
+        <td><%= inscription.session.prix %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
