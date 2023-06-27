@@ -1,0 +1,26 @@
+<h1>Fiche intervenant</h1>
+<div>
+  <div>
+    <div>
+      <% if cl_image_tag property.photos[0].key? %>
+        <%= cl_image_tag property.photos[0].key%>
+      <% else %>
+        <i class="fa-duotone fa-user-tie-hair"></i>
+      <% end %>
+    </div>
+    <div>
+      <div>
+        <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
+        <p><%= intervenant.adresse %> <%= intervenant.code_postal %> <%= intervenant.ville %></p>
+        <p><%= intervenant.telephone %> <%= intervenant.email %></p>
+        <p><%= intervenant.num_da %> et/ou <%= intervenant.siret %></p>
+      </div>
+      <div>
+        <%= intervenant.tarif %>
+      </div>
+    </div>
+    <div>
+    <%# AJOUT DU CALENDRIER %>
+    </div>
+  </div>
+</div>

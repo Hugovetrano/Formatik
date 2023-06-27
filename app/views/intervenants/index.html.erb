@@ -16,6 +16,7 @@
       <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
       <p><%= intervenant.telephone %></p>
       <p><%= intervenant.email %></p>
+      <%= link_to "Voir la fiche", intervenant_path %>
     </div>
   </div>
   <% end %>

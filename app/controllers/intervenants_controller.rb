@@ -20,12 +20,6 @@ class IntervenantsController < ApplicationController
     end
   end
 
-  def
-
-
-
-
-
   private
 
   def intervenant_params
