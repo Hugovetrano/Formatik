@@ -1,0 +1,13 @@
+.apprenant-form {
+  margin-left: 150px;
+  margin-right: 150px;
+  .apprenant-form-deux-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  }
+  .apprenant-form-input {
+    flex: 1;
+  }
+}

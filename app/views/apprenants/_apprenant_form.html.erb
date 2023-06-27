@@ -1,0 +1,21 @@
+<div class="apprenant-form">
+  <%= simple_form_for(@apprenant) do |f|%>
+    <div class="apprenant-form-deux-input">
+      <span class="apprenant-form-input"><%= f.input :prenom %></span>
+      <span class="apprenant-form-input"><%= f.input :nom %></span>
+    </div>
+    <%= f.input :email %>
+    <div class="apprenant-form-deux-input">
+      <span class="apprenant-form-input"><%= f.input :telephone %></span>
+      <span class="apprenant-form-input"><%= f.input :profession %></span>
+    </div>
+    <%= f.input :adresse_facturation %>
+    <div class="apprenant-form-deux-input">
+      <span class="apprenant-form-input"><%= f.input :code_postal %></span>
+      <span class="apprenant-form-input"><%= f.input :ville %></span>
+    </div>
+    <%= f.input :niveau_etude %>
+    <%= f.association :entreprise, collection: Entreprise.pluck(:nom, :id) %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,27 +1,32 @@
-<h1><%= @apprenant.prenom %> <%= @apprenant.nom %></h1>
-<p><%= @apprenant.email %></p>
-<p><%= @apprenant.telephone %></p>
-<p><%= @apprenant.profession %></p>
-<p><%= @apprenant.adresse_facturation %></p>
-<p><%= @apprenant.ville %></p>
-<p><%= @apprenant.code_postal %></p>
-<p><%= @apprenant.niveau_etude %></p>
-<p><%= @apprenant.entreprise.nom %></p>
-<table>
-  <thead>
-    <th>Début</th>
-    <th>Fin</th>
-    <th>Nom</th>
-    <th>Prix</th>
-  </thead>
-  <tbody>
-    <% Inscription.where(apprenant_id: @apprenant.id).each do |inscription| %>
-      <tr>
-        <td><%= inscription.session.date_debut %></td>
-        <td><%= inscription.session.date_fin %></td>
-        <td><%= inscription.session.nom %></td>
-        <td><%= inscription.session.prix %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="apprenant-show">
+  <h1><%= @apprenant.prenom %> <%= @apprenant.nom %></h1>
+  <p><%= @apprenant.email %></p>
+  <p><%= @apprenant.telephone %></p>
+  <p><%= @apprenant.profession %></p>
+  <p><%= @apprenant.adresse_facturation %></p>
+  <p><%= @apprenant.ville %></p>
+  <p><%= @apprenant.code_postal %></p>
+  <p><%= @apprenant.niveau_etude %></p>
+  <p><%= @apprenant.entreprise.nom %></p>
+  <table>
+    <thead>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Nom</th>
+      <th>Prix</th>
+    </thead>
+    <tbody>
+      <% Inscription.where(apprenant_id: @apprenant.id).each do |inscription| %>
+        <tr>
+          <td><%= inscription.session.date_debut.strftime("%d %B %Y") %></td>
+          <td><%= inscription.session.date_fin.strftime("%d %B %Y") %></td>
+          <td><%= inscription.session.nom %></td>
+          <td><%= inscription.session.prix %>€</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "Modifier", edit_apprenant_path(@apprenant) %>
+  <%= link_to "Supprimer", apprenant_path(@apprenant), data: { turbo_method: :delete, turbo_confirm: "Vraiment supprimer cet apprenant ?" } %>
+
+</div>
