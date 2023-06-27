@@ -1,9 +1,12 @@
 <div class="intervenants">
-<h1>Liste des intervenants</h1>
+<div class="intervenants-title">
+  <h1>Liste des intervenants</h1>
+  <%= link_to "Créer nouvel intervenant", new_intervenant_path, class: "btn-sec" %>
+</div>
 
 <%# INCLURE BARRE DE RECHERCHE %>
 
-<div>
+<div class="card-intervenants">
   <% @intervenants.each do |intervenant| %>
   <div class="card-intervenant-mini">
     <div class="card-intervenant-img">
@@ -15,15 +18,16 @@
     </div>
     <div class="card-intervenant-txt">
       <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
-      <p><%= intervenant.telephone %> <%= intervenant.email %></p>
+      <p><%= intervenant.telephone %></p>
+      <p><%= intervenant.email %></p>
     </div>
     <div>
-      <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-intervenant" %>
-      <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-intervenant" %>
+      <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim" %>
+      <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
     </div>
   </div>
   <% end %>
 </div>
 
-<%= link_to "Créer nouvel intervenant", new_intervenant_path %>
+
 </div>
