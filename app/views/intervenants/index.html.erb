@@ -6,18 +6,20 @@
   <% @intervenants.each do |intervenant| %>
   <div>
     <div>
-    <%# CLOUDINARY ? %>
-      <% if cl_image_tag intervenant.photo.present? %>
-        <%= cl_image_tag intervenant.photo, height: 60, width: 60 %>
+      <% if intervenant.photo.key %>
+        <%= cl_image_tag intervenant.photo.key, width: 60, height: 60 %>
       <% else %>
-        <i class="fa-duotone fa-user-tie-hair"></i>
+        <i class="fa-solid fa-user-tie"></i>
       <% end %>
     </div>
     <div>
       <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
       <p><%= intervenant.telephone %></p>
       <p><%= intervenant.email %></p>
-      <%= link_to "Voir la fiche", intervenant_path %>
+    </div>
+    <div>
+      <%= link_to "Voir la fiche", intervenant_path(intervenant) %>
+      <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
     </div>
   </div>
   <% end %>
