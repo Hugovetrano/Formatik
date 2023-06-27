@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Nouvelle session</h1>
+
+    <%= simple_form_for(@session) do |f| %>
+        <%= f.input :nom %>
+        <%= f.input :date_debut %>
+        <%= f.input :date_fin %>
+        <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { controller: 'new-session-form', action: 'change->new-session-form#updatePrice', new_session_form_programmePrice_value: "500" } } %>
+        <%= f.association :intervenant, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize } %>
+        <%= f.input :prix, input_html: { data: { new_session_form_target: 'price' } } %>
+        <%= f.input :adresse %>
+        <%= f.submit 'Creer la session' %>
+    <% end %>
+</div>
