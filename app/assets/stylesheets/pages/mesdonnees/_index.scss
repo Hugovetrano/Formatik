@@ -1,0 +1,22 @@
+.mesdonnees-all-container {
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .active {
+    color: $pri-color;
+    border-bottom: 2px solid $pri-color;
+  }
+}
+
+
+.mesdonnees-intervenant-hide {
+  display: none;
+}
+.mesdonnees-entreprise-hide {
+  display: none;
+}

@@ -1,0 +1,16 @@
+<div data-controller="liste-apprenant" class="mesdonnees-all-container">
+  <ul>
+    <li data-action="click->liste-apprenant#apprenant" class="active" data-liste-apprenant-target="liapprenant">Apprenants</li>
+    <li data-action="click->liste-apprenant#intervenant" class="" data-liste-apprenant-target="liintervenant">Intervenants</li>
+    <li data-action="click->liste-apprenant#entreprise" class="" data-liste-apprenant-target="lientreprise">Entreprises</li>
+  </ul>
+  <div data-liste-apprenant-target="apprenant" class="mesdonnees-apprenant-hide">
+    <%= render "apprenants/index" %>
+  </div>
+  <div data-liste-apprenant-target="intervenant" class="mesdonnees-intervenant-hide">
+    <p>intervenant</p>
+  </div>
+  <div data-liste-apprenant-target="entreprise" class="mesdonnees-entreprise-hide">
+    <p>entreprise</p>
+  </div>
+</div>

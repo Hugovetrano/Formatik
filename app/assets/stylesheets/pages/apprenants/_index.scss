@@ -1,0 +1,52 @@
+.apprenant-index {
+  h1 {
+    color: $pri-color;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  tr:hover {
+    background-color: #e2e1e1;
+    cursor: pointer;
+  }
+  thead {
+    position: sticky;
+    top: 0;
+  }
+  .apprenant-table-container {
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: $medium-radius;
+    border: 1px solid $black;
+    width: 80%;
+  }
+  .apprenant-table-container-scrollable {
+    max-height: 500px;
+
+    overflow-y: auto !important;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Color of the track */
+      border-radius: $medium-radius;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888888a1; /* Color of the thumb */
+      border-radius: 5px; /* Border radius of the thumb */
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555555ac; /* Color of the thumb on hover */
+    }
+  }
+}
