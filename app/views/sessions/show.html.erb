@@ -1,1 +1,48 @@
-<h2><%= @session.nom %></h2>
+<div class="session-show-container pri-back-plate">
+    <div class="session-show-details-container sec-back-plate">
+        <h1>Session#<%= @session.id %></h1>
+
+        <div class="show-session-details">
+            <%# DATES %>
+            <p class="show-session-details-items">
+                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr"></i> 
+                Du <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %>
+            </p>
+            <p class="show-session-details-items">
+                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr"></i> 
+                Au <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %>
+            </p>
+
+            <%# PROGRAMME %>
+            <p class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="programme_id" data-show-session-edit-id-value="<%= @session.id %>" data-action="click->show-session-edit#openEdit"></i> 
+                <%= @session.programme.titre %>
+            </p>
+
+            <%# INTERVENANT %>
+            <p class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="intervenant_id" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                Assuré par <%= "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}" %>
+            </p>
+
+            <%# NOM %>
+            <p class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <%= @session.nom %>
+            </p>
+
+            <%# PRIX %>
+            <p class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <%= @session.prix %>€
+            </p>
+
+            <%# ADRESSE %>
+            <p class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <%= @session.adresse %>
+            </p>
+                
+        </div>
+    </div>
+</div>
