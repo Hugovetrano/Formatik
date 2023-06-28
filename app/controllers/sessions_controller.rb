@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     end
 
     def index
-
+        @sessions = Session.all
+        # :start_date est une méthode de simple_calendar
+        start_date = params.fetch(:start_date, Date.today).to_date
+        # date_debut appartient au model
+        @sessions = Session.where(date_debut: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     end
 
     def create
@@ -42,6 +46,12 @@ class SessionsController < ApplicationController
         else
             render json: { status: 'failed' }.to_json
         end
+    end
+
+    def destroy
+        @session = Session.find(params[:id])
+        @session.destroy
+        redirect_to sessions_formation_index_path
     end
 
     private

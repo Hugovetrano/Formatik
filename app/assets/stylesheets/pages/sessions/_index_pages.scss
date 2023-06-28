@@ -1,0 +1,125 @@
+@import 'variables';
+
+.session-index-container {
+    // Container principal
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    transform: translateX(-50px);
+
+    .session-index-calendar {
+        width: 1300px;
+
+        a {
+            text-decoration: none;
+        }
+
+        .index-session-over-calendar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                color: $pri-color;
+            }
+
+            i {
+                font-size: 2.5rem;
+            }
+        }
+
+        .calendar-heading {
+            width: 50%;
+            margin-inline: auto;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .calendar-title {
+                font-size: 1.4rem;
+                color: $pri-color;
+            }
+
+            a {
+                font-size: 1.2rem;
+                color: $sec-color;
+            }
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid $pri-color;
+        }
+
+        .day {
+            width: 200px;
+            max-height: 100px !important;
+            font-size: 0.8rem;
+        }
+
+        .meeting {
+            padding-block: 5px;
+            margin-bottom: 2px;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .session-index-sessions-container {
+        width: 1300px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: $pri-color;
+        }
+
+        .session-index-sessions-items {
+            width: 380px;
+            height: 320px;
+            
+            p, a {
+                color: $black;
+            }
+
+            position: relative;
+
+            .delete_link {
+                color: red;
+                text-decoration: underline;
+                font-size: .8rem;
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .session-nom {
+                font-size: 1.2rem;
+                color: $pri-color;
+            }
+
+            .session-apprenants-counter {
+                text-decoration: underline;
+            }
+
+            .programme-description {
+                font-size: .8rem;
+            }
+
+            .session-dates {
+                font-size: 0.8rem;
+                color: $pri-color;
+            }
+        }
+    }
+}

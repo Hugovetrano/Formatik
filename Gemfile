@@ -81,3 +81,5 @@ group :test do
 end
 
 gem "flatpickr", "~> 4.6"
+
+gem 'i18n'
