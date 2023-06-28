@@ -1,9 +1,16 @@
-<header>
-    <a href="/" class="a-logo"><img src="https://i.ibb.co/zr1Rwgb/logoformatik.png" alt="Logo" width="30">ormatik</a>
-    <ul>
-    <li><%= link_to 'Dashboard', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
-    <li><%= link_to 'Mes sessions', sessions_formation_index_path, class: " #{'color-active' if current_page?(sessions_formation_index_path)}" %></li>
-    <li><%= link_to 'Inscriptions', inscriptions_path, class: " #{'color-active' if current_page?(inscriptions_path)}" %></li>
-    </ul>
-
-</header>
+<div class="navbar">
+    <div>
+        <a href="/" class="a-logo"><img src="https://i.ibb.co/zr1Rwgb/logoformatik.png" alt="Logo" width="30">ormatik</a>
+        <ul>
+            <li><%= link_to 'Dashboard', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
+            <li><%= link_to 'Mes sessions', sessions_formation_index_path, class: " #{'color-active' if current_page?(sessions_formation_index_path)}" %></li>
+            <li><%= link_to 'Inscriptions', inscriptions_path, class: " #{'color-active' if current_page?(inscriptions_path)}" %></li>
+            <li><%= link_to 'La veille', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
+            <li><%= link_to 'Mes données', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
+        </ul>
+    </div>
+        <ul>
+            <li class="navbar-bottom"><%= link_to 'Réglages', root_path, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color btn-off" %></li>
+            <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color" %></li>
+        </ul>
+</div>
