@@ -1,7 +1,7 @@
 @import 'variables';
 
-header {
-  // -------------------- Header item
+.navbar {
+  // -------------------- Navbar item
   height: 100%;
   width : $navbar-width;
   background-color: $white;
@@ -12,9 +12,25 @@ header {
   top: 0;
   padding-inline: 10px;
   flex-direction: column;
-  justify-content: left;
+  justify-content: space-between;
   padding-top: 10px;
+  
+  .navbar-bottom {
+    position: bottom;
+    justify-content: center;
+    border-bottom: none;
+    padding-left: 10px;
+    display: flex;
+  }
 
+  .navbar-bottom-color {
+    color: $grey;
+  }
+
+  .navbar-bottom-color:hover {
+    color: rgb(83, 83, 83);
+  }
+  
   .a-logo {
     text-decoration: none;
     color: $black;
@@ -24,9 +40,9 @@ header {
   }
 
   li {
-    // -------------------- Header's menu items
+    // -------------------- Navbar's menu items
     list-style-type: none;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     justify-content: left;
     border-bottom: 1px solid rgba(196, 196, 196, 0.211);
     padding-top: 20px;
@@ -41,7 +57,7 @@ header {
   }
 
   ul a {
-    // -------------------- Link inside header's menu items (rails paths)
+    // -------------------- Link inside navbar's menu items (rails paths)
     color: $black;
     font-weight: 500;
     text-decoration: none;
@@ -50,12 +66,12 @@ header {
     justify-content: left;
 
     &:hover {
-      // -------------------- Hover effect over header's menu items
+      // -------------------- Hover effect over navbar's menu items
       color: $pri-color;
     }
 
     .color-active {
-      //----------------------- Header menu item color when page active
+      //----------------------- navbar menu item color when page active
       color: $pri-color;
     }
   }
