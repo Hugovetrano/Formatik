@@ -5,6 +5,7 @@ class IntervenantsController < ApplicationController
 
   def show
     @intervenant = Intervenant.find(params[:id])
+    @sessions = @intervenant.sessions.where("date >= ?", Date.today)
   end
 
   def new

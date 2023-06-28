@@ -22,12 +22,15 @@
 }
 
 .card-intervenant-mini {
-  padding: 30px;
+  width: 500px;
+  padding: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: 10px;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+  align-items: center;
 }
 
 .card-intervenant-img {

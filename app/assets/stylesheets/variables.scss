@@ -6,6 +6,7 @@ $thi-color: #86E5FF;
 $fou-color: #FFC93C;
 $grey: rgb(140, 140, 140);
 $white: white;
+$black: black;
 
 /* <---------- TAILLES COMMUNES ----------> */
 
@@ -43,6 +44,9 @@ $big-radius: 15px;
 }
 .grey {
     color: $grey;
+}
+.black {
+    color: $black;
 }
 
 // Backgrounds colors
