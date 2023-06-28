@@ -5,7 +5,20 @@
 }
 
 .sec-back-plate {
-    padding: 15px;
-    border-radius: $big-radius;
-    box-shadow: 3px 3px 8px 8px rgba(165, 165, 165, 0.25);
+    padding: 25px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: $medium-radius;
+    border: 1px solid $black;
 }
+
+// .pri-back-plate {
+//     padding: 30px;
+//     border-radius: $big-radius;
+//     box-shadow: 3px 3px 16px 16px rgba(165, 165, 165, 0.25);
+// }
+
+// .sec-back-plate {
+//     padding: 15px;
+//     border-radius: $med-radius;
+//     box-shadow: 3px 3px 8px 8px rgba(165, 165, 165, 0.25);
+// }

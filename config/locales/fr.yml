@@ -1,12 +1,21 @@
 fr:
-  time:
-    formats:
-      default: "%H:%M"
   date:
     formats:
       default: "%d/%m/%Y"
-    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
-    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
-    abbr_month_names: [~, jan, fév, mar, avr, mai, juin, juil, août, sept, oct, nov, déc]
-    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
-    order: [day, month, year]
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Janv, Févr, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      long: "%A %e %B %Y"
+      short: "%d %b"
+      only_day: "%e"
+      only_month: "%B"
+      only_year: "%Y"
+  time:
+    formats:
+      default: "%H:%M"

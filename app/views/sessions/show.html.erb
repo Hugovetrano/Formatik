@@ -1,3 +1,4 @@
+<%= render "shared/header", text: "Aperçu session" %>
 <div class="session-show-container">
     <div class="session-show-details-container sec-back-plate">
         <h1>Session#<%= @session.id %></h1>
@@ -43,7 +44,7 @@
         </div>
     </div>
 
-    <div class="session-show-apprenants-container pri-back-plate">
+    <div class="session-show-apprenants-container sec-back-plate">
         <h1>Inscriptions</h1>
         <% @session.inscriptions.each do |inscription| %>
             <div class="session-show-apprenants-items sec-back-plate">

@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
+import { French } from "./fr"
 
 // Connects to data-controller="show-session-flatpickr"
 export default class extends Controller {
@@ -16,6 +17,7 @@ export default class extends Controller {
     }
 
     flatpickr(this.element, {
+      locale: French,
       minDate: "today",
       dateFormat: "Y-m-d",
       enableTime: true,

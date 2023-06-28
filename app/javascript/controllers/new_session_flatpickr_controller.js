@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
+import { French } from "./fr"
 import moment from "moment";
 import "moment-timezone";
 
@@ -9,6 +10,7 @@ export default class extends Controller {
   
   connect() {
     flatpickr(this.element, {
+      locale: French,
       mode: "range",
       minDate: "today",
       dateFormat: "Y-m-d",
@@ -29,8 +31,8 @@ export default class extends Controller {
 
     const startDate = moment(selectedDates[0]);
     const endDate = moment(selectedDates[selectedDates.length - 1]);
-    const formattedStartDate = startDate.format('dddd D MMMM YYYY HH:mm');
-    const formattedEndDate = endDate.format('dddd D MMMM YYYY HH:mm');
+    const formattedStartDate = startDate.format('dddd D MMMM YYYY HH:mm', 'fr');
+    const formattedEndDate = endDate.format('dddd D MMMM YYYY HH:mm', 'fr');
 
     // Utilisez les valeurs startDate et endDate comme vous le souhaitez
     console.log(startTimestamp, endTimestamp);
@@ -38,6 +40,6 @@ export default class extends Controller {
     // Vous pouvez également mettre à jour d'autres éléments du formulaire
     this.startDateTarget.value = startDate.format();
     this.endDateTarget.value = endDate.format();
-    this.datesTarget.value = 'Du ' + formattedStartDate + ' au ' + formattedEndDate;
+    this.datesTarget.value = `Du ${formattedStartDate} au ${formattedEndDate}`;
   }
 }

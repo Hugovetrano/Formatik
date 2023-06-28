@@ -1,0 +1,74 @@
+<% colors = [
+  '#FF6384',
+  '#36A2EB',
+  '#4BC0C0',
+  '#9966FF',
+  '#FF9F40',
+  '#43A047',
+  '#FF8A65',
+  '#AB47BC',
+  '#29B6F6',
+  '#FF7043',
+  '#66BB6A',
+  '#FF5252',
+  '#7E57C2',
+  '#26C6DA',
+  '#4DD0E1',
+  '#FFA726',
+  '#8D6E63',
+  '#9E9E9E',
+  '#0097A7',
+  '#FF5722',
+  '#616161',
+  '#00796B',
+  '#FF4500',
+  '#757575',
+  '#FFA726',
+  '#006064',
+  '#FF3D00',
+  '#616161',
+  '#FF8F00',
+  '#004D40',
+  '#424242',
+  '#FF6D00',
+  '#37474F',
+  '#FF6F00',
+  '#212121',
+  '#FF3D00',
+  '#000000',
+  '#FF5722'
+] %>
+
+<%= render "shared/header", text: "Mes sessions" %>
+<div class="session-index-container yield-container">
+    <div class="session-index-calendar sec-back-plate" data-controller="index-session-calendar-toggle">
+        <div class="index-session-over-calendar">
+            <h2>Calendrier</h2>
+            <i class="fa-regular fa-calendar-days" data-action="click->index-session-calendar-toggle#toggle"></i>
+        </div>
+        <%# ajout de attribute: :date_debut car different du parametrage initial de la gem %>
+        <%= month_calendar(events: @sessions, attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
+        <%= date.strftime("%e") %> <%= t('date.month_names')[date.month] %>
+            <% sessions.each do |session| %>
+                <%= link_to sessions_formation_path(session) do %>
+                    <div class="meeting" style="background-color: <%= colors[session.programme_id] %>;">
+                    <p><%= session.nom %></p>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+        <div class="session-index-sessions-container sec-back-plate">
+            <% @sessions.each do |session| %>
+                <%= link_to sessions_formation_path(session) do %>
+                    <div class="session-index-sessions-items sec-back-plate">
+                        <p class="session-nom"><%= session.nom %></p>
+                        <p class="session-apprenants-counter"><%= session.inscriptions.count %> Apprenants</p>
+                        <p class="programme-description"><%= session.programme.description.truncate(130) %></p>
+                        <p class="session-dates"><%= "Du #{I18n.l(session.date_debut, format: "%A %e %B %Y")}"%><br><%= "Au #{I18n.l(session.date_fin, format: "%A %e %B %Y")}" %></p>
+                        <%= link_to 'Annuler cette session', sessions_formation_index_path(session), class: "delete_link" %>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+</div>
