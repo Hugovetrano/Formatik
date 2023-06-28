@@ -6,6 +6,10 @@ class SessionsController < ApplicationController
         @session = Session.new
     end
 
+    def index
+
+    end
+
     def create
         @session = Session.new(session_params)
         if @session.save
@@ -28,8 +32,13 @@ class SessionsController < ApplicationController
         end
         @session = Session.find(params[:id])
         if @session.update(column_name => new_value)
-            render json: { status: 'ok',
-                new_line: json_for_dates(column_name, new_value) }.to_json
+            if column_name.include?('date')
+                render json: { status: 'ok',
+                    new_line: json_for_dates(column_name, new_value) }.to_json
+            else
+                render json: { status: 'ok',
+                    new_line: json_for_other(column_name, new_value) }.to_json
+            end
         else
             render json: { status: 'failed' }.to_json
         end
@@ -49,24 +58,21 @@ class SessionsController < ApplicationController
             }
         </p>"
     end
-
+    
+    
     def json_for_other(column_name, new_value)
-        "<p class='show-session-details-items'>
-            <i class='fa-solid fa-pencil' data-action='click->show-session-edit#updateDetails'></i> 
-            #{case column_name
-            when 'programme_id'
-                @session.programme.titre
-            when 'intervenant_id'
-                "Assuré par  #{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}"
-            when 'nom'
-                @session.nom
-            when 'prix'
-                @session.prix
-            when 'adresse'
-                @session.adresse
-            end}
-        </p>"
+        "#{case column_name
+        when 'nom'
+            @session.nom
+        when 'prix'
+            "#{@session.prix}€"
+        when 'adresse'
+            @session.adresse
+        end}"
     end
+    
+    
+    
 
     def redirect_unlogged_user
         unless current_user

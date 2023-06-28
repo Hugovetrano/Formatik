@@ -296,7 +296,6 @@ DEPENDENCIES
   faker
   flatpickr (~> 4.6)
   font-awesome-sass (~> 6.1)
-  i18n (~> 1.8)
   importmap-rails
   jbuilder
   pg (~> 1.1)
