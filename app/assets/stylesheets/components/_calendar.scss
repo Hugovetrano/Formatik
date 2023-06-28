@@ -1,0 +1,31 @@
+.card-intervenant-calendar {
+  width: auto;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-grow: 1;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+}
+
+.simple-calendar {
+  table {
+    min-height: 80vh;
+  }
+  .today {
+    background-color: $fou-color;
+  }
+}
+
+.meeting {
+  color: $white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $sec-color;
+  transition: background 0.3s ease;
+}
+
+.meeting:hover {
+  background: $pri-color;
+  color: $white;
+}
