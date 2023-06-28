@@ -1,0 +1,29 @@
+<div class="apprenant-index">
+  <div class="apprenant-table-container">
+    <div class="apprenant-table-container-scrollable">
+      <table>
+        <thead>
+          <th>Nom</th>
+          <th>Siret</th>
+          <th>Apprenants</th>
+          <th>Nombre de Sessions</th>
+        </thead>
+        <tbody>
+          <% Entreprise.all.order(:nom).each do |entreprise| %>
+              <tr data-link="<%= entreprise_path(entreprise)%>" data-mesdonnees-search-bar-target="row">
+                <td><%= entreprise.nom %></td>
+                <td><%= entreprise.siret %></td>
+                <% apprenants = Apprenant.where(entreprise_id: entreprise.id) %>
+                <td><%= apprenants.count %></td>
+                <% sessioncount = 0 %>
+                <% apprenants.each do |apprenant| %>
+                  <% sessioncount += Inscription.where(apprenant_id: apprenant.id).count %>
+                <% end %>
+                <td><%= sessioncount %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+  </div>
+</div>

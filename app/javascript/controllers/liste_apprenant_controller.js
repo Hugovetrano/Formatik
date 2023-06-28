@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['apprenant', 'intervenant', 'entreprise', 'liintervenant', 'lientreprise', 'liapprenant']
 
   connect() {
-    console.log("Hello, Stimulus!", this.element)
+
   }
 
   apprenant() {

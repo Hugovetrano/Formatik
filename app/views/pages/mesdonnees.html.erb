@@ -1,19 +1,22 @@
 <%= render "shared/header", text: "Je suis la home" %>
-<div class="yield-container">
-  <div data-controller="liste-apprenant" class="mesdonnees-all-container">
+<div class="yield-container" data-controller="mesdonnees-search-bar">
+  <div data-controller="liste-apprenant" class="mesdonnees-all-container" id="myTable">
     <ul>
-      <li data-action="click->liste-apprenant#apprenant" class="active" data-liste-apprenant-target="liapprenant">Apprenants</li>
-      <li data-action="click->liste-apprenant#intervenant" class="" data-liste-apprenant-target="liintervenant">Intervenants</li>
-      <li data-action="click->liste-apprenant#entreprise" class="" data-liste-apprenant-target="lientreprise">Entreprises</li>
+      <li data-action="click->liste-apprenant#apprenant" class="active" data-liste-apprenant-target="liapprenant"><h2>Apprenants</h2></li>
+      <li data-action="click->liste-apprenant#intervenant" class="" data-liste-apprenant-target="liintervenant"><h2>Intervenants</h2></li>
+      <li data-action="click->liste-apprenant#entreprise" class="" data-liste-apprenant-target="lientreprise"><h2>Entreprises</h2></li>
     </ul>
+  <div>
+    <input type="text" data-action="keyup->mesdonnees-search-bar#filterTable" placeholder="Recherche...">
+  </div>
     <div data-liste-apprenant-target="apprenant" class="mesdonnees-apprenant-hide">
       <%= render "apprenants/index" %>
     </div>
     <div data-liste-apprenant-target="intervenant" class="mesdonnees-intervenant-hide">
-      <p>Intervenant</p>
+      <%= render "intervenants/index" %>
     </div>
     <div data-liste-apprenant-target="entreprise" class="mesdonnees-entreprise-hide">
-      <p>Entreprise</p>
+      <%= render "entreprises/index" %>
     </div>
   </div>
 </div>
