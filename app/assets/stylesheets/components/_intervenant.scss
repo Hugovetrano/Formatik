@@ -1,21 +1,44 @@
 // A SUPPRIMER QUAND NAVBAR OK
 .intervenants {
   margin-left: 300px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.intervenants-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+
+.card-intervenants {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .card-intervenant-mini {
-  margin: 20px;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 10px;
-  gap: 20px;
 }
 
 .card-intervenant-img {
   align-self: center;
+  padding: 20px;
+
+  .fa-solid {
+    color: $pri-color;
+    font-size: 60px;
+    line-height: 10px;
+  }
 }
 
 .card-intervenant-txt {
@@ -24,14 +47,4 @@
   justify-content: center;
   align-self: center;
   align-items: center;
-}
-
-.btn-intervenant {
-  margin: 5px;
-  padding: 10px;
-  text-decoration: none;
-  color: $pri-color;
-  font-weight: 600;
-  border: solid 3px $pri-color;
-  border-radius: 25px;
 }

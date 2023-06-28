@@ -4,6 +4,7 @@ $pri-color: #0081C9;
 $sec-color: #5BC0F8;
 $thi-color: #86E5FF;
 $fou-color: #FFC93C;
+$grey: rgb(140, 140, 140);
 $white: white;
 
 /* <---------- TAILLES COMMUNES ----------> */
@@ -40,6 +41,9 @@ $big-radius: 15px;
 .white {
     color: white;
 }
+.grey {
+    color: $grey;
+}
 
 // Backgrounds colors
 
@@ -57,4 +61,7 @@ $big-radius: 15px;
 }
 .bg-white {
     background-color: white;
+}
+.bg-grey {
+    background-color: $grey;
 }

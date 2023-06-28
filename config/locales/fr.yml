@@ -1,0 +1,12 @@
+fr:
+  time:
+    formats:
+      default: "%H:%M"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_month_names: [~, jan, fév, mar, avr, mai, juin, juil, août, sept, oct, nov, déc]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    order: [day, month, year]
