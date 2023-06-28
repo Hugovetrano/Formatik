@@ -1,0 +1,23 @@
+@import 'variables';
+
+header {
+  // -------------------- Header item
+    width: 100%;
+    height : $header-height;
+    background-image: url(https://res.cloudinary.com/djfpsvwjy/image/upload/v1687945843/laura-cleffmann-9NeMqfxFFTE-unsplash_uxaw84.jpg);
+    box-shadow: 3px 3px 10px 10px rgba(125, 125, 125, .10);
+    border-radius: 5px;
+    display: flex;
+    margin-left: $navbar-width;
+    padding: 0px;
+
+    .head-img {
+        text-decoration: none;
+        color: $white;
+        font-weight: 500;
+        font-size: 3rem;
+        text-shadow: 500px solid rgba(0, 0, 0, 0.211);
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+}

@@ -1,7 +1,7 @@
 @import 'variables';
 
-header {
-  // -------------------- Header item
+.navbar {
+  // -------------------- Navbar item
   height: 100%;
   width : $navbar-width;
   background-color: $white;
@@ -24,7 +24,7 @@ header {
   }
 
   li {
-    // -------------------- Header's menu items
+    // -------------------- Navbar's menu items
     list-style-type: none;
     font-size: 1.6rem;
     justify-content: left;
