@@ -28,6 +28,7 @@ while x < 5
     name = Faker::Name.first_name
     surname = Faker::Name.last_name
     apprenants << {
+      genre: ["Homme", "Femme"].sample,
       prenom: name,
       nom: surname,
       email: "#{name}.#{surname}@gmail.com",
@@ -167,6 +168,7 @@ while i < 15
     date_debut: start_date,
     date_fin: end_date,
     programme_id: programme.id,
+    nom: "#{programme.titre} - #{start_date.strftime("%B %Y")}",
     intervenant_id: Intervenant.order("RANDOM()").first.id,
     prix: programme.prix,
     adresse: Faker::Address.full_address
@@ -242,4 +244,3 @@ puts "Created #{Programme.count} Programmes"
 puts "Created #{Session.count} Sessions"
 puts "Created #{Inscription.count} Inscriptions"
 puts "Created #{User.count} Users"
-

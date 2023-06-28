@@ -4,12 +4,17 @@ $pri-color: #0081C9;
 $sec-color: #5BC0F8;
 $thi-color: #86E5FF;
 $fou-color: #FFC93C;
+$grey: rgb(140, 140, 140);
 $white: white;
 
 /* <---------- TAILLES COMMUNES ----------> */
 
 $navbar-width: 200px;
 $header-height: 100px;
+
+$little-radius: 5px;
+$medium-radius: 8px;
+$big-radius: 15px;
 
 /* <---------- CLASSES UTILITAIRES ----------> */
 
@@ -36,6 +41,9 @@ $header-height: 100px;
 .white {
     color: white;
 }
+.grey {
+    color: $grey;
+}
 
 // Backgrounds colors
 
@@ -53,4 +61,7 @@ $header-height: 100px;
 }
 .bg-white {
     background-color: white;
+}
+.bg-grey {
+    background-color: $grey;
 }

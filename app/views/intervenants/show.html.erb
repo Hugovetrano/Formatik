@@ -1,32 +1,35 @@
-<h1>Fiche intervenant</h1>
-<div>
-  <div>
-    <div>
+<div class="intervenants">
+  <div class="intervenants-title">
+    <h1>Fiche intervenant</h1>
+    <%= link_to "Retour à la liste des intervenants", intervenants_path, class: "btn-sec" %>
+  </div>
+
+
+
+  <div class="card-intervenant-mini">
+    <div class="card-intervenant-img">
       <% if @intervenant.photo.key %>
         <%= cl_image_tag @intervenant.photo.key, width: 60, height: 60 %>
       <% else %>
-        <i class="fa-duotone fa-user-tie-hair"></i>
+        <i class="fa-solid fa-user-tie"></i>
       <% end %>
     </div>
-    <div>
-      <div>
+    <div class="card-intervenant-txt">
+      <div >
         <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
         <p><%= @intervenant.adresse %> <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
-        <p><%= @intervenant.telephone %> <%= @intervenant.email %></p>
+        <p><%= @intervenant.telephone %></p>
+        <p><%= @intervenant.email %></p>
         <p>N° DA: <%= @intervenant.num_da %> SIRET: <%= @intervenant.siret %></p>
-      </div>
-      <div>
-        <p><%= @intervenant.tarif %> € / jour</p>
+        <p><strong><%= @intervenant.tarif %> € / jour</strong></p>
       </div>
     </div>
     <div>
-    <%# AJOUT DU CALENDRIER %>
+      <%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant), class: "btn-prim" %>
+      <%= link_to "Supprimer l'intervenant", intervenant_path(@intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
     </div>
   </div>
+  <div>
+  <p>CALENDRIER ??</p>
+  </div>
 </div>
-
-<div>
-<%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant) %>
-<%= link_to "Supprimer l'intervenant", intervenant_path(@intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
-</div>
-<%= link_to "Retour à la liste des intervenants", intervenants_path %>

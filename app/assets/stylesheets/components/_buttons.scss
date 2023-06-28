@@ -1,0 +1,29 @@
+.btn-prim {
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: $pri-color;
+  font-weight: 600;
+  border: solid 3px $pri-color;
+  border-radius: 25px;
+}
+
+.btn-sec {
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: $white;
+  font-weight: 600;
+  background-color: $pri-color;
+  border-radius: 25px;
+}
+
+.btn-off {
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: $grey;
+  font-weight: 600;
+  border: solid 3px $grey;
+  border-radius: 25px;
+}

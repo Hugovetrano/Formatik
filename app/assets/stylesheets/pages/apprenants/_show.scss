@@ -1,0 +1,18 @@
+.apprenant-show {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  tr:hover {
+    background-color: #e2e1e1;
+  }
+}
