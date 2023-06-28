@@ -5,7 +5,7 @@
   </div>
 
 
-  <div class="card-intervenants">
+  <div class="card-global-calendar">
     <div class="card-intervenant-mini">
       <div class="card-intervenant-img">
         <% if @intervenant.photo.key %>
@@ -36,10 +36,10 @@
     <div class="card-intervenant-calendar">
     <%# ajout de attribute: :date_debut car different du parametrage initial de la gem %>
       <%= month_calendar(events: @sessions.where(intervenant_id: @intervenant.id), attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
-        <%= date %>
+        <%= date.strftime("%d-%m") %>
         <% sessions.each do |session| %>
           <div class="meeting">
-            <p><%= session.nom %></p>
+            <p><%= link_to session.nom, sessions_formation_path(session) %></p>
           </div>
         <% end %>
       <% end %>
