@@ -1,0 +1,52 @@
+@import 'variables';
+
+.session-new-container {
+    // Container principal
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .session-new-form-container {
+        color: $pri-color;
+
+        // Container secondaire: -Form + title
+
+        .session-new-form {
+            // Formulaire
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .session-new-form-inputs {
+                // Container des inputs du form, hors submit
+                width: 750px;
+                height: 340px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+
+                input,
+                select {
+                    // Inputs du form
+                    width: 350px;
+                    border-radius: $little-radius;
+                }
+
+                div.hidden {
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                }
+            }
+
+            input {
+                // Input submit exclusivement
+                width: 400px;
+            }
+        }
+    }
+}

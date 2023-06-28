@@ -7,11 +7,16 @@ $fou-color: #FFC93C;
 $grey: rgb(140, 140, 140);
 $white: white;
 $backcolor: rgba(179, 227, 250, 0.183);
+$black: black;
 
 /* <---------- TAILLES COMMUNES ----------> */
 
 $navbar-width: 200px;
 $header-height: 100px;
+
+$little-radius: 5px;
+$medium-radius: 8px;
+$big-radius: 15px;
 
 /* <---------- CLASSES UTILITAIRES ----------> */
 
@@ -19,6 +24,7 @@ $header-height: 100px;
 
 * {
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
 
 // Couleurs
@@ -40,6 +46,9 @@ $header-height: 100px;
 }
 .grey {
     color: $grey;
+}
+.black {
+    color: $black;
 }
 
 // Backgrounds colors

@@ -1,0 +1,79 @@
+@import 'variables';
+
+.session-show-container {
+    // Container principal
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    .session-show-details-container {
+        color: $pri-color;
+
+        width: 1200px;
+
+        i {
+            cursor: pointer;
+        }
+
+        .fsize-inter {
+            font-size: 1.2rem;
+            color: $black;
+            &:first-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .input-long {
+            width: 450px;
+        }
+        
+        .input-short {
+            width: 100px;
+        }
+        
+        .input-medium {
+            width: 325px; 
+        }
+        
+    }
+
+    .session-show-apprenants-container {
+        width: 1200px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+
+        h1 {
+            width: 100%;
+            color: $pri-color;
+        }
+
+        .session-show-apprenants-items {
+            width: 350px;
+
+            .apprenant-name {
+                font-size: 1.5rem;
+                color: $pri-color;
+            }
+
+            hr {
+                margin-block: 4px;
+                color: $grey;
+            }
+
+            .parcours-admin-steps {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                margin-bottom: 0;
+                margin-top: 15px;
+            }
+        }
+    }
+}

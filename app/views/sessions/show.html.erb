@@ -1,1 +1,109 @@
-<h2><%= @session.nom %></h2>
+<div class="session-show-container">
+    <div class="session-show-details-container sec-back-plate">
+        <h1>Session#<%= @session.id %></h1>
+
+        <div class="show-session-details">
+            <%# PROGRAMME %>
+            <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
+                Batch de <%= @session.programme.titre %>
+            </p>
+
+            <%# INTERVENANT %>
+            <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
+                Assurée par <%= "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}" %>
+            </p>
+
+            <%# DATES %>
+            <p id="session-date_debut-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr"></i> 
+                Du <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %>
+            </p>
+            <p id="session-date_fin-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr"></i> 
+                Au <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %>
+            </p>
+
+            <%# NOM %>
+            <p id="session-nom-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <span><%= @session.nom %></span>
+            </p>
+
+            <%# PRIX %>
+            <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <span><%= @session.prix %>€</span>
+            </p>
+
+            <%# ADRESSE %>
+            <p id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
+                <span><%= @session.adresse %></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="session-show-apprenants-container pri-back-plate">
+        <h1>Inscriptions</h1>
+        <% @session.inscriptions.each do |inscription| %>
+            <div class="session-show-apprenants-items sec-back-plate">
+                <p class="apprenant-name"><%= "#{inscription.apprenant.prenom} #{inscription.apprenant.nom}" %></p>
+                <div class="parcours-admin-details">
+                    <p class="parcours-admin-steps">
+                    Devis envoyé :
+                    <% if inscription.parcoursadmin.devis_envoye %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                    <hr>
+                    <p class="parcours-admin-steps">
+                    Devis validé :
+                    <% if inscription.parcoursadmin.devis_valide %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                    <hr>
+                    <p class="parcours-admin-steps">
+                    Contrat envoyé :
+                    <% if inscription.parcoursadmin.contrat_envoye %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                    <hr>
+                    <p class="parcours-admin-steps">
+                    Contrat signé :
+                    <% if inscription.parcoursadmin.contrat_signe %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                    <hr>
+                    <p class="parcours-admin-steps">
+                    Convocation envoyée :
+                    <% if inscription.parcoursadmin.convocation_envoye %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                    <hr>
+                    <p class="parcours-admin-steps">
+                    Émargement :
+                    <% if inscription.parcoursadmin.emargement %>
+                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                    <% else %>
+                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                    <% end %>
+                    </p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
