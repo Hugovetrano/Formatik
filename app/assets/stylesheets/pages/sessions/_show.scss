@@ -1,0 +1,17 @@
+@import 'variables';
+
+.session-show-container {
+    // Container principal
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .session-show-details-container {
+        color: $pri-color;
+
+        i {
+            cursor: pointer;
+        }
+    }
+}
