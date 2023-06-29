@@ -5,16 +5,16 @@
         <thead>
           <th>Nom</th>
           <th>Prénom</th>
-          <th>Ville</th>
-          <th>Tarif</th>
+          <th>Telephone</th>
+          <th>Email</th>
         </thead>
         <tbody>
           <% Intervenant.all.order(:nom).each do |intervenant| %>
               <tr data-link="<%= intervenant_path(intervenant)%>" data-mesdonnees-search-bar-target="row">
                 <td><%= intervenant.nom %></td>
                 <td><%= intervenant.prenom %></td>
-                <td><%= intervenant.ville %></td>
-                <td><%= intervenant.tarif %>€</td>
+                <td><%= intervenant.telephone %></td>
+                <td><%= intervenant.email %>€</td>
               </tr>
           <% end %>
         </tbody>
