@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <% Apprenant.all.order(:nom).each do |apprenant| %>
-              <tr data-link="<%= apprenant_path(apprenant)%>" data-mesdonnees-search-bar-target="row">
+              <tr data-link="<%= apprenant_path(apprenant)%>" data-action="click->mesdonnees-search-bar#clicked">
                 <td><%= apprenant.nom %></td>
                 <td><%= apprenant.prenom %></td>
                 <td><%= apprenant.profession %></td>
