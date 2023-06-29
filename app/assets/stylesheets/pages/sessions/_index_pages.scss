@@ -60,6 +60,10 @@
             border: 1px solid $pri-color;
         }
 
+        .today {
+            background-color: $thi-color !important;
+        }
+
         .day {
             width: 200px;
             max-height: 100px !important;
