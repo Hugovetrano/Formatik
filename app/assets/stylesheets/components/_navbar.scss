@@ -75,4 +75,14 @@
       color: $pri-color;
     }
   }
+
+  .settings-btn {
+    margin: 5px;
+    padding: 4px 10px 4px 10px;
+    text-decoration: none;
+    color: $grey;
+    font-weight: 600;
+    border: solid 3px $grey;
+    border-radius: 25px;
+  }
 }

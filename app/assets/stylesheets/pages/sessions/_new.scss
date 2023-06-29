@@ -2,50 +2,73 @@
 
 .session-new-container {
     // Container principal
+    width: 800px;
+    margin: auto;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
 
-    .session-new-form-container {
-        color: $pri-color;
+    .session-new-form {
+        // Formulaire
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
 
-        // Container secondaire: -Form + title
+        .session-new-form-inputs {
+            // Container des inputs du form, hors submit
+            width: 750px;
+            height: 340px;
 
-        .session-new-form {
-            // Formulaire
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            row-gap: 0;
 
-            .session-new-form-inputs {
-                // Container des inputs du form, hors submit
-                width: 750px;
-                height: 340px;
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-
-                input,
-                select {
-                    // Inputs du form
-                    width: 350px;
-                    border-radius: $little-radius;
-                }
-
-                div.hidden {
-                    width: 0;
-                    height: 0;
-                    position: absolute;
-                }
+            input,
+            select {
+                // Inputs du form
+                width: 450px;
+                border-radius: $little-radius;
             }
 
-            input {
-                // Input submit exclusivement
-                width: 400px;
+            div.hidden {
+                width: 0;
+                height: 0;
+                position: absolute;
             }
+
+            #price-input {
+                width: 130px;
+            }
+
+            #adresse-input {
+                width: 720px;
+            }
+
+            #intervenant-input {
+                width: 220px;
+            }
+
+            #programme-input {
+                width: 480px;
+            }
+
+            #dates-input {
+                width: 570px;
+            }
+
+            #nom-input {
+                width: 720px;
+            }
+        }
+
+        input {
+            // Input submit exclusivement
+            width: 400px;
         }
     }
 }
