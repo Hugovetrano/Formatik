@@ -26,6 +26,12 @@ $big-radius: 15px;
     font-family: 'Montserrat', sans-serif;
 }
 
+th {
+  color: $pri-color;
+  opacity: 100%;
+  font-weight: bold;
+}
+
 // Couleurs
 
 .pcolor {
@@ -70,4 +76,3 @@ $big-radius: 15px;
 .bg-grey {
     background-color: $grey;
 }
-

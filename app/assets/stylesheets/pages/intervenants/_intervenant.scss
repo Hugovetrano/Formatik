@@ -1,6 +1,5 @@
 .intervenants {
-  margin-left: 300px;
-  margin: 30px;
+  margin: -20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -22,6 +21,9 @@
 
 .card-intervenant-mini {
   width: 500px;
+  height: 500px;
+  background-color: $white;
+
   padding: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;

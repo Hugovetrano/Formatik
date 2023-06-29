@@ -1,10 +1,11 @@
 .card-global-calendar {
   display: flex;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
 
 .card-intervenant-calendar {
+  width: 1100px;
+  background-color: $white;
   padding: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   flex-grow: 1;
@@ -26,33 +27,33 @@
 
 .calendar-heading {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .simple-calendar {
+
+
+  table,
+  th,
+  td {
+    border: 1px solid $pri-color;
+  }
+
+
   th {
     color: $pri-color;
-    width: 100px;
+    width: 150px;
   }
 
-  table {
-    min-height: 80vh;
-
-
-
+  .day {
+    width: 150px;
   }
-  // tbody {
-  //   display: flex;
-  //   flex-direction: column;
 
-  // }
-  // tr {
-  //   justify-content: space-between;
-  // }
 
   .today {
     background-color: $fou-color;
+    opacity: 70%;
   }
 }
 
@@ -64,11 +65,17 @@
 
   padding: 10px 10px;
   border-radius: $little-radius;
-  background: $sec-color;
+  // background: $sec-color;
+  opacity: 70%;
   transition: background 0.3s ease;
 }
 
 .meeting:hover {
-  background: $pri-color;
+  // background: $pri-color;
+  opacity: 100%;
   color: $white;
+}
+
+.btn-intervenant {
+  display: inline-block;
 }

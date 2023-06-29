@@ -1,34 +1,33 @@
-<%= render "shared/header", text: "Intervenants de formation :" %>
+<%= render "shared/header", text: "Intervenants" %>
 <div class="yield-container">
-<div class="intervenants">
-<div class="intervenants-title">
-  <h1>Liste des intervenants</h1>
-  <%= link_to "Créer nouvel intervenant", new_intervenant_path, class: "btn-sec" %>
-</div>
+  <div class="intervenants">
+    <div class="intervenants-title">
+      <%# <h1>Liste des intervenants</h1> %>
+      <%= link_to "Créer nouvel intervenant", new_intervenant_path, class: "btn-sec" %>
+    </div>
 
-<%# INCLURE BARRE DE RECHERCHE %>
 
-<div class="card-intervenants">
-  <% @intervenants.each do |intervenant| %>
-  <div class="card-intervenant-mini">
-    <div class="card-intervenant-img">
-      <% if intervenant.photo.key %>
-        <%= cl_image_tag intervenant.photo.key, width: 100, height: 100 %>
-      <% else %>
-        <i class="fa-solid fa-user-tie"></i>
+    <div class="card-intervenants">
+      <% @intervenants.each do |intervenant| %>
+      <div class="card-intervenant-mini">
+        <div class="card-intervenant-img">
+          <% if intervenant.photo.key %>
+            <%= cl_image_tag intervenant.photo.key, width: 100, height: 100 %>
+          <% else %>
+            <i class="fa-solid fa-user-tie"></i>
+          <% end %>
+        </div>
+        <div class="card-intervenant-txt">
+          <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
+          <p><%= intervenant.telephone %></p>
+          <p><%= intervenant.email %></p>
+        </div>
+        <div>
+          <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim" %>
+          <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
+        </div>
+      </div>
       <% end %>
     </div>
-    <div class="card-intervenant-txt">
-      <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
-      <p><%= intervenant.telephone %></p>
-      <p><%= intervenant.email %></p>
-    </div>
-    <div>
-      <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim" %>
-      <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
-    </div>
   </div>
-  <% end %>
-</div>
-</div>
 </div>
