@@ -1,24 +1,24 @@
 
 <%= render "shared/header", text: "Mes sessions" %>
 <div class="session-new-container yield-container sec-back-plate">
-    <div class="session-new-form-container sec-back-plate">
+    <%# <div class="session-new-form-container sec-back-plate"> %>
         <h1>Nouvelle session</h1>
 
         <%= simple_form_for(@session, url: sessions_formation_index_path, html: { class: "session-new-form" }, data: { controller: 'new-session-form' }) do |f| %>
             <div class="session-new-form-inputs">
+                <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { action: 'change->new-session-form#updateInputs' }, id: 'programme-input' } %>
+                <%= f.association :intervenant, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize }, input_html: { id: 'intervenant-input' } %>
+                <%= f.input :nom, input_html: { data: { new_session_form_target: 'name' }, id: 'nom-input' } %>
                 <div class="flatpickr-container mb-3 string optional" data-controller="new-session-flatpickr">
                 <%= f.input :date_debut, as: :hidden, input_html: { data: { new_session_flatpickr_target: 'startDate' } } %>
                 <%= f.input :date_fin, as: :hidden, input_html: { data: { new_session_flatpickr_target: 'endDate' } } %>
                 <label class="form-label string optional" for="">Dates</label>
-                <input data-new-session-flatpickr-target="dates" class="form-control string optional" type="text" name="" id="">
+                <input data-new-session-flatpickr-target="dates" class="form-control string optional" type="text" name="" id="dates-input">
                 </div>
-                <%= f.association :programme, include_blank: false, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { action: 'change->new-session-form#updateInputs' } } %>
-                <%= f.association :intervenant,include_blank: false, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize } %>
-                <%= f.input :nom, input_html: { data: { new_session_form_target: 'name' } } %>
-                <%= f.input :prix, input_html: { data: { new_session_form_target: 'price' } } %>
-                <%= f.input :adresse %>
+                <%= f.input :prix, input_html: { data: { new_session_form_target: 'price' }, id: 'price-input' } %>
+                <%= f.input :adresse, input_html: { id: 'adresse-input' } %>
             </div>
             <%= f.submit 'Creer la session', class: 'create-cta' %>
         <% end %>
-    </div>
+    <%# </div> %>
 </div>

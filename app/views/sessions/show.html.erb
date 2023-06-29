@@ -6,12 +6,12 @@
         <div class="show-session-details">
             <%# PROGRAMME %>
             <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
-                Batch de <%= @session.programme.titre %>
+                <%= @session.programme.titre %>
             </p>
 
             <%# INTERVENANT %>
             <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
-                Assurée par <%= "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}" %>
+                Assurée par <%= link_to "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}", intervenant_path(@session.intervenant) %>
             </p>
 
             <%# DATES %>

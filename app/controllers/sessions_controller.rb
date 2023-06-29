@@ -8,10 +8,11 @@ class SessionsController < ApplicationController
 
     def index
         @sessions = Session.all
+        @nextSession = @sessions.order(:date_debut).first
         # :start_date est une méthode de simple_calendar
         start_date = params.fetch(:start_date, Date.today).to_date
         # date_debut appartient au model
-        @sessions = Session.where(date_debut: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+        @sessions = Session.where(date_debut: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).order(:date_debut)
     end
 
     def create
