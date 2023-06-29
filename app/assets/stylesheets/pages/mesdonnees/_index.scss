@@ -6,7 +6,13 @@
     list-style: none;
     padding-left: 100px;
     padding-right: 100px;
+    cursor: pointer;
   }
+
+  li:hover {
+    color: $pri-color;
+  }
+
   .active {
     color: $pri-color;
     border-bottom: 2px solid $pri-color;

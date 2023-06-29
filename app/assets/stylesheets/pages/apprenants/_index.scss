@@ -1,4 +1,7 @@
 .apprenant-index {
+  .hidden {
+    display: none;
+  }
   h1 {
     color: $pri-color;
   }
@@ -28,7 +31,7 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: $medium-radius;
     border: 1px solid $black;
-    width: 80%;
+    width: 100%;
   }
   .apprenant-table-container-scrollable {
     max-height: 500px;

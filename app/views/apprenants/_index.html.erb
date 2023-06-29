@@ -1,5 +1,4 @@
 <div class="apprenant-index">
-  <h1>Liste des apprenants</h1>
   <div class="apprenant-table-container">
     <div class="apprenant-table-container-scrollable">
       <table>
@@ -10,8 +9,8 @@
           <th>Entreprise</th>
         </thead>
         <tbody>
-          <% Apprenant.all.each do |apprenant| %>
-              <tr data-link="<%= apprenant_path(apprenant)%>">
+          <% Apprenant.all.order(:nom).each do |apprenant| %>
+              <tr data-link="<%= apprenant_path(apprenant)%>" data-mesdonnees-search-bar-target="row">
                 <td><%= apprenant.nom %></td>
                 <td><%= apprenant.prenom %></td>
                 <td><%= apprenant.profession %></td>
