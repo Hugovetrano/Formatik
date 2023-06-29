@@ -370,13 +370,15 @@ session_test = Session.create!(
     }
 )
 
-inscription = {
-  session_id: session_test.id,
-  apprenant_id: Apprenant.order("RANDOM()").first.id,
-  parcoursadmin_id: Parcoursadmin.create!.id
-}
-Inscription.create!(inscription)
-
+3.times do 
+  inscription = {
+    session_id: session_test.id,
+    apprenant_id: Apprenant.order("RANDOM()").first.id,
+    parcoursadmin_id: Parcoursadmin.create!.id
+  }
+  Inscription.create!(inscription)
+  
+end
 
 # -------------------------------USER ADMIN-----------------------------------
 hugop = {
