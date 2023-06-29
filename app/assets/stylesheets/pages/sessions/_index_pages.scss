@@ -16,6 +16,10 @@
             text-decoration: none;
         }
 
+        .simple-calendar table {
+            min-height: 0 !important;
+        }
+
         .index-session-over-calendar {
             display: flex;
             align-items: center;
