@@ -85,4 +85,15 @@
     border: solid 3px $grey;
     border-radius: 25px;
   }
+  
+  .settings-btn:hover {
+    margin: 5px;
+    padding: 4px 10px 4px 10px;
+    text-decoration: none;
+    color: $grey;
+    background-color: $grey;
+    border: solid 3px $grey;
+    border-radius: 25px;
+    color: rgb(83, 83, 83);
+  }
 }

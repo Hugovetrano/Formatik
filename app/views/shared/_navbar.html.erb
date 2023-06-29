@@ -8,7 +8,7 @@
         </ul>
     </div>
         <ul>
-            <li class="navbar-bottom"><%= link_to 'Réglages', root_path, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color settings-btn" %></li>
+            <li class="navbar-bottom"><%= link_to 'Réglages', root_path, class: " #{'color-active' if current_page?(root_path)} settings-btn navbar-bottom-color" %></li>
             <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color" %></li>
         </ul>
 </div>
