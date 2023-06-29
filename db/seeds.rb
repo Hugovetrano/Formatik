@@ -1,6 +1,8 @@
 require 'faker'
 Faker::Config.locale = 'fr'
 require 'date'
+require 'open-uri'
+require 'JSON'
 
 puts "Cleaning database..."
 Inscription.destroy_all
@@ -27,6 +29,10 @@ while x < 5
   while i < 15
     name = Faker::Name.first_name
     surname = Faker::Name.last_name
+    url = "https://randomuser.me/api/"
+    user_serialized = URI.open(url).read
+    user = JSON.parse(user_serialized)
+    photo = URI.open(user["results"][0]["picture"]["medium"])
     apprenants << {
       genre: ["Homme", "Femme"].sample,
       prenom: name,
@@ -44,7 +50,9 @@ while x < 5
   end
   x += 1
   apprenants.each do |attributes|
-    apprenant = Apprenant.create!(attributes)
+    apprenant = Apprenant.new(attributes)
+    apprenant.photo.attach(io: photo, filename: "photo", content_type: "image/jpg")
+    apprenant.save!
     puts "Created #{apprenant.prenom} #{apprenant.nom}"
   end
 end
@@ -55,6 +63,10 @@ i = 0
 while i < 15
   name = Faker::Name.first_name
   surname = Faker::Name.last_name
+  url = "https://randomuser.me/api/"
+  user_serialized = URI.open(url).read
+  user = JSON.parse(user_serialized)
+  photo = URI.open(user["results"][0]["picture"]["medium"])
   intervenants << {
     prenom: name,
     nom: surname,
@@ -65,12 +77,14 @@ while i < 15
     ville: Faker::Address.city,
     num_da: Faker::Number.number(digits: 10),
     siret: rand((10**13)..((10**14) - 1)),
-    tarif: rand(100..500)
+    tarif: rand(100..500),
   }
   i += 1
 end
 intervenants.each do |attributes|
-  intervenant = Intervenant.create!(attributes)
+  intervenant = Intervenant.new(attributes)
+  intervenant.photo.attach(io: photo, filename: "photo", content_type: "image/jpg")
+  intervenant.save!
   puts "Created #{intervenant.prenom} #{intervenant.nom}"
 end
 

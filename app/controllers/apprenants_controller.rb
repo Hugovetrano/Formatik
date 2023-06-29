@@ -44,6 +44,7 @@ class ApprenantsController < ApplicationController
   end
 
   def apprenant_params
-    params.require(:apprenant).permit(:nom, :prenom, :email, :profession, :adresse_facturation, :code_postal, :ville, :telephone, :niveau_etude, :entreprise_id)
+    params.require(:apprenant).permit(:nom, :prenom, :email, :profession, :adresse_facturation, 
+                                      :code_postal, :ville, :telephone, :niveau_etude, :entreprise_id, :photo)
   end
 end
