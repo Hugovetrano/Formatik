@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_125017) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_062035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,14 +94,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_125017) do
   end
 
   create_table "parcoursadmins", force: :cascade do |t|
-    t.string "devis_envoye", default: "f"
-    t.string "devis_valide", default: "f"
-    t.string "contrat_envoye", default: "f"
-    t.string "contrat_signe", default: "f"
-    t.string "convocation_envoye", default: "f"
-    t.string "emargement", default: "f"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "devis_envoye", default: false
+    t.boolean "devis_valide", default: false
+    t.boolean "contrat_envoye", default: false
+    t.boolean "contrat_signe", default: false
+    t.boolean "convocation_envoye", default: false
+    t.boolean "emargement", default: false
   end
 
   create_table "programmes", force: :cascade do |t|
