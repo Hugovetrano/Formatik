@@ -12,6 +12,7 @@
             <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color" %></li>
         </ul>
 </div>
+
 <!-- 
             <li><%= link_to 'Dashboard', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
             <li><%= link_to 'Inscriptions', inscriptions_path, class: " #{'color-active' if current_page?(inscriptions_path)}" %></li>
