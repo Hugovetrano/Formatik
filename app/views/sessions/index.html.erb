@@ -41,6 +41,10 @@
 
 <%= render "shared/header", text: "Mes sessions" %>
 <div class="session-index-container yield-container">
+    <div class="cta-container">
+        <%= link_to 'Lancer une session', new_sessions_formation_path, class: 'session-new-cta' %>
+        <%= link_to 'Prochaine session', sessions_formation_path(@nextSession), class: 'session-next-cta' %>
+    </div>
     <div class="session-index-calendar sec-back-plate" data-controller="index-session-calendar-toggle">
         <div class="index-session-over-calendar">
             <h2>Calendrier</h2>
