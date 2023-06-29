@@ -2,7 +2,7 @@ require 'faker'
 Faker::Config.locale = 'fr'
 require 'date'
 require 'open-uri'
-require 'JSON'
+require 'json'
 
 puts "Cleaning database..."
 Inscription.destroy_all
@@ -384,14 +384,14 @@ session_test = Session.create!(
     }
 )
 
-3.times do 
+3.times do
   inscription = {
     session_id: session_test.id,
     apprenant_id: Apprenant.order("RANDOM()").first.id,
     parcoursadmin_id: Parcoursadmin.create!.id
   }
   Inscription.create!(inscription)
-  
+
 end
 
 # -------------------------------USER ADMIN-----------------------------------
