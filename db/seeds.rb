@@ -2,7 +2,7 @@ require 'faker'
 Faker::Config.locale = 'fr'
 require 'date'
 require 'open-uri'
-require 'json'
+require 'JSON'
 
 puts "Cleaning database..."
 Inscription.destroy_all
@@ -14,6 +14,7 @@ Parcoursadmin.destroy_all
 Programme.destroy_all
 User.destroy_all
 puts "============Creating Apprenants & Entreprises...============"
+
 # --------------------------------ENTREPRISES----------------------------------
 x = 0
 while x < 5
@@ -23,16 +24,13 @@ while x < 5
   }
   entreprise = Entreprise.create!(entreprise)
   puts "------Entreprise #{entreprise.nom}------"
+
   # ------------------------------APPRENANTS------------------------------------
   apprenants = []
   i = 0
   while i < 15
     name = Faker::Name.first_name
     surname = Faker::Name.last_name
-    url = "https://randomuser.me/api/"
-    user_serialized = URI.open(url).read
-    user = JSON.parse(user_serialized)
-    photo = URI.open(user["results"][0]["picture"]["medium"])
     apprenants << {
       genre: ["Homme", "Femme"].sample,
       prenom: name,
@@ -50,43 +48,203 @@ while x < 5
   end
   x += 1
   apprenants.each do |attributes|
-    apprenant = Apprenant.new(attributes)
-    apprenant.photo.attach(io: photo, filename: "photo", content_type: "image/jpg")
-    apprenant.save!
+    apprenant = Apprenant.create!(attributes)
     puts "Created #{apprenant.prenom} #{apprenant.nom}"
   end
 end
+
+
 # ------------------------------INTERVENANTS------------------------------------
 puts "============Creating Intervenants...============"
-intervenants = []
-i = 0
-while i < 15
-  name = Faker::Name.first_name
-  surname = Faker::Name.last_name
-  url = "https://randomuser.me/api/"
-  user_serialized = URI.open(url).read
-  user = JSON.parse(user_serialized)
-  photo = URI.open(user["results"][0]["picture"]["medium"])
-  intervenants << {
-    prenom: name,
-    nom: surname,
-    email: Faker::Internet.email,
-    telephone: Faker::PhoneNumber.cell_phone,
-    adresse: Faker::Address.street_address,
-    code_postal: Faker::Address.zip_code,
-    ville: Faker::Address.city,
-    num_da: Faker::Number.number(digits: 10),
-    siret: rand((10**13)..((10**14) - 1)),
-    tarif: rand(100..500),
-  }
-  i += 1
-end
-intervenants.each do |attributes|
-  intervenant = Intervenant.new(attributes)
-  intervenant.photo.attach(io: photo, filename: "photo", content_type: "image/jpg")
-  intervenant.save!
-  puts "Created #{intervenant.prenom} #{intervenant.nom}"
-end
+#intervenants = []
+#i = 0
+#while i < 15
+#  name = Faker::Name.first_name
+#  surname = Faker::Name.last_name
+#  url = "https://randomuser.me/api/"
+#  user_serialized = URI.open(url).read
+#  user = JSON.parse(user_serialized)
+#  photo = URI.open(user["results"][0]["picture"]["medium"])
+#  intervenants << {
+#    prenom: name,
+#    nom: surname,
+#    email: Faker::Internet.email,
+#    telephone: Faker::PhoneNumber.cell_phone,
+#    adresse: Faker::Address.street_address,
+#    code_postal: Faker::Address.zip_code,
+#    ville: Faker::Address.city,
+#    num_da: Faker::Number.number(digits: 10),
+#    siret: rand((10**13)..((10**14) - 1)),
+#    tarif: rand(100..500),
+#  }
+#  i += 1
+#end
+#intervenants.each do |attributes|
+#  intervenant = Intervenant.new(attributes)
+#  intervenant.photo.attach(io: photo, filename: "photo", content_type: "image/jpg")
+#  intervenant.save!
+#  puts "Created #{intervenant.prenom} #{intervenant.nom}"
+#end
+
+file = File.open("db/image/photo1.jpg")
+intervenant = {
+  prenom: "Eric",
+  nom: "Jacquet",
+  email: "eric.jacquet@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo2.jpg")
+intervenant = {
+  prenom: "Jessica",
+  nom: "Guyot",
+  email: "jessica.guyot@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo3.jpg")
+intervenant = {
+  prenom: "Fanny",
+  nom: "Charles",
+  email: "fanny.charles@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo4.jpg")
+intervenant = {
+  prenom: "Laurent",
+  nom: "Marty",
+  email: "laurent.marty@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo5.jpg")
+intervenant = {
+  prenom: "Vincent",
+  nom: "Lefevre",
+  email: "vincent.lefevre@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo6.jpg")
+intervenant = {
+  prenom: "Christine",
+  nom: "Faure",
+  email: "christine.faure@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo7.jpg")
+intervenant = {
+  prenom: "Emmanuelle",
+  nom: "Bouvier",
+  email: "emmanuelle.bouvier@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo8.jpg")
+intervenant = {
+  prenom: "Maelie",
+  nom: "Marchand",
+  email: "maelie.marchand@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo9.jpg")
+intervenant = {
+  prenom: "Xavier",
+  nom: "Fabre",
+  email: "xavier.fabre@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+
+file = File.open("db/image/photo10.jpg")
+intervenant = {
+  prenom: "Hugo",
+  nom: "Roche",
+  email: "hugo.roche@gmail.com",
+  telephone: "0601020304",
+  adresse: Faker::Address.street_address,
+  code_postal: Faker::Address.zip_code,
+  ville: Faker::Address.city,
+  num_da: Faker::Number.number(digits: 10),
+  siret: rand((10**13)..((10**14) - 1)),
+  tarif: rand(100..500),
+}
+intervenant = Intervenant.create!(intervenant)
+intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 # -------------------------------PROGRAMMES-------------------------------------
 puts "============Creating Programmes...============"
@@ -384,14 +542,14 @@ session_test = Session.create!(
     }
 )
 
-3.times do
+3.times do 
   inscription = {
     session_id: session_test.id,
     apprenant_id: Apprenant.order("RANDOM()").first.id,
     parcoursadmin_id: Parcoursadmin.create!.id
   }
   Inscription.create!(inscription)
-
+  
 end
 
 # -------------------------------USER ADMIN-----------------------------------
