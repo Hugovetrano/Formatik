@@ -1,4 +1,4 @@
-<% if @intervenant %>
+<% if @intervenant.valid? %>
   <h1>Mettre à jour la fiche</h1>
 <% else %>
   <h1>Nouvelle fiche intervenant</h1>
@@ -18,7 +18,7 @@
   <%= f.input :photo, as: :file %>
 
 
-  <% if @intervenant %>
+  <% if @intervenant.valid? %>
     <span><%= f.submit "Mettre à jour la fiche" %></span>
   <% else %>
     <span><%= f.submit "Créer l'intervenant" %></span>
