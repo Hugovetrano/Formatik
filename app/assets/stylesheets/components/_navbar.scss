@@ -84,6 +84,7 @@
     font-weight: 600;
     border: solid 3px $grey;
     border-radius: 25px;
+    transition: .2s ease;
   }
   
   .settings-btn:hover {
@@ -95,5 +96,6 @@
     border: solid 3px $grey;
     border-radius: 25px;
     color: rgb(83, 83, 83);
+    transition: .2s ease;
   }
 }
