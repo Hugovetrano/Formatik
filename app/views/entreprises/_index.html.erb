@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <% Entreprise.all.order(:nom).each do |entreprise| %>
-              <tr data-link="<%= entreprise_path(entreprise)%>" data-mesdonnees-search-bar-target="row">
+              <tr data-link="<%= entreprise_path(entreprise)%>" data-mesdonnees-search-bar-target="row" data-action="click->mesdonnees-search-bar#clicked">
                 <td><%= entreprise.nom %></td>
                 <td><%= entreprise.siret %></td>
                 <% apprenants = Apprenant.where(entreprise_id: entreprise.id) %>
