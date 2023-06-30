@@ -2,7 +2,7 @@ require 'faker'
 Faker::Config.locale = 'fr'
 require 'date'
 require 'open-uri'
-require 'JSON'
+require 'json'
 
 puts "Cleaning database..."
 Inscription.destroy_all
