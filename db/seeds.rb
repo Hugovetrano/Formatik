@@ -402,9 +402,9 @@ Session.create!({
                 }
 )
 
-date_one = Time.parse('Mon, 05 Jun 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Mon, 07 Aug 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 09 Jun 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 11 Aug 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 Session.create!({
@@ -418,9 +418,9 @@ Session.create!({
                 }
 )
 
-date_one = Time.parse('Thu, 08 Jun 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Thu, 10 Aug 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 09 Jun 2023 12:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 11 Aug 2023 12:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 Session.create!({
@@ -434,9 +434,9 @@ Session.create!({
                 }
 )
 
-date_one = Time.parse('Thu, 08 Jul 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Thu, 03 Aug 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Wed, 14 Jul 2023 17:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Wed, 09 Aug 2023 17:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 Session.create!({
@@ -450,9 +450,9 @@ Session.create!({
                 }
 )
 
-date_one = Time.parse('Mon, 26 Jun 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Mon, 24 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 07 Jul 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 04 Aug 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 Session.create!({
@@ -466,9 +466,9 @@ Session.create!({
                 }
 )
 
-date_one = Time.parse('Fri, 30 Jun 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Fri, 28 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 30 Jun 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 28 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 Session.create!({
@@ -542,14 +542,14 @@ session_test = Session.create!(
     }
 )
 
-3.times do 
+3.times do
   inscription = {
     session_id: session_test.id,
     apprenant_id: Apprenant.order("RANDOM()").first.id,
     parcoursadmin_id: Parcoursadmin.create!.id
   }
   Inscription.create!(inscription)
-  
+
 end
 
 # -------------------------------USER ADMIN-----------------------------------
