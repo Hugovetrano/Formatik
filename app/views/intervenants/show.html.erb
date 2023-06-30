@@ -52,7 +52,7 @@
       <div class="card-intervenant-mini">
         <div class="card-intervenant-img">
           <% if @intervenant.photo.key %>
-            <%= cl_image_tag @intervenant.photo.key, width: 60, height: 60 %>
+            <%= cl_image_tag @intervenant.photo.key, width: 150, height: 150 %>
           <% else %>
             <i class="fa-solid fa-user-tie"></i>
           <% end %>

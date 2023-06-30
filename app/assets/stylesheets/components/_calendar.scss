@@ -14,21 +14,24 @@
 
   a {
     text-decoration: none;
-    color: $pri-color;
+    color: $sec-color;
+    font-size: 1.2rem;
   }
 
 
   .calendar-title {
     color: $pri-color;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.4rem;
   }
 }
 
 .calendar-heading {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  margin-inline: auto;
+  width: 50%;
 }
 
 .simple-calendar {
