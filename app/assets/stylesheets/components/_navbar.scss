@@ -84,6 +84,7 @@
     font-weight: 600;
     border: solid 3px $grey;
     border-radius: 25px;
+    transition: .2s ease;
   }
   
   .settings-btn:hover {
@@ -91,9 +92,10 @@
     padding: 4px 10px 4px 10px;
     text-decoration: none;
     color: $grey;
-    background-color: $grey;
+    background-color: rgba(140, 140, 140, 0.478);
     border: solid 3px $grey;
     border-radius: 25px;
     color: rgb(83, 83, 83);
+    transition: .2s ease;
   }
 }

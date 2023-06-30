@@ -70,7 +70,7 @@
                         <p class="session-apprenants-counter"><%= session.inscriptions.count %> Apprenants</p>
                         <p class="programme-description"><%= session.programme.description.truncate(130) %></p>
                         <p class="session-dates"><%= "Du #{I18n.l(session.date_debut, format: "%A %e %B %Y")}"%><br><%= "Au #{I18n.l(session.date_fin, format: "%A %e %B %Y")}" %></p>
-                        <%= link_to 'Annuler cette session', sessions_formation_index_path(session), class: "delete_link" %>
+                        <%= link_to 'Annuler cette session', sessions_formation_path(session), data: { turbo_method: :delete }, class: "delete_link" %>
                     </div>
                 <% end %>
             <% end %>

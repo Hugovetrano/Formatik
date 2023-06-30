@@ -1,92 +1,48 @@
-<% colors = [
-  '#FF6384',
-  '#36A2EB',
-  '#4BC0C0',
-  '#9966FF',
-  '#FF9F40',
-  '#43A047',
-  '#FF8A65',
-  '#AB47BC',
-  '#29B6F6',
-  '#FF7043',
-  '#66BB6A',
-  '#FF5252',
-  '#7E57C2',
-  '#26C6DA',
-  '#4DD0E1',
-  '#FFA726',
-  '#8D6E63',
-  '#9E9E9E',
-  '#0097A7',
-  '#FF5722',
-  '#616161',
-  '#00796B',
-  '#FF4500',
-  '#757575',
-  '#FFA726',
-  '#006064',
-  '#FF3D00',
-  '#616161',
-  '#FF8F00',
-  '#004D40',
-  '#424242',
-  '#FF6D00',
-  '#37474F',
-  '#FF6F00',
-  '#212121',
-  '#FF3D00',
-  '#000000',
-  '#FF5722'
-] %>
-
-
-<%= render "shared/header", text: "Fiche intervenant" %>
+<%= render "shared/header", text: "Intervenants de formation :" %>
 <div class="yield-container">
-  <div class="intervenants">
-    <div class="intervenants-title">
-      <%# <h1>Fiche intervenant</h1> %>
-      <%= link_to "Retour à la liste des intervenants", intervenants_path, class: "btn-sec" %>
-    </div>
-
-    <div class="card-global-calendar">
-      <div class="card-intervenant-mini">
-        <div class="card-intervenant-img">
-          <% if @intervenant.photo.key %>
-            <%= cl_image_tag @intervenant.photo.key, width: 60, height: 60 %>
-          <% else %>
-            <i class="fa-solid fa-user-tie"></i>
-          <% end %>
-        </div>
-        <div class="card-intervenant-txt">
-          <div >
-            <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
-            <p><%= @intervenant.adresse %><br>
-            <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
-            <p class="pcolor"><strong><%= @intervenant.telephone %></strong><br>
-            <strong><%= @intervenant.email %></strong></p>
-            <p>N° DA: <%= @intervenant.num_da %><br>SIRET: <%= @intervenant.siret %></p>
-            <p class="pcolor"><strong><%= @intervenant.tarif %> € / jour</strong></p>
-          </div>
-        </div>
-        <div class="btn-intervenant">
-          <%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant), class: "btn-prim" %>
-          <%= link_to "Supprimer l'intervenant", intervenant_path(@intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
-        </div>
-      </div>
+<div class="intervenants">
+  <div class="intervenants-title">
+    <h1>Fiche intervenant</h1>
+    <%= link_to "Retour à la liste des intervenants", intervenants_path, class: "btn-sec" %>
+  </div>
 
 
-
-      <div class="card-intervenant-calendar">
-      <%# ajout de attribute: :date_debut car different du parametrage initial de la gem %>
-        <%= month_calendar(events: @sessions.where(intervenant_id: @intervenant.id), attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
-          <%= date.strftime("%d-%m") %>
-          <% sessions.each do |session| %>
-            <div class="meeting" style="background-color: <%= colors[session.programme_id] %>;">
-              <p><%= link_to session.nom, sessions_formation_path(session) %></p>
-            </div>
-          <% end %>
+  <div class="card-global-calendar">
+    <div class="card-intervenant-mini">
+      <div class="card-intervenant-img">
+        <% if @intervenant.photo.key %>
+          <%= cl_image_tag @intervenant.photo.key, width: 150, height: 150 %>
+        <% else %>
+          <i class="fa-solid fa-user-tie"></i>
         <% end %>
       </div>
+      <div class="card-intervenant-txt">
+          <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
+          <p><%= @intervenant.adresse %><br>
+          <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
+          <p class="pcolor card-intervenant-txt"><strong><%= @intervenant.telephone %></strong><br>
+          <strong><%= @intervenant.email %></strong></p>
+          <p>N° DA: <%= @intervenant.num_da %><br>SIRET: <%= @intervenant.siret %></p>
+          <p class="pcolor card-intervenant-txt"><strong><%= @intervenant.tarif %> € / jour</strong></p>
+      </div>
+      <div class="btn-intervenant">
+        <%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant), class: "btn-prim" %>
+        <%= link_to "Supprimer l'intervenant", intervenant_path(@intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
+      </div>
+    </div>
+
+
+    <div class="card-intervenant-calendar">
+    <%# ajout de attribute: :date_debut car different du parametrage initial de la gem %>
+      <%= month_calendar(events: @sessions.where(intervenant_id: @intervenant.id), attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
+        <%= date.strftime("%d-%m") %>
+        <% sessions.each do |session| %>
+          <div class="meeting">
+            <p><%= link_to session.nom, sessions_formation_path(session) %></p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

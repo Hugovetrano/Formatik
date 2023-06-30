@@ -1,6 +1,35 @@
 .mesdonnees-all-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  div {
+    width: 1300px;
+  }
+
+  input {
+    width: 450px;
+    padding: 3px;
+    border-radius: $little-radius;
+    border: solid 1px;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(156, 156, 156, 0.3);
+
+    &:focus, &:focus-visible, &:focus-within {
+      border: solid 1px !important;
+      outline: 0;
+    }
+  }
 
   ul {
+    width: 1000px;
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -25,4 +54,9 @@
 }
 .mesdonnees-entreprise-hide {
   display: none;
+}
+
+.annuaire.yield-container {
+  width: 1370px;
+  padding: 35px;
 }

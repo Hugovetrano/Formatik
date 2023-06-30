@@ -3,16 +3,16 @@
   <div class="intervenants">
     <div class="intervenants-title">
       <%# <h1>Liste des intervenants</h1> %>
-      <%= link_to "Créer nouvel intervenant", new_intervenant_path, class: "btn-sec" %>
+      <%= link_to "Créer nouvel intervenant", new_intervenant_path, class: "intervenant-new-cta" %>
     </div>
 
 
     <div class="card-intervenants">
       <% @intervenants.each do |intervenant| %>
-      <div class="card-intervenant-mini">
+      <div class="card-intervenant-maxi">
         <div class="card-intervenant-img">
           <% if intervenant.photo.key %>
-            <%= cl_image_tag intervenant.photo.key, width: 100, height: 100 %>
+            <%= cl_image_tag intervenant.photo.key, width: 200, height: 200 %>
           <% else %>
             <i class="fa-solid fa-user-tie"></i>
           <% end %>
