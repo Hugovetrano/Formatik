@@ -19,9 +19,24 @@
   grid-gap: 20px;
 }
 
+.card-intervenant-maxi {
+  width: 450px;
+  height: 450px;
+  background-color: $white;
+
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+  align-items: center;
+}
+
 .card-intervenant-mini {
   width: 500px;
-  height: 500px;
+  height: auto;
   background-color: $white;
 
   padding: 25px;
