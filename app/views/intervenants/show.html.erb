@@ -11,7 +11,7 @@
     <div class="card-intervenant-mini">
       <div class="card-intervenant-img">
         <% if @intervenant.photo.key %>
-          <%= cl_image_tag @intervenant.photo.key, width: 60, height: 60 %>
+          <%= cl_image_tag @intervenant.photo.key, width: 150, height: 150 %>
         <% else %>
           <i class="fa-solid fa-user-tie"></i>
         <% end %>
@@ -20,10 +20,10 @@
           <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
           <p><%= @intervenant.adresse %><br>
           <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
-          <p class="pcolor"><strong><%= @intervenant.telephone %></strong><br>
+          <p class="pcolor card-intervenant-txt"><strong><%= @intervenant.telephone %></strong><br>
           <strong><%= @intervenant.email %></strong></p>
           <p>N° DA: <%= @intervenant.num_da %><br>SIRET: <%= @intervenant.siret %></p>
-          <p class="pcolor"><strong><%= @intervenant.tarif %> € / jour</strong></p>
+          <p class="pcolor card-intervenant-txt"><strong><%= @intervenant.tarif %> € / jour</strong></p>
       </div>
       <div class="btn-intervenant">
         <%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant), class: "btn-prim" %>
