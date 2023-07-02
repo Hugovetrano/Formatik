@@ -28,17 +28,30 @@
 
         .input-long {
             width: 450px;
+            outline: none;
+            border: none;
         }
-        
+
         .input-short {
             width: 100px;
+            outline: none;
+            border: none;
         }
-        
+
         .input-medium {
-            width: 325px; 
+            width: 325px;
+            outline: none;
+            border: none;
         }
-        
+
     }
+
+.show-session-details-items {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 
     .session-show-apprenants-container {
         width: 1200px;

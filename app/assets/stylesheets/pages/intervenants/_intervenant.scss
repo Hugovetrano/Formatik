@@ -53,6 +53,10 @@
   align-self: center;
   padding: 20px;
 
+  img {
+    border-radius: 50%;
+  }
+
   .fa-solid {
     color: $pri-color;
     font-size: 60px;
