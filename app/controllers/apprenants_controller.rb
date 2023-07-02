@@ -36,7 +36,6 @@ class ApprenantsController < ApplicationController
     redirect_to apprenants_path, status: :see_other
   end
 
-
   private
 
   def set_apprenant
@@ -44,7 +43,7 @@ class ApprenantsController < ApplicationController
   end
 
   def apprenant_params
-    params.require(:apprenant).permit(:nom, :prenom, :email, :profession, :adresse_facturation, 
+    params.require(:apprenant).permit(:nom, :prenom, :email, :profession, :adresse_facturation,
                                       :code_postal, :ville, :telephone, :niveau_etude, :entreprise_id, :photo)
   end
 end
