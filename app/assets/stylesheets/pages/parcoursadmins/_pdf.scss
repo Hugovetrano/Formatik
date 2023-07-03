@@ -1,0 +1,81 @@
+.pdf {
+  background-color: $white;
+  padding: 40px;
+
+  th {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  #programme {
+    width: 600px;
+  }
+
+  #contenu {
+    height: 300px;
+  }
+
+  .tarifs {
+    width: 120px;
+    text-align: center;
+  }
+
+  table, th, td {
+    border: 1px solid $pri-color;
+  }
+
+  tbody {
+    td {
+      font-size: 20px;
+    }
+  }
+
+  tfoot {
+    font-weight: bold;
+    font-size: 25px;
+
+    td {
+      height: 40px;
+    }
+  }
+}
+
+.header-pdf {
+  // -------------------- Header pdf item
+    box-shadow: 3px 3px 10px 10px rgba(125, 125, 125, .10);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 50px;
+
+
+
+    .a-logo {
+      text-decoration: none;
+      color: $black;
+      font-weight: 10;
+      font-size: 2.3rem;
+      border-bottom: 1px solid rgba(196, 196, 196, 0.211);
+    }
+}
+
+.entreprises-infos {
+  margin: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .entreprises-card {
+    padding: 10px;
+  }
+}
+
+.paiement {
+  width: 30%;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid $black;
+  border-radius: 10px;
+}

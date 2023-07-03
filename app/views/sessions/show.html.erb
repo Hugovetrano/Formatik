@@ -16,30 +16,30 @@
 
             <%# DATES %>
             <p id="session-date_debut-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr"></i> 
-                Du <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %>
+                <%# <i class="fa-solid fa-pencil"></i> %>
+                <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr">Du <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></span>
             </p>
             <p id="session-date_fin-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <i class="fa-solid fa-pencil" data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr"></i> 
-                Au <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %>
+                <%# <i class="fa-solid fa-pencil"></i> %>
+                <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr">Au <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %></span>
             </p>
 
             <%# NOM %>
             <p id="session-nom-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
-                <span><%= @session.nom %></span>
+                <%# <i class="fa-solid fa-pencil"></i> %>
+                <span data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.nom %></span>
             </p>
 
             <%# PRIX %>
             <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
-                <span><%= @session.prix %>€</span>
+                <%# <i class="fa-solid fa-pencil"></i> %>
+                <span data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.prix %>€</span>
             </p>
 
             <%# ADRESSE %>
             <p id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <i class="fa-solid fa-pencil" data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"></i> 
-                <span><%= @session.adresse %></span>
+                <%# <i class="fa-solid fa-pencil"></i> %>
+                <span data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.adresse %></span>
             </p>
         </div>
     </div>
