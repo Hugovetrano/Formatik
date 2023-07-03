@@ -19,7 +19,7 @@
         .session-new-form-inputs {
             // Container des inputs du form, hors submit
             width: 750px;
-            height: 340px;
+            height: auto;
 
             display: flex;
             align-items: center;
@@ -27,6 +27,15 @@
             flex-wrap: wrap;
             gap: 20px;
             row-gap: 0;
+
+            #specialite-input {
+              width: 380px;
+              margin-bottom: 10px;
+            }
+
+            .apprenant-table-container {
+              width: 380px;
+            }
 
             input,
             select {
