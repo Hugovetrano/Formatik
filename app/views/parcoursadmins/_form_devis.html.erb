@@ -1,0 +1,82 @@
+<div class="pdf">
+  <div class="header-pdf">
+    <a href="/" class="a-logo"><img src="https://i.ibb.co/zr1Rwgb/logoformatik.png" alt="Logo" width="30">ormatik</a>
+    <%# GENERER LE TYPE DE DOC SELON L'AVANCEE DU PARCOURS ADMIN %>
+    <h2>DocParcoursAdmin</h2>
+  </div >
+
+  <div class="entreprises-infos">
+    <div class="entreprises-card">
+      <h3>FORMATIK</h3>
+      <p>59000 LILLE <br>
+      03-20-**-**-**</p>
+    </div>
+    <div class="entreprises-card">
+      <h3>Nom du client</h3>
+      <p>Adresse <br>
+      Code Postal Ville</p>
+      <%# <% if @apprenant.entreprise_id %>
+        <%# <h3><%= @apprenant.entreprise_id.nom %>
+        <%# <p><%= @apprenant.entreprise_id.siret %>
+      <%# <% else %>
+        <%# <h3><%= @apprenant.nom @apprenant.prenom %>
+        <%# <p><%= @apprenant.adresse_facturation %>
+        <%# <p><%= @apprenant.code_postal %>
+        <%# <p><%= @apprenant.ville %>
+      <%# <% end %>
+    </div>
+  </div>
+
+  <div>
+  <%# GENERER LE TYPE DE DOC SELON L'AVANCEE DU PARCOURS ADMIN %>
+    <p>DocParcoursAdmin du  <%= Date.today %>  N°: DocParcoursAdmin.id</p>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr class="tarifs">
+          <th id="programme">Programme</th>
+          <th>Tarif</th>
+          <th>Quantité</th>
+          <th>Total HT</th>
+          <th>TVA</th>
+          <th>Total TTC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tarifs">
+          <td id="contenu">Programme.titre</td>
+          <td>Programme.prix €</td>
+          <td>@apprenants.count</td>
+          <td>Programme.prix * @apprenants.count €</td>
+          <td>Programme.prix * 0.2 €</td>
+          <td>Programme.prix * @apprenants.count * 1.2 €</td>
+        </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">Total HT</td>
+          <td>Somme HT €</td>
+        </tr>
+        <tr>
+          <td colspan="5">TVA</td>
+          <td>Somme TVA €</td>
+        </tr>
+        <tr>
+          <td colspan="5">Total TTC</td>
+          <td>Somme TTC €</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="paiement">
+    <h3>Moyen de paiement: virement bancaire</h3>
+    <p>IBAN: FR72 **** **** **** **** <br>
+    BIC: CMCC***** <br>
+    Conditions de paiement : 30 jours à compter de la date de facturation <br>
+    Merci de votre confiance !</p>
+  </div>
+</div>
