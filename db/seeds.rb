@@ -553,48 +553,56 @@ session_test = Session.create!(
 end
 
 # -------------------------------USER ADMIN-----------------------------------
+file = File.open("db/image/HugoP.jpg")
 hugop = {
   genre: "Homme",
   nom: "Petament",
   prenom: "Hugo",
   email: "h.petament@icloud.com",
   password: "password",
-  fonction: "Co-founder"
+  fonction: "Co-fondateur"
 }
 hugop = User.create!(hugop)
+hugop.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 puts "------Created User :#{hugop.prenom} #{hugop.nom}------"
 
+file = File.open("db/image/HugoV.jpg")
 hugov = {
   genre: "Homme",
   nom: "Vetrano",
   prenom: "Hugo",
   email: "hugo.vetrano@ieseg.fr",
   password: "password",
-  fonction: "Co-founder"
+  fonction: "Co-fondateur"
 }
 hugov = User.create!(hugov)
+hugov.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 puts "------Created User :#{hugov.prenom} #{hugov.nom}------"
 
+file = File.open("db/image/Vincent.jpg")
 vincent = {
   genre: "Homme",
   nom: "Beaumont",
   prenom: "Vincent",
   email: "jkawtech@gmail.com",
   password: "password",
-  fonction: "Co-founder"
+  fonction: "Co-fondateur"
 }
 vincent = User.create!(vincent)
+vincent.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 puts "------Created User :#{vincent.prenom} #{vincent.nom}------"
 
+file = File.open("db/image/Karl.jpg")
 karl = {
   genre: "Homme",
   nom: "Vandenabeele",
   prenom: "Karl",
   email: "karl.vandenabeele@gmail.com",
   password: "password",
-  fonction: "Co-founder"
+  fonction: "Co-fondateur"
 }
 karl = User.create!(karl)
+karl.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 puts "------Created User :#{karl.prenom} #{karl.nom}------"
 
 # -------------------------------CONCLUSION-------------------------------------
