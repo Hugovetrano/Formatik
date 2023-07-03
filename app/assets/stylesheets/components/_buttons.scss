@@ -10,8 +10,10 @@
   background-color: $pri-color;
   opacity: .75;
   transition: .2s ease;
-  &:hover {
+
+    &:hover {
       opacity: 1;
+      color: $white;
   }
 }
 
@@ -75,4 +77,3 @@
   background-color: $grey;
   border: solid 3px $grey;
 }
-
