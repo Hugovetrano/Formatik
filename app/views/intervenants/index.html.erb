@@ -19,12 +19,12 @@
         </div>
         <div class="card-intervenant-txt">
           <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
-          <p><%= intervenant.telephone %></p>
-          <p><%= intervenant.email %></p>
+          <p>Tel : <%= intervenant.telephone %></p>
+          <p>Mail : <%= intervenant.email %></p>
         </div>
-        <div>
-          <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim" %>
-          <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off" %>
+        <div class="btn-intervenant">
+          <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim btn-intervenant-block" %>
+          <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off btn-intervenant-block" %>
         </div>
       </div>
       <% end %>
