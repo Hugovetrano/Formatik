@@ -21,6 +21,16 @@
     border-bottom: none;
     padding-left: 10px;
     display: flex;
+    font-weight: 1em;
+  }
+
+  .navbar-bottom-reglage {
+    position: bottom;
+    justify-content: center;
+    border-bottom: none;
+    padding-left: 10px;
+    display: flex;
+    font-size: 0.8em;
   }
 
   .navbar-bottom-color {
@@ -42,10 +52,9 @@
   li {
     // -------------------- Navbar's menu items
     list-style-type: none;
-    font-size: 1.2rem;
     justify-content: left;
     border-bottom: 1px solid rgba(196, 196, 196, 0.211);
-    padding-top: 20px;
+    padding-top: 10px;
   }
 
   ul {
@@ -53,7 +62,7 @@
     width: 100%;
     justify-content: space-evenly;
     margin-bottom: 0;
-    padding-top: 30px;
+    padding-top: 20px;
   }
 
   ul a {
@@ -70,9 +79,21 @@
       color: $pri-color;
     }
 
-    .color-active {
+    &.color-active {
+      //----------------------- navbar menu item color when page active
+      color: $pri-color !important;
+    }
+
+    &.color-active-btn {
       //----------------------- navbar menu item color when page active
       color: $pri-color;
+      border: solid 2px $pri-color;
+    }
+
+    &.color-active-btn:hover {
+      //----------------------- navbar menu item color when page active
+      color: $pri-color;
+      border: solid 2px $pri-color;
     }
   }
 
@@ -82,7 +103,7 @@
     text-decoration: none;
     color: $grey;
     font-weight: 600;
-    border: solid 3px $grey;
+    border: solid 2px $grey;
     border-radius: 25px;
     transition: .2s ease;
   }
@@ -93,11 +114,12 @@
     text-decoration: none;
     color: $grey;
     background-color: rgba(140, 140, 140, 0.478);
-    border: solid 3px $grey;
+    border: solid 2px $grey;
     border-radius: 25px;
     color: rgb(83, 83, 83);
     transition: .2s ease;
   }
+
 
   .navbar-profil {
     padding-bottom: 5px;
