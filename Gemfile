@@ -20,7 +20,7 @@ gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-
+gem 'httparty'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
@@ -81,5 +81,5 @@ group :test do
 end
 
 gem "flatpickr", "~> 4.6"
-
+gem 'faraday', '~> 2.7', '>= 2.7.9'
 gem 'i18n'
