@@ -1,0 +1,20 @@
+<%= render "shared/header", text: "Pré-inscriptions" %>
+
+<div class="yield-container preinscriptions-container">
+    <div class="session-preinscriptions-container sec-back-plate">
+    <h1>Liste des demandes</h1>
+        <% @preinscriptions.each do |preinscription| %>
+            <%= link_to pre_inscription_path(@session, preinscription) do %>
+                <div class="preinscription-index-par-session-items sec-back-plate">
+                    <p class="preinscription-nom"><%= preinscription.nom.upcase %> <%= preinscription.prenom.capitalize %></p>
+                    <p class="preinscription-date"><%= I18n.l(preinscription.created_at, format: "%A %e %B %Y à %Hh%M") %></p>
+                    <% if Apprenant.find_by_email(preinscription.email) %>
+                        <p class="preinscription-is-registred green">Apprenant reconnu</p>
+                    <% else %>
+                        <p class="preinscription-is-registred pcolor">Nouvel apprenant</p>
+                    <% end %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

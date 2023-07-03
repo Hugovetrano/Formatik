@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_091701) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_092703) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -105,6 +106,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_091701) do
     t.boolean "emargement", default: false
   end
 
+  create_table "pre_inscriptions", force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
+    t.string "email"
+    t.string "profession"
+    t.string "adresse_facturation"
+    t.string "code_postal"
+    t.string "ville"
+    t.string "telephone"
+    t.string "niveau_etude"
+    t.string "genre"
+    t.bigint "session_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_pre_inscriptions_on_session_id"
+  end
+
   create_table "programmes", force: :cascade do |t|
     t.string "titre"
     t.string "description"
@@ -149,6 +167,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_091701) do
   add_foreign_key "inscriptions", "apprenants"
   add_foreign_key "inscriptions", "parcoursadmins"
   add_foreign_key "inscriptions", "sessions"
+  add_foreign_key "pre_inscriptions", "sessions"
   add_foreign_key "sessions", "intervenants"
   add_foreign_key "sessions", "programmes"
 end
