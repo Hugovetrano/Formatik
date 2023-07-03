@@ -98,4 +98,23 @@
     color: rgb(83, 83, 83);
     transition: .2s ease;
   }
+
+  .navbar-profil {
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-bottom: 3px solid rgba(196, 196, 196, 0.211);;
+    text-decoration: none;
+    color: $grey;
+    display: flex;
+    font-size: 0.8rem;
+    align-items: center;
+  }
+
+  .navbar-profil-padding {
+    padding-left: 15px;
+  }
+
+  .img-user {
+    clip-path:ellipse(50% 50%);
+  }
 }

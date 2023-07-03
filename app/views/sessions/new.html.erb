@@ -5,9 +5,9 @@
         <h1>Nouvelle session</h1>
 
         <%= simple_form_for(@session, url: sessions_formation_index_path, html: { class: "session-new-form" }, data: { controller: 'new-session-form' }) do |f| %>
-            <div class="session-new-form-inputs">
+            <div class="session-new-form-inputs" data-controller="session-intervenant-search-bar">
                 <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { action: 'change->new-session-form#updateInputs' }, id: 'programme-input' } %>
-                <%= f.association :intervenant, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize }, input_html: { id: 'intervenant-input' } %>
+                <%= f.association :intervenant, label_method: Proc.new { |intervenant| intervenant.nom.capitalize + " " + intervenant.prenom.capitalize }, input_html: { data: { action: 'click->session-intervenant-search-bar#fetch' }, placeholder: "Recherche...", id: 'intervenant-input' } %>
                 <%= f.input :nom, input_html: { data: { new_session_form_target: 'name' }, id: 'nom-input' } %>
                 <div class="flatpickr-container mb-3 string optional" data-controller="new-session-flatpickr">
                 <%= f.input :date_debut, as: :hidden, input_html: { data: { new_session_flatpickr_target: 'startDate' } } %>

@@ -62,16 +62,16 @@ class SessionsController < ApplicationController
         "<p class='show-session-details-items'>
             <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
             data-show-session-flatpickr-column-value='#{column_name.to_s}'
-            data-controller='show-session-flatpickr'></i> 
-            #{column_name.include?('debut') ? 
-                "Du #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}" 
-                : 
+            data-controller='show-session-flatpickr'></i>
+            #{column_name.include?('debut') ?
+                "Du #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
+                :
                 "Au #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
             }
         </p>"
     end
-    
-    
+
+
     def json_for_other(column_name, new_value)
         "#{case column_name
         when 'nom'
@@ -82,9 +82,9 @@ class SessionsController < ApplicationController
             @session.adresse
         end}"
     end
-    
-    
-    
+
+
+
 
     def redirect_unlogged_user
         unless current_user
