@@ -107,6 +107,28 @@
 
             position: relative;
 
+            .pending-inscriptions-number {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background-color: $red;
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translate(50%, -50%);
+                border: 2px solid $black;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    color: $white;
+                    font-weight: bold;
+                }
+            }
+
             .delete_link {
                 color: red;
                 text-decoration: underline;

@@ -1,0 +1,109 @@
+@import 'variables';
+
+.new-preinscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    .new-preinscription-recap-session {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        gap: 35px;
+
+        .preinscription-form {
+            width: 550px;
+
+            .preinscription-form-nom-prenom-genre {
+                display: flex;
+                justify-content: space-between;
+
+                .preinscription-form-input {
+                    width: 165px;
+                }
+
+                .preinscription-form-input:nth-child(3) {
+                    width: 115px;
+
+                    label {
+                        margin-bottom: 8px;
+                    }
+    
+                    select {
+                        height: 38px;
+                        padding: 6px 12px;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .preinscription-form-telephone-email {
+                display: flex;
+                justify-content: space-between;
+                gap: 35px;
+
+                .preinscription-form-input:first-child {
+                    width: 350px;
+                }
+            }
+
+            .preinscription-form-profession-niveau-etude {
+                display: flex;
+                justify-content: space-between;
+                gap: 35px;
+
+                .preinscription-form-input:first-child {
+                    width: 300px;
+                }
+
+                label {
+                    margin-bottom: 8px;
+                }
+
+                select {
+                    height: 38px;
+                    padding: 6px 12px;
+                    width: 100%;
+                }
+            }
+
+            .preinscription-form-code-postale-ville {
+                display: flex;
+                justify-content: space-between;
+                gap: 35px;
+
+                .preinscription-form-input:first-child {
+                    width: 130px;
+                }
+
+                .preinscription-form-input:nth-child(2) {
+                    flex-grow: 1;
+                }
+            }
+
+            input[type="submit"] {
+                width: 200px;
+                margin: auto;
+                padding: 8px 12px 8px 12px;
+                border: solid 1px $pri-color;
+                color: $white;
+                font-size: 1.4rem;
+                text-decoration: none;
+                border-radius: $medium-radius;
+                background-color: $pri-color;
+                opacity: .75;
+                transition: .2s ease;
+    
+    
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .recap-session {
+            width: 550px;
+        }
+    }
+}

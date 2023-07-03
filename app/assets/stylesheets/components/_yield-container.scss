@@ -3,7 +3,7 @@
 .yield-container {
     // -------------------- Div container of the variable content
     // Margin with navbar's and footer's values, because of they're positioned "fixed". (Hidding content)
-    margin-left: $navbar-width + 50px;
+    margin-left: $navbar-width;
     //margin-top: $header-height;
 
     padding: 25px;

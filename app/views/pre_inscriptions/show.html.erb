@@ -1,0 +1,31 @@
+<% if @apprenant_exist %>
+    <%= render "shared/header", text: "Pré-inscription de #{@apprenant.nom.upcase} #{@apprenant.prenom.capitalize}" %>
+<% else %>
+    <%= render "shared/header", text: "Pré-inscription d'un nouvel apprenant" %>
+<% end %>
+
+<div class="preinscription-container yield-container">
+    <div class="preinscriptions-forms-container">
+        <div class="preinscription-preinscription-form preinscriptions-forms-item sec-back-plate">
+            <h1>Formulaire de pré-inscription</h1>
+            <div class="preinscription-forms-details">
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %></p>
+            </div>
+        </div>
+        <div class="preinscription-apprenant-form preinscriptions-forms-item sec-back-plate">
+            <h1>Apprenant</h1>
+            <div class="apprenant-forms-details">
+                
+            </div>
+        </div>
+    </div>
+</div>

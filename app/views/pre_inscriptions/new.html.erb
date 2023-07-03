@@ -1,0 +1,48 @@
+<div class="yield-container new-preinscription-container">
+    <h2>Votre inscription à la session de <i><%= @session.nom %></i></h2>
+
+    <div class="new-preinscription-recap-session">
+        <div class="preinscription-form sec-back-plate">
+            <%= simple_form_for(@preinscription, url: create_pre_inscriptions_path(@session)) do |f|%>
+            <div class="preinscription-form-nom-prenom-genre">
+                <span class="preinscription-form-input"><%= f.input :nom %></span>
+                <span class="preinscription-form-input"><%= f.input :prenom %></span>
+                <span class="preinscription-form-input"><%= f.label :genre %><%= f.select :genre, ['Homme', 'Femme'] %></span>
+            </div>
+            <div class="preinscription-form-telephone-email">
+                <span class="preinscription-form-input"><%= f.input :email %></span>
+                <span class="preinscription-form-input"><%= f.input :telephone %></span>
+            </div>
+            <div class="preinscription-form-profession-niveau-etude">
+                <span class="preinscription-form-input"><%= f.input :profession %></span>
+                <span class="preinscription-form-input"><%= f.label :niveau_etude %><%= f.select :niveau_etude, ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'] %>
+</span>
+            </div>
+            <%= f.input :adresse_facturation %>
+            <div class="preinscription-form-code-postale-ville">
+                <span class="preinscription-form-input"><%= f.input :code_postal %></span>
+                <span class="preinscription-form-input"><%= f.input :ville %></span>
+            </div>
+            <%# <%= f.association :entreprise, collection: Entreprise.pluck(:nom, :id) %>
+            <%= f.submit "Je m'inscris" %>
+            <% end %>
+        </div>
+
+        <div class="recap-session sec-back-plate">
+        <p class="recap-session-intro">Session de <strong><%= @session.nom %></strong><br>
+        Du <strong><%= "#{I18n.l(@session.date_debut, format: "%A %e %B %Y")}"%></strong><br>
+        Au <strong><%= "#{I18n.l(@session.date_fin, format: "%A %e %B %Y")}" %></strong><br>
+        A <strong><%= "#{@session.adresse}" %></strong>
+        </p>
+            <p class="recap-session-paragraph">
+                Cette session débutera chaque jour à <strong>9h</strong>, et se prendra fin à <strong>9h</strong>. <br>
+                La pause repas sera d'une durée d'une heure, <strong>de 12h à 13h</strong>.
+                Votre formatteur de réference est <strong><%= "#{@session.intervenant.prenom.capitalize} #{@session.intervenant.nom.upcase}" %></strong>.
+            </p>
+            <p class="recap-session-paragraph">
+                Une fois votre <strong>pré-inscription</strong> effectuée, l'équipe administrative de votre centre de formation s'occupera de <u>valider vos informations</u>, et de lancer <strong>votre parcours administratif</strong>.<br><br> Vous recevrez alors toutes les <u>informations</u> nécessaires ainsi que les <u>demandes de document</u> par mail.<br><br> Vous recevrez également votre convocation <strong>10 jours avant la session</strong>.<br>Enfin, vous obtiendrez chaque jours votre <u>lien d'émargement Edusign</u>, vous pourrez alors effectuer vos émargements <strong>directement depuis votre mobile</strong> chaque début de demi-journée.
+            </p>
+        </div>
+    </div>
+
+</div>

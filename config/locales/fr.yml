@@ -19,3 +19,11 @@ fr:
   time:
     formats:
       default: "%H:%M"
+  devise:
+    failure:
+      user:
+        unauthenticated: "Vous devez être connecté pour accéder à cette page."
+      unauthenticated: "Vous devez être connecté pour accéder à cette page."
+    sessions:
+      user:
+        signed_in: "Connexion réussie !"

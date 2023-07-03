@@ -1,0 +1,18 @@
+<div class="yield-container">
+    <h1>Choisissez votre session</h1>
+
+    <div class="sessions-cards-container">
+        <% @sessions.each do |session| %>
+            <div class="session-card">
+                <div class="session-name-place">
+                    <h2><%= session.nom %></h2>
+                    à <h3><%= session.adresse %></h3>
+                </div>
+                <div class="session-dates-join">
+                    <p class="session-dates"><%= "Du #{I18n.l(session.date_debut, format: "%A %e %B %Y")}"%><br><%= "Au #{I18n.l(session.date_fin, format: "%A %e %B %Y")}" %></p>
+                    <%= link_to "Je m'inscris", new_pre_inscriptions_path(session) %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
