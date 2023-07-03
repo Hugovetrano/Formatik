@@ -1,0 +1,44 @@
+@import 'variables';
+
+.preinscriptions-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    .session-preinscriptions-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 35px;
+        width: 1200px;
+
+        a {
+            text-decoration: none !important;
+            color: $black;
+        }
+
+        h1 {
+            width: 100%;
+            color: $pri-color;
+        }
+
+        .preinscription-index-par-session-items {
+            width: 359px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            p {
+                margin-bottom: 0;
+            }
+
+            .preinscription-nom {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

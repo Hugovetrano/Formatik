@@ -8,6 +8,7 @@ $grey: rgb(140, 140, 140);
 $white: white;
 $backcolor: rgba(179, 227, 250, 0.183);
 $black: black;
+$green: rgb(88, 161, 68);
 
 /* <---------- TAILLES COMMUNES ----------> */
 
@@ -54,6 +55,9 @@ th {
 }
 .black {
     color: $black;
+}
+.green {
+    color: $green;
 }
 
 // Backgrounds colors

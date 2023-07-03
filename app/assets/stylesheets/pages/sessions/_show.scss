@@ -2,12 +2,42 @@
 
 .session-show-container {
     // Container principal
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
     gap: 35px;
+
+    .session-show-inscriptions-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pending-inscriptions {
+            font-size: 1.2rem;
+            color: $grey;
+        }
+
+        a {
+            width: 450px;
+            padding: 8px 12px 8px 12px;
+            border: solid 1px $pri-color;
+            color: $white;
+            font-size: 1.4rem;
+            text-decoration: none;
+            border-radius: $medium-radius;
+            background-color: $pri-color;
+            opacity: .75;
+            transition: .2s ease;
+            text-align: center;
+
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
 
     .session-show-details-container {
         color: $pri-color;
@@ -21,6 +51,7 @@
         .fsize-inter {
             font-size: 1.2rem;
             color: $black;
+
             &:first-child {
                 margin-bottom: 0;
             }
@@ -46,11 +77,11 @@
 
     }
 
-.show-session-details-items {
-  &:hover {
-    cursor: pointer;
-  }
-}
+    .show-session-details-items {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
 
     .session-show-apprenants-container {

@@ -1,5 +1,5 @@
 <%= render "shared/header", text: "Aperçu session" %>
-<div class="session-show-container">
+<div class="session-show-container yield-container">
     <div class="session-show-details-container sec-back-plate">
         <h1>Session#<%= @session.id %></h1>
 
@@ -45,7 +45,15 @@
     </div>
 
     <div class="session-show-apprenants-container sec-back-plate">
-        <h1>Inscriptions</h1>
+        <div class="session-show-inscriptions-header">
+            <h1>Inscriptions<span class="pending-inscriptions"> <i><%= "(#{PreInscription.where(session_id: @session.id).length} en attente)" %></i></span></h1>
+            <% preinscriptions_number = PreInscription.where(session_id: @session.id).length %>
+            <% if preinscriptions_number == 1 %>
+                <%= link_to "Voir la pré-inscriptions", session_pre_inscriptions_path(@session) %>
+            <% elsif preinscriptions_number > 1 %>
+                <%= link_to "Voir les #{preinscriptions_number} pré-inscriptions", session_pre_inscriptions_path(@session) %>
+            <% end %>
+        </div>
         <% @session.inscriptions.each do |inscription| %>
             <div class="session-show-apprenants-items sec-back-plate">
                 <p class="apprenant-name"><%= "#{inscription.apprenant.prenom} #{inscription.apprenant.nom}" %></p>

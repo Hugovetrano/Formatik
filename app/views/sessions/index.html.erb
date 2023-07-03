@@ -66,6 +66,11 @@
             <% @sessions.each do |session| %>
                 <%= link_to sessions_formation_path(session) do %>
                     <div class="session-index-sessions-items sec-back-plate">
+                        <% if @preinscriptions.where(session_id: session.id).length > 0 %>
+                            <div class="pending-inscriptions-number">
+                                <p><%= @preinscriptions.where(session_id: session.id).length %></p>
+                            </div>
+                        <% end %>
                         <p class="session-nom"><%= session.nom %></p>
                         <p class="session-apprenants-counter"><%= session.inscriptions.count %> Apprenants</p>
                         <p class="programme-description"><%= session.programme.description.truncate(130) %></p>

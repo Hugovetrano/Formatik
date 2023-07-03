@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     end
 
     def index
+        @preinscriptions = PreInscription.all
         @sessions = Session.all
         @nextSession = @sessions.order(:date_debut).first
         # :start_date est une méthode de simple_calendar

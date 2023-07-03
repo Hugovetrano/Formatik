@@ -1,0 +1,17 @@
+@import 'variables';
+
+.preinscription-container.yield-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    .preinscriptions-forms-container {
+        display: flex;
+        gap: 55px;
+
+        div {
+            width: 550px;
+        }
+    }
+}
