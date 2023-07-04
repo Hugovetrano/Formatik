@@ -1,0 +1,5 @@
+meta_product_name: "Formatik"
+meta_title: "Formatik - Bienvenue chez Formatik : Simplifiez l’administration de vos formations et gagnez en efficacité."
+meta_description: "Bienvenue chez Formatik : Simplifiez l’administration de vos formations et concentrez-vous sur la qualité de vos programmes. Automatisez les tâches administratives, personnalisez votre flux de travail et restez conforme aux réglementations du marché. Découvrez la puissance d’un logiciel convivial conçu spécialement pour les organismes de formation. Essayez Formatik dès maintenant !"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@VetranoHugo"   # required for Twitter Cards
