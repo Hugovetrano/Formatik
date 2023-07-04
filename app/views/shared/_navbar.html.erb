@@ -4,10 +4,12 @@
         <ul>
             <li><%= link_to 'Tableau de bord', root_path, class: "#{'color-active' if current_page?(root_path)}" %></li>
             <li><%= link_to 'Sessions', sessions_formation_index_path, class: "#{'color-active' if current_page?(sessions_formation_index_path)}" %></li>
-            <li><%= link_to "Inscriptions #{PreInscription.all.count}", root_path, class: "#{'color-active' if current_page?(root_path)}" %></li>
+            <li><% if PreInscription.all.count == 0 %><%= link_to "Inscription #{PreInscription.all.count}", root_path, class: "#{'color-active' if current_page?(root_path)}" %>
+            <% else%><%= link_to "Inscriptions #{PreInscription.all.count}", root_path, class: "#{'color-active' if current_page?(root_path)}" %>
+            <% end %></li>
             <li><%= link_to 'Intervenants', intervenants_path, class: "#{'color-active' if current_page?(intervenants_path)}" %></li>
             <li><%= link_to 'Annuaire', mesdonnees_path, class: "#{'color-active' if current_page?(mesdonnees_path)}" %></li>
-            <li><%= link_to 'La veille', "https://www.formalerte.com", class: "#{'color-active' if current_page?(root_path)}" %></li>
+            <li><%= link_to 'La veille', "https://www.formalerte.com" %></li>
         </ul>
     </div>
     <ul>
@@ -19,15 +21,9 @@
         </div>
         <li class="navbar-bottom-reglage"><%= link_to 'Réglages', edit_user_registration_path, class: " #{'color-active-btn' if current_page?(edit_user_registration_path)} settings-btn navbar-bottom-color" %></li>
         <% if current_user %>
-        <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color" %></li>
+        <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
         <% else %>
-        <li class="navbar-bottom"><%= link_to 'Se connecter', new_user_session_path, data: {turbo_method: :delete}, class: " #{'color-active' if current_page?(root_path)} navbar-bottom-color" %></li>
+        <li class="navbar-bottom"><%= link_to 'Se connecter', new_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
         <% end %>
     </ul>
 </div>
-
-<!-- 
-            <li><%= link_to 'Dashboard', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
-            <li><%= link_to 'Inscriptions', inscriptions_path, class: " #{'color-active' if current_page?(inscriptions_path)}" %></li>
-            <li><%= link_to 'La veille', root_path, class: " #{'color-active' if current_page?(root_path)}" %></li>
--->
