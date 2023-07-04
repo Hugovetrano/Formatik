@@ -27,15 +27,35 @@
             flex-wrap: wrap;
             gap: 20px;
             row-gap: 0;
+            position: relative;
+
+            .table-specialite {
+              position: absolute;
+              top: 33px;
+              left: 0;
+              width: 480px;
+              font-weight: light !important;
+
+              input {
+                height: 35px;
+                width: 480px;
+              }
+            }
+
+            i {
+              * {
+                font-weight: 600 !important;
+              }
+            }
 
             #specialite-input {
-              width: 380px;
+              height: 380px;
               margin-bottom: 10px;
             }
 
-            .apprenant-table-container {
-              width: 380px;
-            }
+            // .apprenant-table-container {
+            //   width: 380px;
+            // }
 
             input,
             select {
@@ -60,6 +80,8 @@
 
             #intervenant-input {
                 width: 220px;
+                height: 35px;
+                padding-left: 10px;
             }
 
             #programme-input {

@@ -20,10 +20,10 @@
           <h2><%= @intervenant.prenom.capitalize %> <%= @intervenant.nom.capitalize %></h2>
           <p><%= @intervenant.adresse %><br>
           <%= @intervenant.code_postal %> <%= @intervenant.ville %></p>
-          <p class="pcolor card-intervenant-txt"><strong>Tel : <%= @intervenant.telephone %></strong><br>
-          <strong>Mail : <%= @intervenant.email %></strong></p>
+          <p class="pcolor card-intervenant-txt"><strong>Tel : <%= @intervenant.telephone %><br>
+          Mail : <%= @intervenant.email %></strong></p>
           <p>N° DA: <%= @intervenant.num_da %><br>SIRET: <%= @intervenant.siret %></p>
-          <p class="pcolor card-intervenant-txt"><strong><%= @intervenant.tarif %> € / jour</strong></p>
+          <p class="pcolor card-intervenant-txt-center"><strong><%= @intervenant.tarif %> € / jour</strong></p>
       </div>
       <div class="btn-intervenant">
         <%= link_to "Mettre à jour la fiche", edit_intervenant_path(@intervenant), class: "btn-prim btn-intervenant-block" %>

@@ -19,8 +19,9 @@ class PreInscriptionsController < ApplicationController
         if Apprenant.find_by_email(@preinscription.email)
             @apprenant_exist = true
             @apprenant = Apprenant.find_by_email(@preinscription.email)
+            @inscription = Inscription.new(apprenant_id: @apprenant.id, session_id: params[:session_id])
         else
-            @apprenant = Apprenant.new(@preinscription)
+            @apprenant = Apprenant.new(@preinscription.as_json.reject { |k| k == "session_id" || k == "created_at" || k == "updated_at" })
         end
     end
 

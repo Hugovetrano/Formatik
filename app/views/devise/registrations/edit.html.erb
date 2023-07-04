@@ -14,15 +14,17 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
     <% end %>
-
     <%= f.input :password,
+                label: "Nouveau mot de passe",
                 hint: "Laissez vide si vous ne souhaitez pas changer de mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                label: "Confirmation du mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
+                label: "Mot de passe actuel",
                 hint: "Nous avons besoin de votre ancien mot de passe pour confirmer le changement",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
@@ -30,8 +32,10 @@
 
   <div class="form-actions">
     <%= f.button :submit, "Mettre à jour", class: "btn-prim" %>
-    <%= link_to "Retour", :back, class: "btn-prim" %><br>
+    <div><br>
+    <%= link_to "Retour", :back, class: "btn-prim" %>
     <%= link_to "Supprimer votre compte ?", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-prim" %>
+    </div>
   </div>
-</div>  
 <% end %>
+</div>

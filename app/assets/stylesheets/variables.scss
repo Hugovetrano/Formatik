@@ -9,6 +9,7 @@ $white: white;
 $backcolor: rgba(179, 227, 250, 0.183);
 $black: black;
 $green: rgb(88, 161, 68);
+$red: rgb(190, 51, 30);
 
 /* <---------- TAILLES COMMUNES ----------> */
 
@@ -28,9 +29,9 @@ $big-radius: 15px;
 }
 
 th {
-  color: $pri-color;
-  opacity: 100%;
-  font-weight: bold;
+    color: $pri-color;
+    opacity: 100%;
+    font-weight: bold;
 }
 
 // Couleurs
@@ -58,6 +59,9 @@ th {
 }
 .green {
     color: $green;
+}
+.red {
+    color: $red;
 }
 
 // Backgrounds colors

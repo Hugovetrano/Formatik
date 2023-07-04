@@ -15,7 +15,7 @@
             </div>
             <div class="preinscription-form-profession-niveau-etude">
                 <span class="preinscription-form-input"><%= f.input :profession %></span>
-                <span class="preinscription-form-input"><%= f.label :niveau_etude %><%= f.select :niveau_etude, ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'] %>
+                <span class="preinscription-form-input"><%= f.input :niveau_etude, as: :select, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'] %>
 </span>
             </div>
             <%= f.input :adresse_facturation %>

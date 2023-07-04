@@ -56,7 +56,7 @@
         </div>
         <% @session.inscriptions.each do |inscription| %>
             <div class="session-show-apprenants-items sec-back-plate">
-                <p class="apprenant-name"><%= "#{inscription.apprenant.prenom} #{inscription.apprenant.nom}" %></p>
+                <p class="apprenant-name"><%= "#{inscription.apprenant.prenom.capitalize} #{inscription.apprenant.nom.capitalize}" %></p>
                 <div class="parcours-admin-details">
                     <p class="parcours-admin-steps">
                     Devis envoyé :

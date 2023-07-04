@@ -54,8 +54,12 @@
         <%= month_calendar(events: @sessions, attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
         <%= date.strftime("%e") %> <%= t('date.month_names')[date.month] %>
             <% sessions.each do |session| %>
+            <% i = session.programme_id %>
+            <% while i > colors.length
+                i = i / 2
+            end %>
                 <%= link_to sessions_formation_path(session) do %>
-                    <div class="meeting" style="background-color: <%= colors[session.programme_id] %>;">
+                    <div class="meeting" style="background-color: <%= colors[i] %>;">
                     <p><%= session.nom %></p>
                     </div>
                 <% end %>
@@ -64,8 +68,8 @@
     </div>
         <div class="session-index-sessions-container sec-back-plate">
             <% @sessions.each do |session| %>
-                <%= link_to sessions_formation_path(session) do %>
-                    <div class="session-index-sessions-items sec-back-plate">
+                    <%= link_to sessions_formation_path(session) do %>
+                <div class="session-index-sessions-items sec-back-plate">
                         <% if @preinscriptions.where(session_id: session.id).length > 0 %>
                             <div class="pending-inscriptions-number">
                                 <p><%= @preinscriptions.where(session_id: session.id).length %></p>
@@ -76,8 +80,8 @@
                         <p class="programme-description"><%= session.programme.description.truncate(130) %></p>
                         <p class="session-dates"><%= "Du #{I18n.l(session.date_debut, format: "%A %e %B %Y")}"%><br><%= "Au #{I18n.l(session.date_fin, format: "%A %e %B %Y")}" %></p>
                         <%= link_to 'Annuler cette session', sessions_formation_path(session), data: { turbo_method: :delete }, class: "delete_link" %>
-                    </div>
-                <% end %>
+                </div>
+                    <% end %>
             <% end %>
         </div>
 </div>
