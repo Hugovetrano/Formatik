@@ -55,7 +55,7 @@
         <%= date.strftime("%e") %> <%= t('date.month_names')[date.month] %>
             <% sessions.each do |session| %>
             <% i = session.programme_id %>
-            <% while i > colors.length
+            <% while i > colors.length - 1
                 i = i / 2
             end %>
                 <%= link_to sessions_formation_path(session) do %>
