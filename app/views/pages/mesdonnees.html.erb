@@ -1,5 +1,6 @@
 <%= render "shared/header", text: "Annuaire" %>
-<div class="annuaire yield-container sec-back-plate" data-controller="mesdonnees-search-bar">
+<div class="yield-container">
+<div class="annuaire sec-back-plate" data-controller="mesdonnees-search-bar">
   <div data-controller="liste-apprenant" class="mesdonnees-all-container" id="myTable">
     <ul>
       <li data-action="click->liste-apprenant#apprenant" class="active" data-liste-apprenant-target="liapprenant"><h2>Apprenants</h2></li>
@@ -7,7 +8,7 @@
       <li data-action="click->liste-apprenant#entreprise" class="" data-liste-apprenant-target="lientreprise"><h2>Entreprises</h2></li>
     </ul>
     <input type="text" data-action="keyup->mesdonnees-search-bar#filterTable" placeholder="Recherche...">
-    <div data-liste-apprenant-target="apprenant" class="mesdonnees-apprenant-hide">
+    <div data-liste-apprenant-target="apprenant" class="mesdonnees-apprenant">
       <%= render "apprenants/index" %>
     </div>
     <div data-liste-apprenant-target="intervenant" class="mesdonnees-intervenant-hide">
@@ -17,4 +18,5 @@
       <%= render "entreprises/index" %>
     </div>
   </div>
+</div>
 </div>

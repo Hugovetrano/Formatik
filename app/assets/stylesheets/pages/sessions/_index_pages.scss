@@ -8,10 +8,10 @@
     align-items: center;
     padding-top: 0;
     gap: 35px;
-    transform: translateX(-50px);
+    //transform: translateX(-50px);
 
     .session-index-calendar {
-        width: 1300px;
+        width: 1150px;
         background-color: $white;
 
         a {
@@ -67,7 +67,7 @@
         }
 
         .day {
-            max-width: 200px;
+            max-width: 160px;
             max-height: 100px !important;
             font-size: 0.8rem;
         }
@@ -84,12 +84,13 @@
     }
 
     .session-index-sessions-container {
-        width: 1300px;
+        width: 1150px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 12px;
+        row-gap: 20px;
 
         a {
             text-decoration: none;
@@ -97,8 +98,8 @@
         }
 
         .session-index-sessions-items {
-            width: 380px;
-            height: 320px;
+            width: 345px;
+            height: 325px;
 
             p,
             a {
