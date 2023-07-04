@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 10px;
-  
+
   .navbar-bottom {
     position: bottom;
     justify-content: center;
@@ -40,7 +40,7 @@
   .navbar-bottom-color:hover {
     color: rgb(83, 83, 83);
   }
-  
+
   .a-logo {
     text-decoration: none;
     color: $black;
@@ -107,7 +107,7 @@
     border-radius: 25px;
     transition: .2s ease;
   }
-  
+
   .settings-btn:hover {
     margin: 5px;
     padding: 4px 10px 4px 10px;
@@ -138,5 +138,8 @@
 
   .img-user {
     clip-path:ellipse(50% 50%);
+    img {
+      object-fit: cover;
+    }
   }
 }
