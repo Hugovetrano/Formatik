@@ -1,17 +1,103 @@
 @import 'variables';
 
 .preinscription-container.yield-container {
+    width: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    margin-bottom: 75px;
     gap: 35px;
 
     .preinscriptions-forms-container {
         display: flex;
         gap: 55px;
 
+        .is-known {
+            font-size: 1rem;
+        }
+
         div {
-            width: 550px;
+            max-width: 500px;
+        }
+
+        .preinscription-apprenant-forms-details {
+
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                #preinscription-apprenant-form-input-1 {
+                    width: 45%;
+                }
+
+                #preinscription-apprenant-form-input-2 {
+                    width: 45%;
+                }
+
+                #preinscription-apprenant-form-input-3 {
+                    width: 100%;
+                }
+
+                #preinscription-apprenant-form-input-4 {
+                    width: 35%;
+                }
+
+                #preinscription-apprenant-form-input-5 {
+                    width: 55%;
+                }
+
+                #preinscription-apprenant-form-input-6 {
+                    width: 100%;
+                }
+
+                #preinscription-apprenant-form-input-7 {
+                    width: 25%;
+                }
+
+                #preinscription-apprenant-form-input-8 {
+                    width: 65%;
+                }
+
+                #preinscription-apprenant-form-input-9 {
+                    width: 40%;
+                }
+
+                #preinscription-apprenant-form-input-10 {
+                    width: 50%;
+                }
+
+            }
         }
     }
+
+    input[type="submit"] {
+        padding: 8px 12px 8px 12px;
+        border: solid 1px $pri-color;
+        color: $white;
+        text-decoration: none;
+        border-radius: $medium-radius;
+        background-color: $pri-color;
+        opacity: .75;
+        transition: .2s ease;
+
+
+        &:hover {
+            opacity: 1;
+        }
+
+    }
+
+    .valider-inscription {
+        font-size: 1.5rem;
+    }
+
+    .preinscription-forms-details {
+        p {
+            margin-block: 10px;
+            font-size: 1.4rem;
+        }
+    }
+
 }

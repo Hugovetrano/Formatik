@@ -54,8 +54,12 @@
         <%= month_calendar(events: @sessions, attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
         <%= date.strftime("%e") %> <%= t('date.month_names')[date.month] %>
             <% sessions.each do |session| %>
+            <% i = session.programme_id %>
+            <% while i > colors.length
+                i = i / 2
+            end %>
                 <%= link_to sessions_formation_path(session) do %>
-                    <div class="meeting" style="background-color: <%= colors[session.programme_id] %>;">
+                    <div class="meeting" style="background-color: <%= colors[i] %>;">
                     <p><%= session.nom %></p>
                     </div>
                 <% end %>
