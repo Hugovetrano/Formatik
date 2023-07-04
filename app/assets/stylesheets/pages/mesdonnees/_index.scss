@@ -10,7 +10,7 @@
   }
 
   div {
-    width: 1300px;
+   // width: 1300px;
   }
 
   input {
@@ -51,9 +51,15 @@
 
 .mesdonnees-intervenant-hide {
   display: none;
+  width: 100%;
 }
 .mesdonnees-entreprise-hide {
   display: none;
+  width: 100%;
+}
+
+.mesdonnees-apprenant {
+  width: 100%;
 }
 
 .annuaire.yield-container {
