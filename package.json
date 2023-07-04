@@ -3,6 +3,7 @@
     "dayjs": "^1.11.8",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
-    "stimulus-flatpickr": "^1.4.0"
+    "stimulus-flatpickr": "^1.4.0",
+    "stimulus-popover": "^6.2.0"
   }
 }

@@ -1,8 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
+import Popover from 'stimulus-popover'
+
 
 // Connects to data-controller="new-session-form"
-export default class extends Controller {
-  static targets = ['price', 'name', 'startDate', 'endDate', 'rowspecialty', 'outputSpecialty']
+// POPOVER REPREND LES CARACTERISTIQUES DU CONTROLLER CLASSIQUE
+export default class extends Popover {
+  static targets = ['price', 'name', 'startDate', 'endDate', 'rowspecialty', 'outputSpecialty', 'intervenantid']
 
   connect() {
     console.log('Hello from NewSessionFormController');
@@ -36,14 +39,23 @@ export default class extends Controller {
   clicked(event) {
     // ON RECUPERE LES DONNES DE L'ANNUAIRE DOM
     const interv = event.target.parentNode
-    console.log(interv);
+
     const firstColumn = interv.querySelector('td:first-child');
     const sndColumn = interv.querySelector('td:nth-child(2)');
-    console.log(sndColumn);
     const outputSpecialty = this.outputSpecialtyTarget;
-    console.log(outputSpecialty)
     if (firstColumn) {
         outputSpecialty.value = `${firstColumn.textContent} ${sndColumn.textContent}`;
       }
+
+    const intervenantid = this.intervenantidTarget;
+    intervenantid.value = Number(interv.dataset.value)
 }
+
+// PASSE AU-DESSUS DE LA METHODE HIDE DE POPOVER
+  hidecontext(event) {
+    const template = document.querySelector("template");
+    if (!template.contains(event.target)) {
+      template.hidden;
+    }
+  }
 }
