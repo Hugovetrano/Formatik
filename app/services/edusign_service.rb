@@ -54,7 +54,7 @@ class EdusignService
         "API_ID" => intervenant.id,
         "TAGS" => ["tag 1", "tag 2"]
       },
-      "dontSendCredentials" => false
+      "dontSendCredentials" => true
     }
 
     response = connection.post("#{BASE_URL}/v1/professor", payload.to_json)
@@ -177,4 +177,65 @@ class EdusignService
       raise "Failed to get documents. Error: #{error_message}"
     end
   end
+
+  # def create_convocation(session, intervenant, apprenant)
+  #   payload = {
+  #     "admin": {
+  #         "id": "osg53hexfy1w9n1",
+  #         "inputs": { # // You can use both the label (name) or ID of the input as key
+  #             "Signature": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Signature_de_Amine_Zribi.jpg",
+  #             "263917": "01/01/2023",
+  #             "fin formation": "31/12/2023",
+  #             "741293": "40",
+  #             "durée de la formation": "12 mois",
+  #             "modalité de paiement": "par carte bancaire"
+  #         }
+  #     },
+  #     "recipients": [
+  #         # Each array of recipients represents a document that will be sent. All recipient arrays must be identical (same number of recipients in the same order), only the IDs must be different from one array to another
+  #         # document 1
+  #         [
+  #             {
+  #                 "category": "student",
+  #                 "id": "#{get_a_student(apprenant.id)}"
+  #             },
+  #         ],
+
+  #     ],
+  #     "sendDocumentToSignByEmail": true,
+  #     "sendDocumentByEmailWhenCompleted": true,
+  #     "signatureValidationMethod": "email",
+  #     "signWithOrder": false,
+  #     "expirationDate": "2023-01-01T00:00:00+01:00",
+  #     "attachedDocuments": [
+  #         {
+  #             "name": "mon super annexe",
+  #             "url": "https://www.africau.edu/images/default/sample.pdf"
+  #         }
+  #     ],
+  #     "sendCustomDocumentEmail": {
+  #         "subject": "",
+  #         "body": ""
+  #     },
+  #     "sendCustomSignatureReminderEmail": {
+  #         "subject": "",
+  #         "body": "",
+  #         "amount": 3,
+  #         "interval": 24 // in hours
+  #     },
+  #     "sendCustomEmailWhenDocumentCompleted": {
+  #         "subject": "",
+  #         "body": ""
+  #     }
+  #   }
+
+  #   response = connection.post("#{BASE_URL}/v2/documents/7er5bkzmlfj492u2", payload.to_json)
+
+  #   if response.success?
+  #     puts "Convocation added successfully"
+  #   else
+  #     error_message = JSON.parse(response.body)['message']
+  #     raise "Failed to add convocation. Error: #{error_message}"
+  #   end
+  # end
 end
