@@ -1,5 +1,6 @@
 class ApprenantsController < ApplicationController
   before_action :set_apprenant, only: %i[show edit update destroy]
+  skip_forgery_protection only: %i[update_by_mail create]
   def index
     @apprenants = Apprenant.all
   end
@@ -14,9 +15,15 @@ class ApprenantsController < ApplicationController
   def create
     @apprenant = Apprenant.new(apprenant_params)
     if @apprenant.save
-      redirect_to apprenant_path(@apprenant)
+      respond_to do |format|
+        format.html { redirect_to apprenant_path(@apprenant) }
+        format.json { render json: { status: 'Created' } }
+      end  
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: { status: 'Not created' } }
+      end    
     end
   end
 
@@ -41,6 +48,16 @@ class ApprenantsController < ApplicationController
   def destroy
     @apprenant.destroy
     redirect_to apprenants_path, status: :see_other
+  end
+
+  def update_by_mail
+    @apprenant = Apprenant.find_by_email(params[:email])
+    @apprenant.update(apprenant_params)
+    if @apprenant.save
+      render json: { status: 'Updated' }
+    else
+      render json: { status: 'Not updated' }
+    end
   end
 
   private

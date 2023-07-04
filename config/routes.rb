@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :entreprises
   resources :apprenants
+  post '/apprenants/update_by_mail', to: 'apprenants#update_by_mail'
   resources :intervenants
   resources :sessions, as: :sessions_formation
   resources :programmes

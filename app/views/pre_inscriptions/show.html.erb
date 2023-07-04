@@ -4,27 +4,106 @@
     <%= render "shared/header", text: "Pré-inscription d'un nouvel apprenant" %>
 <% end %>
 
-<div class="preinscription-container yield-container">
+<div class="preinscription-container yield-container sec-back-plate">
+    <% if @apprenant_exist %>
+        <%= simple_form_for(@inscription) do |f| %>
+            <%= f.input :session_id, as: :hidden %>
+            <%= f.input :apprenant_id, as: :hidden %>
+            <%= f.submit "Valider l'inscription", class: 'valider-inscription' %>
+        <% end %>
+    <% end %>
     <div class="preinscriptions-forms-container">
         <div class="preinscription-preinscription-form preinscriptions-forms-item sec-back-plate">
             <h1>Formulaire de pré-inscription</h1>
             <div class="preinscription-forms-details">
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %></p>
+                <% if @preinscription.prenom == @apprenant.prenom %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.nom == @apprenant.nom %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.email == @apprenant.email %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.profession == @apprenant.profession %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.adresse_facturation == @apprenant.adresse_facturation %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.code_postal == @apprenant.code_postal %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.ville == @apprenant.ville %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.telephone == @apprenant.telephone %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.niveau_etude == @apprenant.niveau_etude %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
+                <% if @preinscription.genre == @apprenant.genre %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %> <i class="fa-regular fa-circle-check green"></i></p>
+                <% else %>
+                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %> <i class="fa-regular fa-circle-xmark red"></i></p>
+                <% end %>
             </div>
         </div>
         <div class="preinscription-apprenant-form preinscriptions-forms-item sec-back-plate">
-            <h1>Apprenant</h1>
-            <div class="apprenant-forms-details">
-                
+            <% if @apprenant_exist %>
+                <h1>Apprenant <span class='is-known green'>Enregistré</span></h1>
+            <% else %>
+                <h1>Apprenant <span class='is-known red'>Inconnu</span></h1>
+            <% end %>
+            <div class="preinscription-apprenant-forms-details" data-controller="create-inscription-from-preinscription">
+                <% if @apprenant_exist %>
+                    <%= simple_form_for(@apprenant, html: { data: { action: 'submit->create-inscription-from-preinscription#updateApprenant', create_inscription_from_preinscription_target: "formulaireApprenantEnregistre" } }) do |f|%>
+                        <%= f.input :prenom, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-1' }, input_html: { data: { create_inscription_from_preinscription_target: 'prenom' } } %>
+                        <%= f.input :nom, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-2' }, input_html: { data: { create_inscription_from_preinscription_target: 'nom' } } %>
+                        <%= f.input :email, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-3' }, input_html: { data: { create_inscription_from_preinscription_target: 'email' } } %>
+                        <%= f.input :telephone, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-4' }, input_html: { data: { create_inscription_from_preinscription_target: 'telephone' } } %>
+                        <%= f.input :profession, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-5' }, input_html: { data: { create_inscription_from_preinscription_target: 'profession' } } %>
+                        <%= f.input :adresse_facturation, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-6' }, input_html: { data: { create_inscription_from_preinscription_target: 'adresseFacturation' } } %>
+                        <%= f.input :code_postal, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-7' }, input_html: { data: { create_inscription_from_preinscription_target: 'codePostal' } } %>
+                        <%= f.input :ville, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-8' }, input_html: { data: { create_inscription_from_preinscription_target: 'ville' } } %>
+                        <%= f.input :niveau_etude, as: :select, include_blank: false, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'], disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-9' }, input_html: { data: { create_inscription_from_preinscription_target: 'niveauEtude' } } %>
+                        <%= f.association :entreprise, include_blank: false, collection: Entreprise.pluck(:nom, :id), selected: 0, wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
+                        <%= f.submit "Mettre à jour les informations" %>
+                    <% end %>
+                <% else %>
+                    <%= simple_form_for(@apprenant, html: { data: { action: 'submit->create-inscription-from-preinscription#createApprenant' } }) do |f|%>
+                        <%= f.input :prenom, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-1' }, input_html: { data: { create_inscription_from_preinscription_target: 'prenom' } } %>
+                        <%= f.input :nom, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-2' }, input_html: { data: { create_inscription_from_preinscription_target: 'nom' } } %>
+                        <%= f.input :email, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-3' }, input_html: { data: { create_inscription_from_preinscription_target: 'email' } } %>
+                        <%= f.input :telephone, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-4' }, input_html: { data: { create_inscription_from_preinscription_target: 'telephone' } } %>
+                        <%= f.input :profession, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-5' }, input_html: { data: { create_inscription_from_preinscription_target: 'profession' } } %>
+                        <%= f.input :adresse_facturation, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-6' }, input_html: { data: { create_inscription_from_preinscription_target: 'adresseFacturation' } } %>
+                        <%= f.input :code_postal, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-7' }, input_html: { data: { create_inscription_from_preinscription_target: 'codePostal' } } %>
+                        <%= f.input :ville, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-8' }, input_html: { data: { create_inscription_from_preinscription_target: 'ville' } } %>
+                        <%= f.input :niveau_etude, as: :select, include_blank: false, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'], disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-9' }, input_html: { data: { create_inscription_from_preinscription_target: 'niveauEtude' } } %>
+                        <%= f.association :entreprise, include_blank: true, collection: Entreprise.pluck(:nom, :id), selected: 0, wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
+                        <%= f.submit "Ajouter l'apprenant" %>
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>
