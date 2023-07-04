@@ -1,5 +1,10 @@
 class PreInscriptionsController < ApplicationController
     skip_before_action :authenticate_user!, only: %i[indexsessions new create confirmation]
+
+    def index
+      @preinscriptions = PreInscription.all
+    end
+
     def indexsessions
         @sessions = Session.select { |session| session.date_debut > Date.new }
     end
@@ -37,6 +42,11 @@ class PreInscriptionsController < ApplicationController
 
     def confirmation
         @preinscription = PreInscription.find(params[:id])
+    end
+
+    def check_preinscription
+      new_preinscriptions = PreInscription.where("created_at > ?", 30.seconds.ago).count
+      render json: { newPreinscriptions: new_preinscriptions }
     end
 
     private

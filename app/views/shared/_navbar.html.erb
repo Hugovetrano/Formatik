@@ -1,29 +1,32 @@
-<div class="navbar">
-    <div>
-        <a href="/" class="a-logo"><img src="https://i.ibb.co/zr1Rwgb/logoformatik.png" alt="Logo" width="30">ormatik</a>
-        <ul>
-            <li><%= link_to 'Tableau de bord', root_path, class: "#{'color-active' if current_page?(root_path)}" %></li>
-            <li><%= link_to 'Sessions', sessions_formation_index_path, class: "#{'color-active' if current_page?(sessions_formation_index_path)}" %></li>
-            <li><% if PreInscription.all.count == 0 %><%= link_to "Inscription #{PreInscription.all.count}", root_path, class: "#{'color-active' if current_page?(root_path)}" %>
-            <% else%><%= link_to "Inscriptions #{PreInscription.all.count}", root_path, class: "#{'color-active' if current_page?(root_path)}" %>
-            <% end %></li>
-            <li><%= link_to 'Intervenants', intervenants_path, class: "#{'color-active' if current_page?(intervenants_path)}" %></li>
-            <li><%= link_to 'Annuaire', mesdonnees_path, class: "#{'color-active' if current_page?(mesdonnees_path)}" %></li>
-            <li><%= link_to 'La veille', "https://www.formalerte.com" %></li>
-        </ul>
-    </div>
-    <ul>
-        <div class="navbar-profil">
-            <% if current_user %>
-            <div class="img-user"><%= cl_image_tag current_user.photo.key, width: 50, height: 50 %></div>
-            <div class="navbar-profil-padding"><strong><%= current_user.prenom %> <%= current_user.nom %></strong><br> <%= current_user.fonction %></div>
-            <% end %>
-        </div>
-        <li class="navbar-bottom-reglage"><%= link_to 'Réglages', edit_user_registration_path, class: " #{'color-active-btn' if current_page?(edit_user_registration_path)} settings-btn navbar-bottom-color" %></li>
-        <% if current_user %>
-        <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
-        <% else %>
-        <li class="navbar-bottom"><%= link_to 'Se connecter', new_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
-        <% end %>
-    </ul>
+<div class="navbar-yield">
+  <div class="navbar">
+      <div>
+          <a href="/" class="a-logo"><img src="https://i.ibb.co/zr1Rwgb/logoformatik.png" alt="Logo" width="30">ormatik</a>
+          <ul>
+              <li><%= link_to 'Tableau de bord', root_path, class: "#{'color-active' if current_page?(root_path)}" %></li>
+              <li><%= link_to 'Sessions', sessions_formation_index_path, class: "#{'color-active' if current_page?(sessions_formation_index_path)}" %></li>
+              <li><% if PreInscription.all.count == 0 %><%= link_to "Inscription", pre_inscriptions_path, class: "#{'color-active' if current_page?(pre_inscriptions_path)}" %>
+              <% else%><div class="div-inscription-navbar"><div><%= link_to "Inscriptions", pre_inscriptions_path, class: "#{'color-active' if current_page?(pre_inscriptions_path)}" %></div><div class="pending-inscriptions-number-navbar"><p><%= PreInscription.all.count %></p></div></div>
+              <% end %></li>
+              <li><%= link_to 'Intervenants', intervenants_path, class: "#{'color-active' if current_page?(intervenants_path)}" %></li>
+              <li><%= link_to 'Annuaire', mesdonnees_path, class: "#{'color-active' if current_page?(mesdonnees_path)}" %></li>
+              <li><%= link_to 'La veille', "https://www.formalerte.com" %></li>
+          </ul>
+      </div>
+      <ul>
+          <div class="navbar-profil">
+              <% if current_user %>
+              <div class="img-user"><%= cl_image_tag current_user.photo.key, width: 50, height: 50 %></div>
+              <div class="navbar-profil-padding"><strong><%= current_user.prenom %> <%= current_user.nom %></strong><br> <%= current_user.fonction %></div>
+              <% end %>
+          </div>
+          <li class="navbar-bottom-reglage"><%= link_to 'Réglages', edit_user_registration_path, class: " #{'color-active-btn' if current_page?(edit_user_registration_path)} settings-btn navbar-bottom-color" %></li>
+          <% if current_user %>
+          <li class="navbar-bottom"><%= link_to 'Se déconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
+          <% else %>
+          <li class="navbar-bottom"><%= link_to 'Se connecter', new_user_session_path, data: {turbo_method: :delete}, class: "navbar-bottom-color" %></li>
+          <% end %>
+      </ul>
+  </div>
+
 </div>

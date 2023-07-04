@@ -2,7 +2,7 @@
 
 header {
   // -------------------- Header item
-    $header-width: calc(100% - #{$navbar-width});
+    $header-width: 100%;
 
     width: $header-width;
     height : $header-height;
@@ -10,7 +10,6 @@ header {
     box-shadow: 3px 3px 10px 10px rgba(125, 125, 125, .10);
     border-radius: 5px;
     display: flex;
-    margin-left: $navbar-width;
     padding: 0px;
     margin-bottom: 50px;
 
