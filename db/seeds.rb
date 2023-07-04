@@ -15,7 +15,110 @@ Programme.destroy_all
 User.destroy_all
 puts "============Creating Apprenants & Entreprises...============"
 
+puts "============Creating HUGOVedusign apprenant...============"
+entreprise = {
+  nom: Faker::Company.name,
+  siret: rand((10**13)..((10**14) - 1))
+}
+entreprise = Entreprise.create!(entreprise)
+puts "------Entreprise #{entreprise.nom}------"
+apprenants = {
+  genre: "Homme",
+  prenom: "Hugo",
+  nom: "Vetrano",
+  email: "hugo.vetrano@gmail.com",
+  telephone: "0686223956",
+  profession: "Fullstack developper",
+  adresse_facturation: "81 rocade des monts d'or",
+  code_postal: "69370",
+  ville: "Saint-Didier au mont d'or",
+  niveau_etude: "Bac+5",
+  entreprise_id: entreprise.id,
+}
+apprenant = Apprenant.create!(apprenants)
+xxx = Apprenant.last
+xxx.id = 388
+xxx.save!
+
+
+puts "============Creating KARL edusign apprenant...============"
+entreprise = {
+  nom: Faker::Company.name,
+  siret: rand((10**13)..((10**14) - 1))
+}
+entreprise = Entreprise.create!(entreprise)
+puts "------Entreprise #{entreprise.nom}------"
+apprenants = {
+  genre: "Homme",
+  prenom: "Karl",
+  nom: "Vandenabeele",
+  email: "karl.vandenabeele@gmail.com",
+  telephone: "0683682799",
+  profession: "Fullstack developper",
+  adresse_facturation: "83 Allée Robert Jondet",
+  code_postal: "83520",
+  ville: "Roquebrune-sur-Argens",
+  niveau_etude: "Bac +5",
+  entreprise_id: entreprise.id,
+}
+
+apprenant = Apprenant.create!(apprenants)
+xxx = Apprenant.last
+xxx.id = 389
+xxx.save!
+
+puts "============Creating HUGOP edusign apprenant...============"
+entreprise = {
+  nom: Faker::Company.name,
+  siret: rand((10**13)..((10**14) - 1))
+}
+entreprise = Entreprise.create!(entreprise)
+puts "------Entreprise #{entreprise.nom}------"
+apprenants = {
+  genre: "Homme",
+  prenom: "Hugo",
+  nom: "Petament",
+  email: "hugo.petament@icloud.com",
+  telephone: "0622246688",
+  profession: "Fullstack developper",
+  adresse_facturation: "8 Avenue du roi de Rome",
+  code_postal: "54150",
+  ville: "Briey",
+  niveau_etude: "Bac -2, magnat de l'immobilier et de la crypto",
+  entreprise_id: entreprise.id
+}
+apprenant = Apprenant.create!(apprenants)
+xxx = Apprenant.last
+xxx.id = 390
+xxx.save!
+
+puts "============Creating VINCENT edusign apprenant...============"
+entreprise = {
+  nom: Faker::Company.name,
+  siret: rand((10**13)..((10**14) - 1))
+}
+entreprise = Entreprise.create!(entreprise)
+puts "------Entreprise #{entreprise.nom}------"
+apprenants = {
+  genre: "Homme",
+  prenom: "Vincent",
+  nom: "Beaumont",
+  email: "jkawtech@gmail.com",
+  telephone: "0682218742",
+  profession: "Fullstack developper",
+  adresse_facturation: "5 avenue du whisbee",
+  code_postal: "8765",
+  ville: "Eu",
+  niveau_etude: "Bac+5",
+  entreprise_id: entreprise.id
+}
+apprenant = Apprenant.create!(apprenants)
+xxx = Apprenant.last
+xxx.id = 391
+xxx.save!
+
 # --------------------------------ENTREPRISES----------------------------------
+
 x = 0
 while x < 5
   entreprise = {
@@ -90,7 +193,7 @@ file = File.open("db/image/photo1.jpg")
 intervenant = {
   prenom: "Eric",
   nom: "Jacquet",
-  email: "eric.jacquet@gmail.com",
+  email: "ericc.jacquet@gmail.com",
   telephone: "0601020304",
   adresse: Faker::Address.street_address,
   code_postal: Faker::Address.zip_code,
@@ -101,6 +204,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 101
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo2.jpg")
@@ -118,6 +223,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 102
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo3.jpg")
@@ -135,13 +242,15 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 103
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo4.jpg")
 intervenant = {
   prenom: "Laurent",
   nom: "Marty",
-  email: "laurent.marty@gmail.com",
+  email: "laurentt.marty@gmail.com",
   telephone: "0601020304",
   adresse: Faker::Address.street_address,
   code_postal: Faker::Address.zip_code,
@@ -152,6 +261,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 104
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo5.jpg")
@@ -169,6 +280,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 105
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo6.jpg")
@@ -186,6 +299,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id =
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo7.jpg")
@@ -203,6 +318,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 107
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo8.jpg")
@@ -220,6 +337,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 108
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo9.jpg")
@@ -237,6 +356,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 109
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 file = File.open("db/image/photo10.jpg")
@@ -254,6 +375,8 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
+intervenant.id = 110
+intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
 # -------------------------------PROGRAMMES-------------------------------------
@@ -349,19 +472,21 @@ timestamp_two = date_two.to_i
 programmes = Programme.all
 intervenants = Intervenant.all
 
-Session.create!({
-                  date_debut: Time.at(timestamp_one).to_datetime,
-                  date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Business Intelligence et Data Visualization",
-                  programme_id: programmes.sample.id,
-                  intervenant_id: intervenants.sample.id,
-                  prix: 6700,
-                  adresse: "Lyon"
-                }
-                )
-
-
-
+intervenant = intervenants.sample
+session_edusign = Session.create!({
+                                    date_debut: Time.at(timestamp_one).to_datetime,
+                                    date_fin: Time.at(timestamp_two).to_datetime,
+                                    nom: "Business Intelligence et Data Visualization",
+                                    programme_id: programmes.sample.id,
+                                    intervenant_id: intervenant.id,
+                                    prix: 6700,
+                                    adresse: "Lyon"
+                                  }
+                                )
+session_edusign.id = 9999
+session_edusign.save!
+# apprenants = [388, 389, 390, 391]
+# EdusignService.new.create_course(session_edusign, intervenant, apprenants)
 
 
 date_one = Time.parse('Mon, 10 Jul 2023 09:00:00.000000000 CEST +02:00')
@@ -517,15 +642,7 @@ sessions.each do |session|
     inscription = {
       session_id: session.id,
       apprenant_id: Apprenant.order("RANDOM()").first.id,
-      parcoursadmin_id: Parcoursadmin.create!(
-        {
-          devis_envoye: true,
-          devis_valide: true,
-          contrat_envoye: true,
-          contrat_signe: true,
-          convocation_envoye: true
-        }
-      ).id
+      parcoursadmin_id: Parcoursadmin.create!().id
     }
     inscription = Inscription.create!(inscription)
     puts "Created Inscription for #{inscription.apprenant.prenom} #{inscription.apprenant.nom}"

@@ -3,7 +3,7 @@ require 'json'
 
 class EdusignService
 
-  BASE_URL = 'https://ext.edusign.fr/v1'.freeze
+  BASE_URL = 'https://ext.edusign.fr'.freeze
 
   def connection # -----------------------------------------------------------------------Connexion à l'API
     Faraday.new(url: BASE_URL) do |faraday|
@@ -18,7 +18,7 @@ class EdusignService
   # ====================================================================================================================
 
   def get_professors # --------------------------------------------------------------------Récupère tous les professeurs
-    response = connection.get("#{BASE_URL}/professor?page=0", nil)
+    response = connection.get("#{BASE_URL}/v1/professor?page=0", nil)
 
     if response.success?
       JSON.parse(response.body)['result']
@@ -31,9 +31,9 @@ class EdusignService
   end
 
   def get_a_professor(formatik_professor_id) # --------------------------------------------Récupère un professeur
-    response = connection.get("#{BASE_URL}/professor/get-id/#{formatik_professor_id}", nil)
+    response = connection.get("#{BASE_URL}/v1/professor/get-id/#{formatik_professor_id}", nil)
     professor_id = JSON.parse(response.body)['result']['ID']
-    response = connection.get("#{BASE_URL}/professor/#{professor_id}", nil)
+    response = connection.get("#{BASE_URL}/v1/professor/#{professor_id}", nil)
 
     if response.success?
       JSON.parse(response.body)['result']
@@ -44,20 +44,20 @@ class EdusignService
 
   end
 
-  def add_professor(prenom, nom, email, intervenant_id, tags = []) # ----------------------Ajoute un professeur
+  def add_professor(intervenant) # ----------------------Ajoute un professeur
     payload = {
       "professor" => {
-        "FIRSTNAME" => prenom,
-        "LASTNAME" => nom,
-        "EMAIL" => email,
+        "FIRSTNAME" => intervenant.prenom,
+        "LASTNAME" => intervenant.nom,
+        "EMAIL" => intervenant.email,
         "SPECIALITY" => "Tech",
-        "API_ID" => intervenant_id,
+        "API_ID" => intervenant.id,
         "TAGS" => ["tag 1", "tag 2"]
       },
       "dontSendCredentials" => false
     }
 
-    response = connection.post("#{BASE_URL}/professor", payload.to_json)
+    response = connection.post("#{BASE_URL}/v1/professor", payload.to_json)
 
     if response.success?
       JSON.parse(response.body)['return']
@@ -71,21 +71,21 @@ class EdusignService
   # ------------------------------------------------------STUDENTS------------------------------------------------------
   # ====================================================================================================================
 
-  def add_student(prenom, nom, email, telephone, entreprise, apprenant_id, tags = []) # ---Ajoute un étudiant
+  def add_student(apprenant) # ---Ajoute un étudiant
     payload = {
       "student" => {
-        "FIRSTNAME" => prenom,
-        "LASTNAME" => nom,
-        "EMAIL" => email,
-        "PHONE" => telephone,
-        "COMPANY" => entreprise,
-        "API_ID" => apprenant_id,
+        "FIRSTNAME" => apprenant.prenom,
+        "LASTNAME" => apprenant.nom,
+        "EMAIL" => apprenant.email,
+        "PHONE" => apprenant.telephone,
+        "COMPANY" => apprenant.entreprise.nom,
+        "API_ID" => apprenant.id,
         "TAGS" => ["tag 1", "tag 2"],
         "SEND_EMAIL_CREDENTIALS" => false
       }
     }
 
-    response = connection.post("#{BASE_URL}/student", payload.to_json)
+    response = connection.post("#{BASE_URL}/v1/student", payload.to_json)
 
     if response.success?
       JSON.parse(response.body)['result']
@@ -96,9 +96,9 @@ class EdusignService
   end
 
   def get_a_student(formatik_student_id) # -------------------------------------------------Récupère un étudiant
-    response = connection.get("#{BASE_URL}/student/get-id/#{formatik_student_id}", nil)
+    response = connection.get("#{BASE_URL}/v1/student/get-id/#{formatik_student_id}", nil)
     student_id = JSON.parse(response.body)['result']['ID']
-    response = connection.get("#{BASE_URL}/student/#{student_id}", nil)
+    response = connection.get("#{BASE_URL}/v1/student/#{student_id}", nil)
 
     if response.success?
       JSON.parse(response.body)['result']
@@ -124,7 +124,7 @@ class EdusignService
       }
     }
 
-    response = connection.post("#{BASE_URL}/group", payload.to_json)
+    response = connection.post("#{BASE_URL}/v1/group", payload.to_json)
 
     if response.success?
       JSON.parse(response.body)['result']
@@ -138,25 +138,43 @@ class EdusignService
   # -------------------------------------------------------COURSES------------------------------------------------------
   # ====================================================================================================================
 
-  def create_course(nom, description, date_debut, date_fin, intervenant_id, apprenant_ids = []) # Crée un cours
+  def create_course(session, intervenant, apprenants) # Crée un cours
     payload = {
       "course" => {
-        "NAME" => nom,
-        "DESCRIPTION" => description,
-        "START" => date_debut,
-        "END" => date_fin,
-        "PROFESSOR" => get_a_professor(intervenant_id)["ID"],
-        "SCHOOL_GROUP" => create_group(nom, apprenant_ids)["ID"]
+        "NAME" => session.nom,
+        "DESCRIPTION" => session.programme.description,
+        "START" => session.date_debut,
+        "END" => session.date_fin,
+        "PROFESSOR" => get_a_professor(intervenant.id)["ID"],
+        "SCHOOL_GROUP" => create_group(session.nom, apprenants)["ID"]
       }
     }
 
-    response = connection.post("#{BASE_URL}/course", payload.to_json)
+
+    response = connection.post("#{BASE_URL}/v1/course", payload.to_json)
 
     if response.success?
       puts "Course added successfully"
     else
       error_message = JSON.parse(response.body)['message']
       raise "Failed to add course. Error: #{error_message}"
+    end
+  end
+
+  # ====================================================================================================================
+  # ------------------------------------------------------DOCUMENTS-----------------------------------------------------
+  # ====================================================================================================================
+
+  def get_documents
+    response = connection.get("#{BASE_URL}/v2/documents/templates", nil)
+
+    if response.success?
+      JSON.parse(response.body)
+    else
+      response.status
+      response.body
+      error_message = JSON.parse(response.body)['message']
+      raise "Failed to get documents. Error: #{error_message}"
     end
   end
 end

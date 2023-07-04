@@ -20,6 +20,13 @@ class ApprenantsController < ApplicationController
     end
   end
 
+  def self.edusign_create(apprenant)
+    @apprenant = Apprenant.new(apprenant)
+    if @apprenant.save
+      EdusignService.new.add_student(@apprenant)
+    end
+  end
+
   def edit
   end
 
