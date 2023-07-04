@@ -27,15 +27,24 @@
             flex-wrap: wrap;
             gap: 20px;
             row-gap: 0;
+            position: relative;
 
-            #specialite-input {
-              width: 380px;
-              margin-bottom: 10px;
+            .table-specialite {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 600px;
             }
 
-            .apprenant-table-container {
-              width: 380px;
-            }
+
+            // #specialite-input {
+            //   width: 380px;
+            //   // margin-bottom: 10px;
+            // }
+
+            // .apprenant-table-container {
+            //   width: 380px;
+            // }
 
             input,
             select {

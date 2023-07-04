@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
+import Popover from 'stimulus-popover'
+
 
 // Connects to data-controller="new-session-form"
-export default class extends Controller {
+// POPOVER REPREND LES CARACTERISTIQUES DU CONTROLLER CLASSIQUE
+export default class extends Popover {
   static targets = ['price', 'name', 'startDate', 'endDate', 'rowspecialty', 'outputSpecialty']
 
   connect() {
