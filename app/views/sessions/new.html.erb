@@ -4,36 +4,31 @@
     <%# <div class="session-new-form-container sec-back-plate"> %>
         <h1>Nouvelle session</h1>
 
-        <%= simple_form_for(@session, url: sessions_formation_index_path, html: { class: "session-new-form" }, data: { controller: 'new-session-form' }) do |f| %>
+        <%= simple_form_for(@session, url: sessions_formation_index_path, html: { class: "session-new-form" }, data: { controller: 'new-session-form', action: "click->new-session-form#hidecontext" }) do |f| %>
             <div class="session-new-form-inputs">
                 <%= f.association :programme, label_method: Proc.new { |programme| programme.prix.to_s + "€" + " - " + programme.titre.capitalize }, input_html: { data: { action: 'change->new-session-form#updateInputs' }, id: 'programme-input' } %>
 
 
                 <div class="">
-                  <label class="form-label string optional" for="">Intervenant</label>
-                  <%# <%= f.input :intervenant, type: "text", input_html: { data: { new_session_form_target: "outputSpecialty" }, id: "intervenant-input", placeholder: "Choix d'un intervenant" }%>
-                  <input type="text" data-new-session-form-target="outputSpecialty" id="intervenant-input" placeholder="Choix d'un intervenant">
+                  <div class="mb-3 select required session_programme">
+                    <label class="form-label string optional" for="">Intervenant</label>
+                    <div>
+                      <input type="text" data-new-session-form-target="outputSpecialty" id="intervenant-input" placeholder="Choix d'un intervenant">
+                      <i class="fa-solid fa-magnifying-glass" data-action="mouseenter->new-session-form#show"></i>
+                    </div>
+                  </div>
 
-
-                  <i class="fa-solid fa-magnifying-glass" data-action="mouseenter->new-session-form#show mouseleave->new-session-form#hide"></i>
                   <div >
                     <template data-new-session-form-target="content">
-                      <div class="table-specialite" data-action="click->new-session-form#hide" data-new-session-form-target="card">
-                        <input type="text" data-action="keyup->new-session-form#keywordSearch" placeholder="Recherche d'une spécialité" id="specialite-input">
+                      <div class="table-specialite" data-action="mouseleave->new-session-form#hide" data-new-session-form-target="card">
+                        <input type="text" data-action="keyup->new-session-form#keywordSearch" placeholder="Choix d'un intervenant" >
                         <%= render "intervenants/specialite" %>
                       </div>
                     </template>
                   </div>
+                    <%# RECUPERATION DE L'ID INTERVENANT DANS L'INPUT CACHE POUR CREATION DE SESSION %>
+                <%= f.input :intervenant_id, as: :hidden, input_html: { data: { new_session_form_target: "intervenantid" } } %>
                 </div>
-
-
-                <%# <a href="/profile" data-action="mouseenter->new-session-form#show mouseleave->new-session-form#hide"> Github </a>
-                <template data-new-session-form-target="content">
-                  <div data-new-session-form-target="card">
-                    <p>This content is in a hidden template.</p>
-                  </div>
-                </template> %>
-
 
                 <%= f.input :nom, input_html: { data: { new_session_form_target: 'name' }, id: 'nom-input' } %>
                 <div class="flatpickr-container mb-3 string optional" data-controller="new-session-flatpickr">

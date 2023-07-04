@@ -31,16 +31,27 @@
 
             .table-specialite {
               position: absolute;
-              top: 0;
+              top: 33px;
               left: 0;
-              width: 600px;
+              width: 480px;
+              font-weight: light !important;
+
+              input {
+                height: 35px;
+                width: 480px;
+              }
             }
 
+            i {
+              * {
+                font-weight: 600 !important;
+              }
+            }
 
-            // #specialite-input {
-            //   width: 380px;
-            //   // margin-bottom: 10px;
-            // }
+            #specialite-input {
+              height: 380px;
+              margin-bottom: 10px;
+            }
 
             // .apprenant-table-container {
             //   width: 380px;
@@ -69,6 +80,8 @@
 
             #intervenant-input {
                 width: 220px;
+                height: 35px;
+                padding-left: 10px;
             }
 
             #programme-input {
