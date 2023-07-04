@@ -14,15 +14,17 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
     <% end %>
-
     <%= f.input :password,
+                label: "Nouveau mot de passe",
                 hint: "Laissez vide si vous ne souhaitez pas changer de mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                label: "Confirmation du mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
+                label: "Mot de passe actuel",
                 hint: "Nous avons besoin de votre ancien mot de passe pour confirmer le changement",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
