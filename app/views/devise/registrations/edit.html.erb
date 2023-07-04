@@ -34,7 +34,7 @@
     <%= f.button :submit, "Mettre à jour", class: "btn-prim" %>
     <div><br>
     <%= link_to "Retour", :back, class: "btn-prim" %>
-    <%= link_to "Supprimer votre compte ?", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-prim" %>
+    <%= link_to "Supprimer votre compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr ?", turbo_confirm: "Etes-vous sûr ?" }, method: :delete, class: "btn-prim" %>
     </div>
   </div>
 <% end %>

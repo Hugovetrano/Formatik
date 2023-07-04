@@ -187,6 +187,17 @@
             font-size: 1.4rem;
             text-decoration: none;
             border-radius: $medium-radius;
+            opacity: .75;
+            transition: .2s ease;
+
+            &:hover {
+                padding: 8px 12px 8px 12px;
+                border: solid 1px $pri-color;
+                font-size: 1.4rem;
+                text-decoration: none;
+                border-radius: $medium-radius;
+                opacity: 1;
+            }
         }
     }
 }

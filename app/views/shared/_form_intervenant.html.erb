@@ -3,7 +3,7 @@
 <%# <% else %>
   <%# <h1>Nouvelle fiche intervenant</h1>
 <% end %>
-
+<div class="form-inputs">
 <%= simple_form_for(@intervenant) do |f| %>
   <%= f.input :prenom %>
   <%= f.input :nom %>
@@ -16,11 +16,13 @@
   <%= f.input :siret %>
   <%= f.input :tarif %>
   <%= f.input :photo, as: :file %>
+</div>
 
-
+<div class="form-actions">
   <% if @intervenant.valid? %>
-    <span><%= f.submit "Mettre à jour la fiche" %></span>
+    <%= f.submit "Mettre à jour la fiche", class: "btn-prim" %>
   <% else %>
-    <span><%= f.submit "Créer l'intervenant" %></span>
+    <%= f.submit "Créer l'intervenant", class: "btn-prim" %>
   <% end %>
 <% end %>
+</div>
