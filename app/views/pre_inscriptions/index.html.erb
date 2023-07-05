@@ -1,0 +1,31 @@
+<%= render "shared/header", text: "Inscriptions en attente" %>
+<div class="annuaire sec-back-plate" data-controller="mesdonnees-search-bar">
+  <div data-controller="liste-apprenant" class="mesdonnees-all-container" id="myTable">
+    <input type="text" data-action="keyup->mesdonnees-search-bar#filterTable" placeholder="Recherche...">
+    <div data-liste-apprenant-target="apprenant" class="mesdonnees-apprenant">
+      <div class="apprenant-index">
+        <div class="apprenant-table-container">
+          <div class="apprenant-table-container-scrollable">
+            <table>
+              <thead>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Session</th>
+              </thead>
+              <tbody>
+                <% @preinscriptions.order(:created_at).each do |preinscription| %>
+                    <tr data-link="sessions/<%= preinscription.session.id %>/preinscriptions/<%= preinscription.id %>" data-mesdonnees-search-bar-target="row" data-action="click->mesdonnees-search-bar#clicked">
+                      <td><%= preinscription.nom %></td>
+                      <td><%= preinscription.prenom %></td>
+                      <td><%= preinscription.session.nom %></td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>

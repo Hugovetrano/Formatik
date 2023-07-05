@@ -2,6 +2,7 @@
 
 .navbar {
   // -------------------- Navbar item
+  flex: 0 0 auto;
   height: 100%;
   width : $navbar-width;
   background-color: $white;
@@ -142,4 +143,30 @@
       object-fit: cover;
     }
   }
+}
+
+.pending-inscriptions-number-navbar {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 1px;
+  border-radius: 50%;
+  background-color: $red;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+
+  p {
+      margin: 0;
+      padding: 0;
+      color: $white;
+      font-weight: 600;
+      font-size: 0.7rem;
+  }
+}
+
+.div-inscription-navbar {
+  display: flex
 }
