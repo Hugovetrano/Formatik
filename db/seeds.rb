@@ -660,7 +660,7 @@ sessions.each do |session|
     inscription = {
       session_id: session.id,
       apprenant_id: Apprenant.order("RANDOM()").first.id,
-      parcoursadmin_id: Parcoursadmin.create!().id
+      parcoursadmin_id: Parcoursadmin.create!({devis_envoye: true}).id
     }
     inscription = Inscription.create!(inscription)
     puts "Created Inscription for #{inscription.apprenant.prenom} #{inscription.apprenant.nom}"
@@ -691,7 +691,7 @@ session_test = Session.create!(
   inscription = {
     session_id: session_test.id,
     apprenant_id: Apprenant.order("RANDOM()").first.id,
-    parcoursadmin_id: Parcoursadmin.create!.id
+    parcoursadmin_id: Parcoursadmin.create!({devis_envoye: true}).id
   }
   Inscription.create!(inscription)
 

@@ -6,6 +6,10 @@ fr:
     abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Janv, Févr, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
+  simple_calendar:
+    previous: "Precedent"
+    next: "Suivant"
+    week: "Semaine"
     order:
       - :day
       - :month
@@ -97,4 +101,8 @@ fr:
   activerecord:
     attributes:
       user:
-        email: "Courriel: "
+        email: "Courriel"
+        password: 'Mot de passe'
+        remember_me: "Se souvenir de moi"
+        sign_up: 'Inscription'
+        forgot_password: "Mot de passe oublié ?"
