@@ -13,7 +13,7 @@
                     <li><%= link_to 'Intervenants', intervenants_path, class: "#{'color-active' if current_page?(intervenants_path)}" %></li>
                     <li><%= link_to 'Apprenants', apprenants_path, class: "#{'color-active' if current_page?(apprenants_path)}" %></li>
                     <li><%= link_to 'Annuaire', mesdonnees_path, class: "#{'color-active' if current_page?(mesdonnees_path)}" %></li>
-                    <li><%= link_to 'La veille', "https://www.formalerte.com" %></li>
+                    <li><%= link_to 'La veille', "https://www.formalerte.com", target: '_blank' %></li>
                 </ul>
             <% end %>
         </div>
