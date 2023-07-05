@@ -16,3 +16,135 @@
     background-color: #e2e1e1;
   }
 }
+
+.apprenants {
+  margin: -20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.apprenants-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+
+.card-apprenants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.card-apprenant-maxi {
+  //width: 450px;
+  //height: 450px;
+  background-color: $white;
+
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  width: 22em;
+  //justify-content: space-around;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+  align-items: center;
+}
+
+.card-apprenant-mini {
+  //width: 500px;
+  //height: auto;
+  background-color: $white;
+
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+  align-items: center;
+}
+
+.card-apprenant-img {
+  align-self: center;
+  padding: 10px;
+  clip-path:ellipse(35% 35%);
+
+  .fa-solid {
+    color: $pri-color;
+    font-size: 60px;
+    line-height: 10px;
+  }
+}
+
+.card-apprenant-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-self: center;
+  align-items: left;
+}
+
+.card-apprenant-txt-center {
+  align-self: center;
+}
+
+.btn-apprenant {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.btn-apprenant-block {
+  display: block;
+  text-align: center;
+}
+
+.card-apprenant-session {
+  width: 800px;
+  background-color: $white;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  flex-grow: 1;
+  border-radius: $medium-radius;
+  border: 1px solid $black;
+
+  a {
+    text-decoration: none;
+    color: $sec-color;
+    font-size: 1.2rem;
+  }
+
+
+  .calendar-title {
+    color: $pri-color;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid $pri-color;
+    height: 50px;
+    text-align: center;
+  }
+
+
+  th {
+    color: $pri-color;
+    width: 400px;
+  }
+}

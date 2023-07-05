@@ -1,35 +1,53 @@
 <%= render "shared/header", text: "Nos apprenants :" %>
 <div class="yield-container">
-  <div class="apprenant-show">
-    <h1><%= @apprenant.prenom %> <%= @apprenant.nom %></h1>
-    <p><%= @apprenant.email %></p>
-    <p><%= @apprenant.telephone %></p>
-    <p><%= @apprenant.profession %></p>
-    <p><%= @apprenant.adresse_facturation %></p>
-    <p><%= @apprenant.ville %></p>
-    <p><%= @apprenant.code_postal %></p>
-    <p><%= @apprenant.niveau_etude %></p>
-    <p><%= @apprenant.entreprise.nom %></p>
+  <div class="apprenants">
+  <div class="apprenants-title">
+    <h1>Fiche apprenant</h1>
+    <%= link_to "Retour à la liste des apprenants", apprenants_path, class: "btn-sec" %>
+  </div>
+
+<div class="card-global-calendar">
+  <div class="card-apprenant-mini">
+    <div class="card-apprenant-txt-center">
+      <h1><%= @apprenant.prenom %> <%= @apprenant.nom %></h1><br>
+    </div>
+      <div class="card-apprenant-txt">
+        <p><strong>Mail : </strong><%= @apprenant.email %></p>
+        <p><strong>Tel : </strong><%= @apprenant.telephone %></p>
+        <p><strong>Profession : </strong><%= @apprenant.profession %></p>
+        <p><strong>Adresse de facturation : </strong><%= @apprenant.adresse_facturation %></p>
+        <p><strong>Ville : </strong><%= @apprenant.ville %></p>
+        <p><strong>Code postal : </strong><%= @apprenant.code_postal %></p>
+        <p><strong>Niveau d'étude : </strong><%= @apprenant.niveau_etude %></p>
+        <p><strong>Entreprise : </strong><%= @apprenant.entreprise.nom %></p>
+      <div class="btn-apprenant">
+        <%= link_to "Mettre à jour la fiche", edit_apprenant_path(@apprenant), class: "btn-prim btn-intervenant-block" %>
+        <%= link_to "Supprimer l'apprenant", apprenant_path(@apprenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off btn-intervenant-block" %>
+      </div>
+      </div>
+  </div>
+
+  <div class="card-apprenant-session">
+  <h1>Prochaines sessions de formations :</h1><br>
     <table>
       <thead>
+        <th>Nom</th>
         <th>Début</th>
         <th>Fin</th>
-        <th>Nom</th>
         <th>Prix</th>
       </thead>
       <tbody>
         <% Inscription.where(apprenant_id: @apprenant.id).each do |inscription| %>
           <tr>
-            <td><%= inscription.session.date_debut.strftime("%d %B %Y") %></td>
-            <td><%= inscription.session.date_fin.strftime("%d %B %Y") %></td>
             <td><%= inscription.session.nom %></td>
+            <td><%= I18n.l(inscription.session.date_debut, format: "%A %e %B %Y") %></td>
+            <td><%= I18n.l(inscription.session.date_fin, format: "%A %e %B %Y") %></td>
             <td><%= inscription.session.prix %>€</td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <%= link_to "Modifier", edit_apprenant_path(@apprenant) %>
-    <%= link_to "Supprimer", apprenant_path(@apprenant), data: { turbo_method: :delete, turbo_confirm: "Vraiment supprimer cet apprenant ?" } %>
-
   </div>
 </div>
+<p></p>
+<br><br>
