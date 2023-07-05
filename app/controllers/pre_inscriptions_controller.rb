@@ -2,7 +2,7 @@ class PreInscriptionsController < ApplicationController
     skip_before_action :authenticate_user!, only: %i[indexsessions new create confirmation]
 
     def index
-      @preinscriptions = PreInscription.all
+        @preinscriptions = PreInscription.all
     end
 
     def indexsessions
@@ -45,8 +45,8 @@ class PreInscriptionsController < ApplicationController
     end
 
     def check_preinscription
-      new_preinscriptions = PreInscription.where("created_at > ?", 30.seconds.ago).count
-      render json: { newPreinscriptions: new_preinscriptions }
+        new_preinscriptions = PreInscription.where("created_at > ?", 30.seconds.ago).count
+        render json: { newPreinscriptions: new_preinscriptions }
     end
 
     private
