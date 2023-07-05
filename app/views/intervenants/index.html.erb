@@ -9,24 +9,25 @@
 
     <div class="card-intervenants">
       <% @intervenants.each do |intervenant| %>
-      <div class="card-intervenant-maxi">
-        <div class="card-intervenant-img">
+        <div class="card-intervenant-maxi">
           <% if intervenant.photo.key %>
-            <%= cl_image_tag intervenant.photo.key, width: 200, height: 200 %>
+          <div class="card-intervenant-img">
+              <%= cl_image_tag intervenant.photo.key, width: 200, height: 200 %>
+          </div>
           <% else %>
+          <div class="card-intervenant-i">
             <i class="fa-solid fa-user-tie"></i>
+          </div>
           <% end %>
+          <div class="card-intervenant-txt">
+            <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
+            <p><strong>Specialité</strong> : <%= intervenant.specialite %></p>
+          </div>
+          <div class="btn-intervenant">
+            <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim btn-intervenant-block" %>
+            <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off btn-intervenant-block" %>
+          </div>
         </div>
-        <div class="card-intervenant-txt">
-          <h2><%= intervenant.prenom.capitalize %> <%= intervenant.nom.capitalize %></h2>
-          <p><strong>Tel</strong> : <%= intervenant.telephone %></p>
-          <p><strong>Mail</strong> : <%= intervenant.email %></p>
-        </div>
-        <div class="btn-intervenant">
-          <%= link_to "Voir la fiche", intervenant_path(intervenant), class: "btn-prim btn-intervenant-block" %>
-          <%= link_to "Supprimer l'intervenant", intervenant_path(intervenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off btn-intervenant-block" %>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>
