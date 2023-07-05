@@ -47,14 +47,13 @@
   color: $white;
   font-weight: 600;
   background-color: $pri-color;
+  border: solid 3px $pri-color;
   border-radius: 25px;
   transition: 0.5s;
 }
 
 .btn-sec:hover {
   color: $sec-color;
-  margin: 5px;
-  padding: 10px;
   text-decoration: none;
   background-color: $white;
   border: solid 3px $sec-color;
