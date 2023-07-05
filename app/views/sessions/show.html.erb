@@ -49,7 +49,7 @@
             <h1>Inscriptions<span class="pending-inscriptions"> <i><%= "(#{PreInscription.where(session_id: @session.id).length} en attente)" %></i></span></h1>
             <% preinscriptions_number = PreInscription.where(session_id: @session.id).length %>
             <% if preinscriptions_number == 1 %>
-                <%= link_to "Voir la pré-inscriptions", session_pre_inscriptions_path(@session) %>
+                <%= link_to "Voir la pré-inscription", session_pre_inscriptions_path(@session) %>
             <% elsif preinscriptions_number > 1 %>
                 <%= link_to "Voir les #{preinscriptions_number} pré-inscriptions", session_pre_inscriptions_path(@session) %>
             <% end %>
