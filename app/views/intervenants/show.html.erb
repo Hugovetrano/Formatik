@@ -33,7 +33,6 @@
 
 
     <div class="card-intervenant-calendar">
-    <%# ajout de attribute: :date_debut car different du parametrage initial de la gem %>
       <%= month_calendar(events: @sessions.where(intervenant_id: @intervenant.id), attribute: :date_debut, end_attribute: :date_fin) do |date, sessions| %>
         <%= date.strftime("%d-%m") %>
         <% sessions.each do |session| %>
