@@ -14,7 +14,14 @@ Parcoursadmin.destroy_all
 Programme.destroy_all
 User.destroy_all
 puts "============Creating Apprenants & Entreprises...============"
-
+entreprise = {
+  nom: "Particulier",
+  siret: "N/A"
+}
+entreprise = Entreprise.create!(entreprise)
+entreprise.id = 1
+entreprise.save
+puts "------Entreprise #{entreprise.nom}------"
 puts "============Creating HUGOVedusign apprenant...============"
 entreprise = {
   nom: Faker::Company.name,
@@ -119,14 +126,7 @@ xxx.save!
 
 # --------------------------------ENTREPRISES----------------------------------
 
-entreprise = {
-  nom: "Particulier",
-  siret: "N/A"
-}
-entreprise = Entreprise.create!(entreprise)
-entreprise.id = 1
-entreprise.save
-puts "------Entreprise #{entreprise.nom}------"
+
 
 x = 0
 while x < 5
