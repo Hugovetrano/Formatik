@@ -9,7 +9,7 @@ export default class extends Controller {
     // Enregistre le nom de la colonne et l'ID pour les utiliser plus tard
     this.columnName = event.target.getAttribute('data-show-session-edit-column-value');
     this.sessionId = event.target.getAttribute('data-show-session-edit-id-value');
-  
+
     // Determine la classe CSS de l'input basée sur le nom de la colonne
     let inputClass = "";
     if (this.columnName === 'adresse') {
