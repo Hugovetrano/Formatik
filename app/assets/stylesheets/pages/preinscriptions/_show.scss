@@ -21,6 +21,12 @@
             max-width: 500px;
         }
 
+        .preinscription-preinscription-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .preinscription-apprenant-forms-details {
 
             form {
@@ -96,6 +102,7 @@
     .preinscription-forms-details {
         p {
             margin-block: 10px;
+            margin-left: 45px;
             font-size: 1.4rem;
         }
     }

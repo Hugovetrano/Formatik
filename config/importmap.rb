@@ -13,3 +13,4 @@ pin "moment-timezone", to: "https://ga.jspm.io/npm:moment-timezone@0.5.43/index.
 pin "stimulus-popover", to: "https://ga.jspm.io/npm:stimulus-popover@6.2.0/dist/stimulus-popover.mjs"
 pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@2.15.0/dist/mapbox-gl.js"
 pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js"
+pin "chartjs", to: "https://ga.jspm.io/npm:chartjs@0.3.24/chart.js"

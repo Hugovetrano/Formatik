@@ -124,6 +124,8 @@ entreprise = {
   siret: "N/A"
 }
 entreprise = Entreprise.create!(entreprise)
+entreprise.id = 1
+entreprise.save
 puts "------Entreprise #{entreprise.nom}------"
 
 x = 0
@@ -145,7 +147,7 @@ while x < 5
       genre: ["Homme", "Femme"].sample,
       prenom: name,
       nom: surname,
-      email: "#{name}.#{surname}@gmail.com",
+      email: "#{name.gsub(" ","-")}.#{surname.gsub(" ","-")}@gmail.com",
       telephone: Faker::PhoneNumber.cell_phone,
       profession: Faker::Job.title,
       adresse_facturation: Faker::Address.street_address,
@@ -257,7 +259,7 @@ file = File.open("db/image/photo4.jpg")
 intervenant = {
   prenom: "Laurent",
   nom: "Marty",
-  email: "laurentt.marty@gmail.com",
+  email: "laurent.marty@gmail.com",
   telephone: "0601020304",
   adresse: Faker::Address.street_address,
   code_postal: Faker::Address.zip_code,
@@ -306,7 +308,7 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
-intervenant.id =
+intervenant.id = 106
 intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
@@ -472,9 +474,9 @@ puts "Created #{programme.titre}"
 # ---------------------------------SESSIONS-------------------------------------
 puts "============Creating Sessions & Inscriptions...============"
 
-date_one = Time.parse('Mon, 03 Jul 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Mon, 10 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 07 Jul 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Thu, 13 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 programmes = Programme.all
 intervenants = Intervenant.all
@@ -497,9 +499,9 @@ session_edusign.save!
 # EdusignService.new.create_course(session_edusign, intervenant, apprenants)
 
 
-date_one = Time.parse('Mon, 10 Jul 2023 09:00:00.000000000 CEST +02:00')
+date_one = Time.parse('Mon, 17 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Thu, 13 Jul 2023 17:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 21 Jul 2023 17:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 @programme = programmes.sample
@@ -658,7 +660,7 @@ sessions.each do |session|
     inscription = {
       session_id: session.id,
       apprenant_id: Apprenant.order("RANDOM()").first.id,
-      parcoursadmin_id: Parcoursadmin.create!().id
+      parcoursadmin_id: Parcoursadmin.create!({devis_envoye: true}).id
     }
     inscription = Inscription.create!(inscription)
     puts "Created Inscription for #{inscription.apprenant.prenom} #{inscription.apprenant.nom}"
@@ -668,6 +670,7 @@ sessions.each do |session|
 end
 
 # SESSION 2 TEST PAS ASSEZ D'APPRENANTS
+
 # date_one = Time.parse('Thu, 06 Jul 2023 09:00:00.000000000 CEST +02:00')
 # timestamp_one = date_one.to_i
 # date_two = Time.parse('Fri, 07 Jul 2023 12:00:00.000000000 CEST +02:00')

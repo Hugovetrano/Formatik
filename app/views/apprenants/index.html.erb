@@ -1,28 +1,30 @@
 <%= render "shared/header", text: "Apprenants" %>
 <div class="yield-container">
-<div class="apprenant-index">
-  <h1>Liste des apprenants</h1>
-  <div class="apprenant-table-container">
-    <div class="apprenant-table-container-scrollable">
-      <table>
-        <thead>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Profession</th>
-          <th>Entreprise</th>
-        </thead>
-        <tbody>
-          <% Apprenant.all.each do |apprenant| %>
-              <tr data-link="<%= apprenant_path(apprenant)%>">
-                <td><%= apprenant.nom %></td>
-                <td><%= apprenant.prenom %></td>
-                <td><%= apprenant.profession %></td>
-                <td><%= apprenant.entreprise.nom %></td>
-              </tr>
-          <% end %>
-        </tbody>
-      </table>
-  </div>
+<div class="intervenants">
+<div class="intervenants-title">
+        <%= link_to "Ajouter un nouvel apprenant", new_apprenant_path, class: "intervenant-new-cta" %>
+    </div>
+
+
+    <div class="card-intervenants">
+      <% @apprenants.each do |apprenant| %>
+      <div class="card-intervenant-maxi">
+        <div class="card-intervenant-txt-center">
+          <h2><%= apprenant.prenom.capitalize %> <%= apprenant.nom.capitalize %></h2><br>
+        </div>
+          <div class="card-apprenant-txt">
+          <p><strong>Tel</strong> : <%= apprenant.telephone %></p>
+          <p><strong>Mail</strong> : <%= apprenant.email %></p>
+        </div>
+        <div class="btn-intervenant">
+          <%= link_to "Voir la fiche", apprenant_path(apprenant), class: "btn-prim btn-intervenant-block" %>
+          <%= link_to "Supprimer l'apprenant", apprenant_path(apprenant), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"}, class: "btn-off btn-intervenant-block" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 </div>
+</div>
+<br><br>
