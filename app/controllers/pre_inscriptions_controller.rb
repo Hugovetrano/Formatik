@@ -47,7 +47,7 @@ class PreInscriptionsController < ApplicationController
     end
 
     def check_preinscription
-        new_preinscriptions = PreInscription.where("created_at > ?", 30.seconds.ago).count
+        new_preinscriptions = PreInscription.where("created_at > ?", 5.seconds.ago).count
         render json: { newPreinscriptions: new_preinscriptions }
     end
 
