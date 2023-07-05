@@ -27,6 +27,11 @@ class SessionsController < ApplicationController
 
     def show
         @session = Session.find(params[:id])
+        @markers = Session.where(id: params[:id]).geocoded.map do |session| {
+            lat: session.latitude,
+            lng: session.longitude
+          }
+        end
     end
 
     def update
@@ -59,16 +64,16 @@ class SessionsController < ApplicationController
     private
 
     def json_for_dates(column_name, new_value)
-        "<p class='show-session-details-items'>
-            <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
-            data-show-session-flatpickr-column-value='#{column_name.to_s}'
-            data-controller='show-session-flatpickr'></i>
-            #{column_name.include?('debut') ?
-                "Du #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
-                :
-                "Au #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
-            }
-        </p>"
+        "<span class='show-session-details-items'>
+        #{column_name.include?('debut') ?
+        "Du #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
+        :
+        "au #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
+      }
+      <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
+      data-show-session-flatpickr-column-value='#{column_name.to_s}'
+      data-controller='show-session-flatpickr'></i>
+        </span>"
     end
 
 

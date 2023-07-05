@@ -1,0 +1,12 @@
+<div class="session-index-calendar sec-back-plate sec-back-plate-modify" data-controller="index-session-calendar-toggle">
+        <div class="index-session-over-calendar">
+            <%= month_calendar(events: [@session], attribute: :date_debut, end_attribute: :date_fin, title: :hidden, previous_link: :hidden, next_link: :hidden) do |date, sessions| %>
+              <%= date.strftime("%e") %> <%= t('date.month_names')[date.month] %>
+              <% sessions.each do |session| %>
+                <div class="meeting">
+                  <p><%= link_to session.nom, sessions_formation_path(session) %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      </div>

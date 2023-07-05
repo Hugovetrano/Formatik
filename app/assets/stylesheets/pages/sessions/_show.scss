@@ -7,7 +7,30 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 35px;
+    margin: 60px !important;
 
+    .text-black {
+      color: $black;
+      font-weight: 500;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+    .inline-p {
+      display: flex;
+      gap: 5px;
+      font-size: medium;
+    }
+    .mapbox {
+      border-radius: $medium-radius;
+      width: 400px;
+      height: 300px;
+    }
+
+    .session-info-flex {
+      display: flex;
+    }
     .session-show-inscriptions-header {
         width: 100%;
         display: flex;
@@ -38,15 +61,37 @@
             }
         }
     }
+    .session-index-calendar {
+      width: 60% !important;
+    }
 
+    .show-session-details {
+      margin-left: 50px;
+      margin-top: 30px;
+      color: black
+    }
     .session-show-details-container {
         color: $pri-color;
-
-        width: 1200px;
+        display: flex;
+        padding: 30px;
+        width: 700px;
+        margin-right: 48px;
 
         i {
             cursor: pointer;
+            color: rgba(220, 220, 220, 0.411);
+            transition: 0.3s ease;
         }
+
+        p:hover {
+          i {
+            color: $pri-color;
+          }
+        }
+
+        // .decallage-margin {
+        //   margin-left: -20px !important;
+        // }
 
         .fsize-inter {
             font-size: 1.2rem;
@@ -86,7 +131,6 @@
 
     .session-show-apprenants-container {
         width: 1200px;
-
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -119,5 +163,45 @@
                 margin-top: 15px;
             }
         }
+    }
+    .calendar-heading {
+      display: none !important;
+    }
+    .sec-back-plate-modify {
+      table {
+        font-size: 10px
+      }
+
+      td {
+        max-width: 52px !important;
+        max-height: 32.5px !important;
+      }
+    }
+
+    .meeting {
+      align-content: center;
+      justify-content: center;
+      a {
+        color: $white;
+        font-weight: bold;
+        text-decoration: none !important;
+      }
+
+      p {
+        font-size: 10px;
+        text-decoration: none !important;
+        margin: 0 !important;
+      }
+      padding: 10px 10px;
+      border-radius: $little-radius;
+      background: $sec-color;
+      opacity: 70%;
+      transition: background 0.3s ease;
+    }
+
+    .meeting:hover {
+      // background: $pri-color;
+      opacity: 100%;
+      color: $white;
     }
 }

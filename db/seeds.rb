@@ -479,12 +479,13 @@ timestamp_two = date_two.to_i
 programmes = Programme.all
 intervenants = Intervenant.all
 
+@programme = programmes.sample
 intervenant = intervenants.sample
 session_edusign = Session.create!({
                                     date_debut: Time.at(timestamp_one).to_datetime,
                                     date_fin: Time.at(timestamp_two).to_datetime,
-                                    nom: "Business Intelligence et Data Visualization",
-                                    programme_id: programmes.sample.id,
+                                    nom: @programme.titre,
+                                    programme_id: @programme.id,
                                     intervenant_id: intervenant.id,
                                     prix: 6700,
                                     adresse: "Lyon"
@@ -501,11 +502,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Thu, 13 Jul 2023 17:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 session_test = Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Data analyst",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 5540,
                   adresse: "Saint-Hilaire-Cusson-La-Valmitte"
@@ -517,11 +519,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Fri, 04 Aug 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Développement d'Applications Mobiles",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 5400,
                   adresse: "Paris"
@@ -533,11 +536,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Tue, 25 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Analyse des Réseaux Sociaux",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 600,
                   adresse: "Biarritz"
@@ -549,11 +553,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Fri, 11 Aug 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Business Intelligence et Data Visualization",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 6700,
                   adresse: "Lyon"
@@ -565,11 +570,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Fri, 11 Aug 2023 12:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Marketing Digital",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 2500,
                   adresse: "Paris"
@@ -581,11 +587,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Wed, 09 Aug 2023 17:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Data analyst",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 5540,
                   adresse: "Saint-Hilaire-Cusson-La-Valmitte"
@@ -597,11 +604,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Fri, 04 Aug 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Développement d'Applications Mobiles",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 5400,
                   adresse: "Paris"
@@ -613,11 +621,12 @@ timestamp_one = date_one.to_i
 date_two = Time.parse('Fri, 28 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
+@programme = programmes.sample
 Session.create!({
                   date_debut: Time.at(timestamp_one).to_datetime,
                   date_fin: Time.at(timestamp_two).to_datetime,
-                  nom: "Analyse des Réseaux Sociaux",
-                  programme_id: programmes.sample.id,
+                  nom: @programme.titre,
+                  programme_id: @programme.id,
                   intervenant_id: intervenants.sample.id,
                   prix: 600,
                   adresse: "Biarritz"
@@ -659,32 +668,32 @@ sessions.each do |session|
 end
 
 # SESSION 2 TEST PAS ASSEZ D'APPRENANTS
-date_one = Time.parse('Thu, 06 Jul 2023 09:00:00.000000000 CEST +02:00')
-timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 07 Jul 2023 12:00:00.000000000 CEST +02:00')
-timestamp_two = date_two.to_i
+# date_one = Time.parse('Thu, 06 Jul 2023 09:00:00.000000000 CEST +02:00')
+# timestamp_one = date_one.to_i
+# date_two = Time.parse('Fri, 07 Jul 2023 12:00:00.000000000 CEST +02:00')
+# timestamp_two = date_two.to_i
 
-session_test = Session.create!(
-  {
-    date_debut: Time.at(timestamp_one).to_datetime,
-    date_fin: Time.at(timestamp_two).to_datetime,
-    nom: "Marketing Digital",
-    programme_id: programmes.sample.id,
-    intervenant_id: intervenants.sample.id,
-    prix: 2500,
-    adresse: "Paris"
-    }
-)
+# session_test = Session.create!(
+#   {
+#     date_debut: Time.at(timestamp_one).to_datetime,
+#     date_fin: Time.at(timestamp_two).to_datetime,
+#     nom: "Marketing Digital",
+#     programme_id: programmes.sample,
+#     intervenant_id: intervenants.sample.id,
+#     prix: 2500,
+#     adresse: "Paris"
+#     }
+# )
 
-3.times do
-  inscription = {
-    session_id: session_test.id,
-    apprenant_id: Apprenant.order("RANDOM()").first.id,
-    parcoursadmin_id: Parcoursadmin.create!.id
-  }
-  Inscription.create!(inscription)
+# 3.times do
+#   inscription = {
+#     session_id: session_test.id,
+#     apprenant_id: Apprenant.order("RANDOM()").first.id,
+#     parcoursadmin_id: Parcoursadmin.create!.id
+#   }
+#   Inscription.create!(inscription)
 
-end
+# end
 
 # -------------------------------USER ADMIN-----------------------------------
 file = File.open("db/image/HugoP.jpg")

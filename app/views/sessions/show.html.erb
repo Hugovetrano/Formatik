@@ -1,47 +1,63 @@
 <%= render "shared/header", text: "Aperçu session" %>
-<div class="session-show-container yield-container">
-    <div class="session-show-details-container sec-back-plate">
-        <h1>Session#<%= @session.id %></h1>
-
-        <div class="show-session-details">
-            <%# PROGRAMME %>
-            <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
+<div class="session-show-container">
+    <div class="session-info-flex">
+        <div class="session-show-details-container sec-back-plate">
+          <div class="session-show-info">
+            <h1 class="show-session-details-items strong" data-controller="show-session-edit">
                 <%= @session.programme.titre %>
-            </p>
+            </h1>
+
+            <div class="show-session-details">
+            <%# PROGRAMME %>
 
             <%# INTERVENANT %>
-            <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
-                Assurée par <%= link_to "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}", intervenant_path(@session.intervenant) %>
-            </p>
+            <div class="inline-p">
+              <p class="fsize-inter"><strong>Session#<%= @session.id %></strong></p>
+              <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
+                  Assurée par <%= link_to "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}", intervenant_path(@session.intervenant) %>
+              </p>
+            </div>
 
             <%# DATES %>
-            <p id="session-date_debut-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <%# <i class="fa-solid fa-pencil"></i> %>
-                <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr">Du <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></span>
-            </p>
-            <p id="session-date_fin-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <%# <i class="fa-solid fa-pencil"></i> %>
-                <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr">Au <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %></span>
-            </p>
+              <div class="inline-p">
+                <p id="session-date_debut-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                    <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr"><span class="text-black">Du</span> <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></span>
+                    <i class="fa-solid fa-pencil"></i>
+                </p>
+                <p id="session-date_fin-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                    <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_fin" data-controller="show-session-flatpickr"><span class="text-black">au</span> <%= @session.date_fin.strftime("%d/%m/%y %Hh%M") %></span>
+                    <i class="fa-solid fa-pencil"></i>
+                </p>
+              </div>
 
-            <%# NOM %>
-            <p id="session-nom-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <%# <i class="fa-solid fa-pencil"></i> %>
-                <span data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.nom %></span>
-            </p>
+              <%# NOM %>
+              <p id="session-nom-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                  <span data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.nom %></span>
+                  <i class="fa-solid fa-pencil"></i>
+              </p>
 
-            <%# PRIX %>
-            <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <%# <i class="fa-solid fa-pencil"></i> %>
-                <span data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.prix %>€</span>
-            </p>
+              <%# PRIX %>
+              <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                  <span data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.prix %>€</span>
+                  <i class="fa-solid fa-pencil"></i>
+              </p>
 
-            <%# ADRESSE %>
-            <p id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                <%# <i class="fa-solid fa-pencil"></i> %>
-                <span data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.adresse %></span>
-            </p>
+              <%# ADRESSE %>
+              <p id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                  <span data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.adresse %></span>
+                  <i class="fa-solid fa-pencil"></i>
+              </p>
+            </div>
+          </div>
+      </div>
+
+      <div class="sec-back-plate map">
+        <div class="mapbox"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+      </div>
     </div>
 
     <div class="session-show-apprenants-container sec-back-plate">
@@ -115,4 +131,5 @@
             </div>
         <% end %>
     </div>
+
 </div>
