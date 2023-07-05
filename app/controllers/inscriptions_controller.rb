@@ -1,7 +1,7 @@
 class InscriptionsController < ApplicationController
     def create
         @inscription = Inscription.new(inscription_params)
-        @inscription.parcoursadmin = Parcoursadmin.create
+        @inscription.parcoursadmin = Parcoursadmin.create({devis_envoye: true})
         if @inscription.save
             PreInscription.where(email: @inscription.apprenant.email).destroy_all
             redirect_to sessions_formation_path(inscription_params[:session_id])

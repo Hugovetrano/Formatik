@@ -16,56 +16,16 @@
         <div class="preinscription-preinscription-form preinscriptions-forms-item sec-back-plate">
             <h1>Formulaire de pré-inscription</h1>
             <div class="preinscription-forms-details">
-                <% if @preinscription.prenom == @apprenant.prenom %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.nom == @apprenant.nom %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.email == @apprenant.email %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.profession == @apprenant.profession %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.adresse_facturation == @apprenant.adresse_facturation %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.code_postal == @apprenant.code_postal %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.ville == @apprenant.ville %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.telephone == @apprenant.telephone %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.niveau_etude == @apprenant.niveau_etude %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
-                <% if @preinscription.genre == @apprenant.genre %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %> <i class="fa-regular fa-circle-check green"></i></p>
-                <% else %>
-                    <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %> <i class="fa-regular fa-circle-xmark red"></i></p>
-                <% end %>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %></p>
+                <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %></p>
             </div>
         </div>
         <div class="preinscription-apprenant-form preinscriptions-forms-item sec-back-plate">
