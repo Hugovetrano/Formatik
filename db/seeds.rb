@@ -119,6 +119,13 @@ xxx.save!
 
 # --------------------------------ENTREPRISES----------------------------------
 
+entreprise = {
+  nom: "Particulier",
+  siret: "N/A"
+}
+entreprise = Entreprise.create!(entreprise)
+puts "------Entreprise #{entreprise.nom}------"
+
 x = 0
 while x < 5
   entreprise = {
