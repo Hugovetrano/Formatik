@@ -14,19 +14,18 @@
     <% end %>
     <div class="preinscriptions-forms-container">
         <div class="preinscription-preinscription-form preinscriptions-forms-item sec-back-plate">
-            <h1>Formulaire de pré-inscription</h1>
+            <h1>Pré-inscription</h1>
             <div class="preinscription-forms-details">
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.prenom.capitalize %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.nom.upcase %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.email %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.profession %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.adresse_facturation %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.code_postal %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.ville %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.telephone %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.niveau_etude %></p>
-                <p class="preinscription-forms-details-paragraph"><%= @preinscription.genre %></p>
-            </div>
+                <p class="preinscription-forms-details-paragraph"><%= @civilite %> <strong><%= "#{@preinscription.nom.upcase} #{@preinscription.prenom.capitalize}" %></strong></p>
+                <p class="preinscription-forms-details-paragraph">Niveau d'étude : <strong><%= "#{@preinscription.niveau_etude}" %></strong></p>
+                <p class="preinscription-forms-details-paragraph">Profession actuelle : <strong><%= "#{@preinscription.profession}" %></strong></p>
+                <p class="preinscription-forms-details-paragraph"><strong><%= @preinscription.adresse_facturation %></strong></p>
+                <p class="preinscription-forms-details-paragraph"><strong><%= @preinscription.code_postal %></strong></p>
+                <p class="preinscription-forms-details-paragraph"><strong><%= @preinscription.ville %></strong></p>
+                <p class="preinscription-forms-details-paragraph"><strong><%= @preinscription.telephone %></strong></p>
+                <p class="preinscription-forms-details-paragraph"><strong><%= @preinscription.email %></strong></p>
+                </div>
+            <p class="preinscription-details">Fiche de pré inscription reçue le <%= I18n.l(@preinscription.created_at, format: "%A %e %B à %Hh%M") %> pour la session de <strong><%= @session.programme.titre %></strong> du <strong><%= "#{I18n.l(@session.date_debut, format: "%A %e %B %Y")}" %></strong></p>
         </div>
         <div class="preinscription-apprenant-form preinscriptions-forms-item sec-back-plate">
             <% if @apprenant_exist %>

@@ -21,6 +21,8 @@ class PreInscriptionsController < ApplicationController
 
     def show
         @preinscription = PreInscription.find(params[:id])
+        @session = Session.find(@preinscription.session_id)
+        @civilite = @preinscription.genre == 'Homme' ? 'Mr' : 'Mme'
         if Apprenant.find_by_email(@preinscription.email)
             @apprenant_exist = true
             @apprenant = Apprenant.find_by_email(@preinscription.email)
