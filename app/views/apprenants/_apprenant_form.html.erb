@@ -2,30 +2,33 @@
 
     <div class="new-preinscription-recap-session">
         <div class="preinscription-form sec-back-plate">
-<%= simple_form_for(@apprenant, url: apprenant_path(@apprenant)) do |f|%>
-            <div class="preinscription-form-nom-prenom-genre">
-                <span class="preinscription-form-input"><%= f.input :nom %></span>
-                <span class="preinscription-form-input"><%= f.input :prenom %></span>
-                <span class="preinscription-form-input"><%= f.label :genre %><%= f.select :genre, ['Homme', 'Femme'] %></span>
-            </div>
-            <div class="preinscription-form-telephone-email">
-                <span class="preinscription-form-input"><%= f.input :email %></span>
-                <span class="preinscription-form-input"><%= f.input :telephone %></span>
-            </div>
-            <div class="preinscription-form-profession-niveau-etude">
-                <span class="preinscription-form-input"><%= f.input :profession %></span>
-                <span class="preinscription-form-input"><%= f.input :niveau_etude, as: :select, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'] %>
-                </span>
-            </div>
-            <%= f.input :adresse_facturation %>
-            <div class="preinscription-form-code-postale-ville">
-                <span class="preinscription-form-input"><%= f.input :code_postal %></span>
-                <span class="preinscription-form-input"><%= f.input :ville %></span>
-            </div>
-            <%# <%= f.association :entreprise, collection: Entreprise.pluck(:nom, :id) %>
-            <p></p>
-            <%= f.submit "Modifier", class: "btn-apprenant-center"%>
-            <% end %>
+            <%= simple_form_for(@apprenant, url: new_apprenant_path(@apprenant)) do |f|%>
+                <div class="preinscription-form-nom-prenom-genre">
+                    <span class="preinscription-form-input"><%= f.input :nom %></span>
+                    <span class="preinscription-form-input"><%= f.input :prenom %></span>
+                    <span class="preinscription-form-input"><%= f.label :genre %><%= f.select :genre, ['Homme', 'Femme'] %></span>
+                </div>
+                <div class="preinscription-form-telephone-email">
+                    <span class="preinscription-form-input"><%= f.input :email %></span>
+                    <span class="preinscription-form-input"><%= f.input :telephone %></span>
+                </div>
+                <div class="preinscription-form-profession-niveau-etude">
+                    <span class="preinscription-form-input"><%= f.input :profession %></span>
+                    <span class="preinscription-form-input"><%= f.input :niveau_etude, as: :select, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'] %>
+                    </span>
+                </div>
+                <%= f.input :adresse_facturation %>
+                <div class="preinscription-form-code-postale-ville">
+                    <span class="preinscription-form-input"><%= f.input :code_postal %></span>
+                    <span class="preinscription-form-input"><%= f.input :ville %></span>
+                </div>
+                <p></p>
+                <% if @apprenant.valid? %>
+                    <%= f.submit "Modifier", class: "btn-apprenant-center" %>
+                <% else %>
+                    <%= f.submit "Créer l'apprenant", class: "btn-apprenant-center" %>
+                <% end %>
+                <% end %>
         </div>
     </div>
 </div>

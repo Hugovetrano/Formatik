@@ -145,7 +145,7 @@ while x < 5
       genre: ["Homme", "Femme"].sample,
       prenom: name,
       nom: surname,
-      email: "#{name.gsub( ,-)}.#{surname.gsub( ,-)}@gmail.com",
+      email: "#{name.gsub(" ","-")}.#{surname.gsub(" ","-")}@gmail.com",
       telephone: Faker::PhoneNumber.cell_phone,
       profession: Faker::Job.title,
       adresse_facturation: Faker::Address.street_address,
@@ -306,7 +306,7 @@ intervenant = {
   tarif: rand(100..500),
 }
 intervenant = Intervenant.create!(intervenant)
-intervenant.id =
+intervenant.id = 106
 intervenant.save!
 intervenant.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
 
