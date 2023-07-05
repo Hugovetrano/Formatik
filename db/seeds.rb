@@ -147,7 +147,7 @@ while x < 5
       genre: ["Homme", "Femme"].sample,
       prenom: name,
       nom: surname,
-      email: "#{name}.#{surname}@gmail.com",
+      email: "#{name.gsub( ,-)}.#{surname.gsub( ,-)}@gmail.com",
       telephone: Faker::PhoneNumber.cell_phone,
       profession: Faker::Job.title,
       adresse_facturation: Faker::Address.street_address,
@@ -259,7 +259,7 @@ file = File.open("db/image/photo4.jpg")
 intervenant = {
   prenom: "Laurent",
   nom: "Marty",
-  email: "laurentt.marty@gmail.com",
+  email: "laurent.marty@gmail.com",
   telephone: "0601020304",
   adresse: Faker::Address.street_address,
   code_postal: Faker::Address.zip_code,

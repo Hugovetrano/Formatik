@@ -3,26 +3,34 @@
 <%# <% else %>
   <%# <h1>Nouvelle fiche intervenant</h1>
 <% end %>
+<div class="new-preinscription-container">
+<div class="new-preinscription-recap-session">
+<div class="preinscription-form sec-back-plate">
 <div class="form-inputs">
-<%= simple_form_for(@intervenant) do |f| %>
-  <%= f.input :prenom %>
-  <%= f.input :nom %>
-  <%= f.input :adresse %>
-  <%= f.input :code_postal %>
-  <%= f.input :ville %>
-  <%= f.input :telephone %>
-  <%= f.input :email %>
-  <%= f.input :num_da %>
-  <%= f.input :siret %>
-  <%= f.input :tarif %>
-  <%= f.input :photo, as: :file %>
-</div>
-
+  <%= simple_form_for(@intervenant) do |f| %>
+    <div class="preinscription-form-input">
+      <%= f.input :prenom %>
+      <%= f.input :nom %>
+      <%= f.input :adresse %>
+      <%= f.input :code_postal %>
+      <%= f.input :ville %>
+      <%= f.input :telephone %>
+      <%= f.input :email %>
+      <%= f.input :num_da %>
+      <%= f.input :siret %>
+      <%= f.input :tarif %>
+      <%= f.input :photo, as: :file %>
+    </div>
+<br>
 <div class="form-actions">
   <% if @intervenant.valid? %>
-    <%= f.submit "Mettre à jour la fiche", class: "btn-prim" %>
+    <%= f.submit "Modifier", class: "btn-prim" %>
   <% else %>
     <%= f.submit "Créer l'intervenant", class: "btn-prim" %>
   <% end %>
 <% end %>
 </div>
+</div>
+</div>
+</div>
+<p></p>
