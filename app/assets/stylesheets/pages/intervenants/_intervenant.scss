@@ -2,7 +2,7 @@
   margin: -20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   padding-right: 40px;
   padding-left: 40px;
 }
@@ -54,16 +54,27 @@
   align-items: center;
 }
 
+.card-intervenant-i {
+  font-size: 146px;
+  margin-top: 33px;
+  margin-bottom: 38px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    color: $pri-color;
+  }
+}
+
 .card-intervenant-img {
   align-self: center;
   padding: 10px;
   clip-path:ellipse(35% 35%);
 
-  .fa-solid {
-    color: $pri-color;
-    font-size: 60px;
-    line-height: 10px;
-  }
+
 }
 
 .card-intervenant-txt {

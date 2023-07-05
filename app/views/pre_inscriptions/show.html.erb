@@ -46,7 +46,7 @@
                         <%= f.input :code_postal, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-7' }, input_html: { data: { create_inscription_from_preinscription_target: 'codePostal' } } %>
                         <%= f.input :ville, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-8' }, input_html: { data: { create_inscription_from_preinscription_target: 'ville' } } %>
                         <%= f.input :niveau_etude, as: :select, include_blank: false, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'], disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-9' }, input_html: { data: { create_inscription_from_preinscription_target: 'niveauEtude' } } %>
-                        <%= f.association :entreprise, include_blank: false, collection: Entreprise.pluck(:nom, :id), selected: 0, wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
+                        <%= f.association :entreprise, include_blank: false, collection: Entreprise.pluck(:nom, :id), wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
                         <%= f.submit "Mettre à jour les informations" %>
                     <% end %>
                 <% else %>
@@ -60,7 +60,7 @@
                         <%= f.input :code_postal, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-7' }, input_html: { data: { create_inscription_from_preinscription_target: 'codePostal' } } %>
                         <%= f.input :ville, disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-8' }, input_html: { data: { create_inscription_from_preinscription_target: 'ville' } } %>
                         <%= f.input :niveau_etude, as: :select, include_blank: false, collection: ['Sans diplome', 'CAP', 'BEP', 'BAC', 'BAC +1', 'BAC +2', 'BAC +3', 'Supérieur à BAC +3'], disabled: false, wrapper_html: { id: 'preinscription-apprenant-form-input-9' }, input_html: { data: { create_inscription_from_preinscription_target: 'niveauEtude' } } %>
-                        <%= f.association :entreprise, include_blank: true, collection: Entreprise.pluck(:nom, :id), selected: 0, wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
+                        <%= f.association :entreprise, collection: Entreprise.pluck(:nom, :id), selected: 1, wrapper_html: { id: 'preinscription-apprenant-form-input-10' }, input_html: { data: { create_inscription_from_preinscription_target: 'entrepriseId' } } %>
                         <%= f.submit "Ajouter l'apprenant" %>
                     <% end %>
                 <% end %>
