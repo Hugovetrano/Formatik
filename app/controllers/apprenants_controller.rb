@@ -39,6 +39,7 @@ class ApprenantsController < ApplicationController
 
   def update
     if @apprenant.update(apprenant_params)
+      @apprenant.update(apprenant_params)
       redirect_to apprenant_path(@apprenant)
     else
       render :edit
