@@ -5,20 +5,52 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  .graphe {
-    width: auto;
+  .dashboard-series {
+    display: flex;
+    gap: 20px;
+    width: 1150px;
   }
-  // #CAChart {
-  //   width: 30vw;
-  //   height: 30vh;
+
+  .grapheCA {
+    width: 65%;
+  }
+
+  .grapheprog {
+    flex-grow:1;
+  }
+
+  .grapheclients {
+    flex-grow:1;
+  }
+
+  // .graphe:nth-child(3) {
+  //   width: 55%;
   // }
 
-  // #TopProg {
-  //   width: 20vw;
-  //   height: 20vh;
-  // }
+  #next-session {
+    font-size: 1rem;
+    width: 55%;
+
+    .next-session-name {
+      padding: 7px;
+      margin: 7px;
+      border-bottom: solid rgba(140, 140, 140, 0.4) 1px;
+    }
+
+    .dashboard-participants {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    p {
+      line-height: 0.6;
+    }
+
+    h4 {
+      font-size: 17px;
+      font-weight: 600;
+    }
 }
-.dashboard-participants {
-  display: flex;
-  justify-content: space-between;
+
+
 }
