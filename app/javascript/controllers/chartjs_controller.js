@@ -6,6 +6,7 @@ export default class extends Controller {
     console.log("hello")
     this.grapheca();
     this.topprog();
+    this.topclients();
   }
   // GRAPHE CA ANNUEL
 
@@ -35,7 +36,7 @@ export default class extends Controller {
     });
   }
 
-  // TOP 5 PROGRAMMES
+  // ALL PROGRAMMES
   topprog () {
     // APPEL DE LA METHODE DS LE CONTROLLER RUBY PROGRAMMES
     const url = '/programmes/getprogrammes'
@@ -68,8 +69,78 @@ export default class extends Controller {
             ],
             hoverOffset: 20
           }]
-      }
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Répartition CA / programme'
+          }
+        }
+      },
     });
     }
+
+
+
+
+    topclients () {
+      const url = '/entreprises/getentreprises'
+
+      let dataset = {};
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          dataset = data
+          this.#displayentreprises(dataset);
+        })
+      }
+
+      #displayentreprises(dataset) {
+
+      const div = document.getElementById("topclients");
+      const ctx = div.getContext('2d');
+      const topclients = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: dataset['nom'],
+        datasets: [{
+          label: 'Top 3 clients',
+          data: dataset['ca'],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          borderColor: 'rgba(91, 192, 248, 0.6)',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: "Top 3 clients"
+        }
+        }
+        }
+    });
+  }
+
+
 
 }
