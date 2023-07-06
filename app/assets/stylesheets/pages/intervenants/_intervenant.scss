@@ -2,7 +2,7 @@
   margin: -20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   padding-right: 40px;
   padding-left: 40px;
 }
@@ -18,9 +18,9 @@
 .card-intervenants {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 40px;
 }
 
 .card-intervenant-maxi {
@@ -29,7 +29,7 @@
   background-color: $white;
 
   padding: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   width: 22em;
@@ -45,7 +45,7 @@
   background-color: $white;
 
   padding: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -54,16 +54,27 @@
   align-items: center;
 }
 
+.card-intervenant-i {
+  font-size: 146px;
+  margin-top: 33px;
+  margin-bottom: 38px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    color: $pri-color;
+  }
+}
+
 .card-intervenant-img {
   align-self: center;
   padding: 10px;
-  clip-path:ellipse(35% 35%);
+  clip-path: ellipse(35% 35%);
 
-  .fa-solid {
-    color: $pri-color;
-    font-size: 60px;
-    line-height: 10px;
-  }
+
 }
 
 .card-intervenant-txt {
@@ -89,7 +100,45 @@
 }
 
 .btn-intervenant-block {
-  display: block;
-  text-align: center;
-}
+  padding: 8px 12px 8px 12px;
+  border: solid 1px $pri-color;
+  color: $pri-color;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: $medium-radius;
+  opacity: .75;
+  transition: .2s ease;
 
+  &:first-child {
+    background-color: $pri-color;
+    color: $white;
+    opacity: .7;
+  }
+
+  &:nth-child(2) {
+    border: solid 1px $red;
+    padding: 4px 8px 4px 8px;
+    color: $red;
+    opacity: .7;
+    font-size: .9rem;
+
+    &:hover {
+      background-color: red;
+      border: solid 1px $white;
+      padding: 4px 8px 4px 8px;
+      color: $white;
+      font-size: .9rem;
+      opacity: .7 !important;
+    }
+  }
+
+  &:hover {
+    padding: 8px 12px 8px 12px;
+    border: solid 1px $pri-color;
+    text-decoration: none;
+    border-radius: $medium-radius;
+    opacity: 1;
+    background-color: $pri-color;
+    color: $white;
+  }
+}

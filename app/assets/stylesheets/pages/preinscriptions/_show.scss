@@ -9,6 +9,12 @@
     margin-bottom: 75px;
     gap: 35px;
 
+    .valider-inscription-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .preinscriptions-forms-container {
         display: flex;
         gap: 55px;
@@ -19,6 +25,12 @@
 
         div {
             max-width: 500px;
+        }
+
+        .preinscription-preinscription-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .preinscription-apprenant-forms-details {
@@ -96,6 +108,7 @@
     .preinscription-forms-details {
         p {
             margin-block: 10px;
+            margin-left: 45px;
             font-size: 1.4rem;
         }
     }

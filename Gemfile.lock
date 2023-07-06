@@ -130,6 +130,7 @@ GEM
     flatpickr (4.6.11.0)
     font-awesome-sass (6.4.0)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   faraday (~> 2.7, >= 2.7.9)
   flatpickr (~> 4.6)
   font-awesome-sass (~> 6.1)
+  geocoder
   httparty
   i18n
   importmap-rails

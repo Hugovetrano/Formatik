@@ -12,7 +12,7 @@
                 <div class="">
                   <div class="mb-3 select required session_programme">
                     <label class="form-label string optional" for="">Intervenant</label>
-                    <div>
+                    <div data-action="mouseenter->new-session-form#show">
                       <input type="text" data-new-session-form-target="outputSpecialty" id="intervenant-input" placeholder="Choix d'un intervenant">
                       <i class="fa-solid fa-magnifying-glass" data-action="mouseenter->new-session-form#show"></i>
                     </div>
@@ -44,4 +44,3 @@
         <% end %>
     <%# </div> %>
 </div>
-<p></p>

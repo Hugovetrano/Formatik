@@ -84,3 +84,9 @@ th {
 .bg-grey {
     background-color: $grey;
 }
+
+.disabled {
+    pointer-events:none;
+    background-color: $grey !important;
+    border-color: $black !important;
+}

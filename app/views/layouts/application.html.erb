@@ -22,14 +22,14 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function() {
-        setInterval(checkForNewPreinscriptions, 30000); // 30 secondes
+        setInterval(checkForNewPreinscriptions, 5000); // 30 secondes
 
         function checkForNewPreinscriptions() {
           console.log("Checking for new Preinscriptions...");
@@ -50,6 +50,8 @@
         }
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
 
   <body class="colorback">

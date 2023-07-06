@@ -1,7 +1,14 @@
-<%= render "shared/header", text: "Je suis la home" %>
+<%= render "shared/header", text: "Tableau de bord" %>
 <div class="yield-container">
+  <div class="dashboard" data-controller="chartjs">
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+    <div class="sec-back-plate ">
+      <canvas id="CAChart" style="height:40vh; width:60vw" data-action="chartjs#connect"></canvas>
+    </div>
 
+    <div class="sec-back-plate ">
+      <canvas id="TopProg" style="height:40vh; width:60vw" data-action="chartjs#connect"></canvas>
+    </div>
+
+  </div>
 </div>

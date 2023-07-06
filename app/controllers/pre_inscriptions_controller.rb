@@ -21,12 +21,15 @@ class PreInscriptionsController < ApplicationController
 
     def show
         @preinscription = PreInscription.find(params[:id])
+        @session = Session.find(@preinscription.session_id)
+        @civilite = @preinscription.genre == 'Homme' ? 'Mr' : 'Mme'
         if Apprenant.find_by_email(@preinscription.email)
             @apprenant_exist = true
             @apprenant = Apprenant.find_by_email(@preinscription.email)
             @inscription = Inscription.new(apprenant_id: @apprenant.id, session_id: params[:session_id])
         else
             @apprenant = Apprenant.new(@preinscription.as_json.reject { |k| k == "session_id" || k == "created_at" || k == "updated_at" })
+            @inscription = Inscription.new
         end
     end
 
@@ -45,7 +48,7 @@ class PreInscriptionsController < ApplicationController
     end
 
     def check_preinscription
-        new_preinscriptions = PreInscription.where("created_at > ?", 30.seconds.ago).count
+        new_preinscriptions = PreInscription.where("created_at > ?", 5.seconds.ago).count
         render json: { newPreinscriptions: new_preinscriptions }
     end
 

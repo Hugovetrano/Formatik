@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "sessions#index"
+  root to: "pages#dashboard"
 
   resources :entreprises
   resources :apprenants
   post '/apprenants/update_by_mail', to: 'apprenants#update_by_mail'
   resources :intervenants
   resources :sessions, as: :sessions_formation
+  get "/programmes/getprogrammes", to: 'programmes#getprogrammes'
   resources :programmes
   resources :parcoursadmins, except: %i[new edit destroy]
   resources :inscriptions
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
   get "sessions/:session_id/preinscriptions/:id", to: "pre_inscriptions#show", as: :pre_inscription
   post "/preinscriptions/sessions/:session_id", to: "pre_inscriptions#create", as: :create_pre_inscriptions
   get '/pre_inscription/check_preinscriptions', to: 'pre_inscriptions#check_preinscription'
+<<<<<<< HEAD
   get "/landing", to: "pages#landingpage"
+=======
+>>>>>>> bd0cab8019d1121aeeb19fba16b535e18e114083
 
 end
