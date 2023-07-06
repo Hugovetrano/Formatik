@@ -1,52 +1,46 @@
 <%= render "shared/header", text: "Tableau de bord" %>
 <div class="yield-container">
+
   <div class="dashboard" data-controller="chartjs">
 
-    <div class="sec-back-plate graphe">
-      <canvas id="CAChart"  data-action="chartjs#connect"></canvas>
-    </div>
-
-    <div class="sec-back-plate graphe">
-      <canvas id="TopProg"  data-action="chartjs#connect"></canvas>
-    </div>
-
-    <div class="sec-back-plate graphe">
-      <canvas id="topclients"  data-action="chartjs#connect"></canvas>
-    </div>
-  </div>
-
-
-
-  <div class="sec-back-plate graphe">
-      <div>
-        <h2>Prochaine session : <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></h2>
-        <p> <%= @programme %> animé par <%= @intervenant %></p>
+    <div class="dashboard-series">
+      <div class="sec-back-plate grapheCA">
+        <canvas id="CAChart"  data-action="chartjs#connect"></canvas>
       </div>
-      <div class="dashboard-participants">
-        <div>
-          <h3>Participants confirmés</h3>
-          <ul><% @participants_confirmes.each do |participant_confirme| %>
-          <li><%= participant_confirme.apprenant.nom %></li>
-          <% end %>
-          </ul>
+
+      <div class="sec-back-plate grapheprog">
+        <canvas id="TopProg"  data-action="chartjs#connect"></canvas>
+      </div>
+    </div>
+
+
+    <div class="dashboard-series">
+      <div class="sec-back-plate graphe" id="next-session">
+        <div class="next-session-name">
+          <h3>Prochaine session : <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></h3>
+          <p> <%= @programme %> animé par <%= @intervenant %></p>
         </div>
-        <div>
-          <h3>Participants non confirmés</h3>
-          <ul><% @non_participants.each do |non_participant| %>
-          <li><%= non_participant.apprenant.nom %></li>
-          <% end %>
-          </ul>
+        <div class="dashboard-participants">
+          <div>
+            <h4>Participants confirmés</h4>
+            <ul><% @participants_confirmes.each do |participant_confirme| %>
+            <P><%= participant_confirme.apprenant.nom %> <%= participant_confirme.apprenant.nom %></P>
+            <% end %>
+            </ul>
+          </div>
+          <div>
+            <h4>Participants non confirmés</h4>
+            <ul><% @non_participants.each do |non_participant| %>
+            <P><%= non_participant.apprenant.nom %> <%= non_participant.apprenant.prenom %></P>
+            <% end %>
+            </ul>
+          </div>
         </div>
       </div>
 
-
-
+      <div class="sec-back-plate grapheclients">
+        <canvas id="topclients"  data-action="chartjs#connect"></canvas>
+      </div>
+    </div>
   </div>
-
-
-
-
 </div>
-
-<%# style="height:40vh; width:60vw"
-style="height:40vh; width:40vw" %>
