@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @session = Session.new(session_params)
-        if @session.save
+        @session = Session.create!(session_params)
+        if @session.nom != nil
             redirect_to sessions_formation_path(@session)
         else
             render :new, status: :unprocessable_entity
