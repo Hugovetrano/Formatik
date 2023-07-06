@@ -518,7 +518,7 @@ session_test = Session.create!({
 
 date_one = Time.parse('Mon, 24 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 04 Aug 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 26 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 @programme = programmes.sample
@@ -586,7 +586,7 @@ Session.create!({
 
 date_one = Time.parse('Thu, 03 Aug 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Wed, 09 Aug 2023 17:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Wed, 04 Aug 2023 17:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 @programme = programmes.sample
@@ -601,9 +601,10 @@ Session.create!({
                 }
 )
 
+
 date_one = Time.parse('Mon, 24 Jul 2023 09:00:00.000000000 CEST +02:00')
 timestamp_one = date_one.to_i
-date_two = Time.parse('Fri, 04 Aug 2023 18:00:00.000000000 CEST +02:00')
+date_two = Time.parse('Fri, 28 Jul 2023 18:00:00.000000000 CEST +02:00')
 timestamp_two = date_two.to_i
 
 @programme = programmes.sample
