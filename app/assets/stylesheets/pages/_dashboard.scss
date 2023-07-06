@@ -1,6 +1,24 @@
 .dashboard {
   margin: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
+
+  .graphe {
+    width: auto;
+  }
+  // #CAChart {
+  //   width: 30vw;
+  //   height: 30vh;
+  // }
+
+  // #TopProg {
+  //   width: 20vw;
+  //   height: 20vh;
+  // }
+}
+.dashboard-participants {
+  display: flex;
+  justify-content: space-between;
 }

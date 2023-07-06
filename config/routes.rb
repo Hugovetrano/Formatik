@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#dashboard"
 
+  get "/entreprises/getentreprises", to: 'entreprises#getentreprises'
   resources :entreprises
   resources :apprenants
   post '/apprenants/update_by_mail', to: 'apprenants#update_by_mail'

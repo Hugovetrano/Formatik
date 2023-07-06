@@ -2,13 +2,51 @@
 <div class="yield-container">
   <div class="dashboard" data-controller="chartjs">
 
-    <div class="sec-back-plate ">
-      <canvas id="CAChart" style="height:40vh; width:60vw" data-action="chartjs#connect"></canvas>
+    <div class="sec-back-plate graphe">
+      <canvas id="CAChart"  data-action="chartjs#connect"></canvas>
     </div>
 
-    <div class="sec-back-plate ">
-      <canvas id="TopProg" style="height:40vh; width:60vw" data-action="chartjs#connect"></canvas>
+    <div class="sec-back-plate graphe">
+      <canvas id="TopProg"  data-action="chartjs#connect"></canvas>
     </div>
+
+    <div class="sec-back-plate graphe">
+      <canvas id="topclients"  data-action="chartjs#connect"></canvas>
+    </div>
+  </div>
+
+
+
+  <div class="sec-back-plate graphe">
+      <div>
+        <h2>Prochaine session : <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></h2>
+        <p> <%= @programme %> animé par <%= @intervenant %></p>
+      </div>
+      <div class="dashboard-participants">
+        <div>
+          <h3>Participants confirmés</h3>
+          <ul><% @participants_confirmes.each do |participant_confirme| %>
+          <li><%= participant_confirme.apprenant.nom %></li>
+          <% end %>
+          </ul>
+        </div>
+        <div>
+          <h3>Participants non confirmés</h3>
+          <ul><% @non_participants.each do |non_participant| %>
+          <li><%= non_participant.apprenant.nom %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+
+
 
   </div>
+
+
+
+
 </div>
+
+<%# style="height:40vh; width:60vw"
+style="height:40vh; width:40vw" %>
