@@ -202,7 +202,7 @@ file = File.open("db/image/photo1.jpg")
 intervenant = {
   prenom: "Eric",
   nom: "Jacquet",
-  email: "ericc.jacquet@gmail.com",
+  email: "eric.jacquet@gmail.com",
   telephone: Faker::Base.numerify('06########'),
   adresse: Faker::Address.street_address,
   code_postal: Faker::Address.zip_code,
