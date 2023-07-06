@@ -6,17 +6,17 @@
             <h1 class="show-session-details-items strong" data-controller="show-session-edit">
                 <%= @session.programme.titre %>
             </h1>
-
-            <div class="show-session-details">
-            <%# PROGRAMME %>
-
-            <%# INTERVENANT %>
             <div class="inline-p">
               <p class="fsize-inter"><strong>Session#<%= @session.id %></strong></p>
               <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
                   Assurée par <%= link_to "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}", intervenant_path(@session.intervenant) %>
               </p>
             </div>
+
+            <div class="show-session-details">
+            <%# PROGRAMME %>
+
+            <%# INTERVENANT %>
 
             <%# DATES %>
               <div class="inline-p">
@@ -75,56 +75,62 @@
                 <p class="apprenant-name"><%= "#{inscription.apprenant.prenom.capitalize} #{inscription.apprenant.nom.capitalize}" %></p>
                 <div class="parcours-admin-details">
                     <p class="parcours-admin-steps">
-                    Devis envoyé
                     <% if inscription.parcoursadmin.devis_envoye %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Devis envoyé</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b; opacity: 0.5;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Devis envoyé
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                     <hr>
                     <p class="parcours-admin-steps">
-                    Devis validé
                     <% if inscription.parcoursadmin.devis_valide %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Devis validé</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Devis validé
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                     <hr>
                     <p class="parcours-admin-steps">
-                    Contrat envoyé
                     <% if inscription.parcoursadmin.contrat_envoye %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Contrat envoyé</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Contrat envoyé
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                     <hr>
                     <p class="parcours-admin-steps">
-                    Contrat signé
                     <% if inscription.parcoursadmin.contrat_signe %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Contrat signé</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Contrat signé
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                     <hr>
                     <p class="parcours-admin-steps">
-                    Convocation envoyée
                     <% if inscription.parcoursadmin.convocation_envoye %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Convocation envoyée</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Convocation envoyée
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                     <hr>
                     <p class="parcours-admin-steps">
-                    Émargement
                     <% if inscription.parcoursadmin.emargement %>
-                        <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
+                      <span class="non-validé">Émargement</span>
+                      <i class="fa-regular fa-circle-check" style="color: #46af5b;"></i>
                     <% else %>
-                        <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
+                      Émargement
+                      <i class="fa-regular fa-circle-xmark" style="color: #c23d3d;"></i>
                     <% end %>
                     </p>
                 </div>
@@ -133,4 +139,3 @@
     </div>
 
 </div>
-<p></p>
