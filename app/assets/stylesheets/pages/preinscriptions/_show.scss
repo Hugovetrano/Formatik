@@ -9,6 +9,12 @@
     margin-bottom: 75px;
     gap: 35px;
 
+    .valider-inscription-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .preinscriptions-forms-container {
         display: flex;
         gap: 55px;

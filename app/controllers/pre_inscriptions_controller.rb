@@ -29,6 +29,7 @@ class PreInscriptionsController < ApplicationController
             @inscription = Inscription.new(apprenant_id: @apprenant.id, session_id: params[:session_id])
         else
             @apprenant = Apprenant.new(@preinscription.as_json.reject { |k| k == "session_id" || k == "created_at" || k == "updated_at" })
+            @inscription = Inscription.new
         end
     end
 
