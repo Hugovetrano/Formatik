@@ -6,20 +6,7 @@
             <h1 class="show-session-details-items strong" data-controller="show-session-edit">
                 <%= @session.programme.titre %>
             </h1>
-            <div class="inline-p">
-              <p class="fsize-inter"><strong>Session#<%= @session.id %></strong></p>
-              <p class="show-session-details-items fsize-inter" data-controller="show-session-edit">
-                  Assurée par <%= link_to "#{@session.intervenant.nom.upcase} #{@session.intervenant.prenom.capitalize}", intervenant_path(@session.intervenant) %>
-              </p>
-            </div>
-
-            <div class="show-session-details">
-            <%# PROGRAMME %>
-
-            <%# INTERVENANT %>
-
-            <%# DATES %>
-              <div class="inline-p">
+              <div class="inline-p session-text">
                 <p id="session-date_debut-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
                     <span data-show-session-flatpickr-id-value="<%= @session.id %>" data-show-session-flatpickr-column-value="date_debut" data-controller="show-session-flatpickr"><span class="text-black">Du</span> <%= @session.date_debut.strftime("%d/%m/%y %Hh%M") %></span>
                     <i class="fa-solid fa-pencil"></i>
@@ -29,24 +16,56 @@
                     <i class="fa-solid fa-pencil"></i>
                 </p>
               </div>
+            <hr class="separator">
 
-              <%# NOM %>
-              <p id="session-nom-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                  <span data-show-session-edit-column-value="nom" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.nom %></span>
-                  <i class="fa-solid fa-pencil"></i>
-              </p>
+            <div class="show-session-details">
+            <%# PROGRAMME %>
+
+            <%# INTERVENANT %>
+
+            <%# DATES %>
+              <div class="mini-info">
+
+
+
+                <div class="sec-back-plate grosse-plate">
+                  <div class="price">
+                    <p>Prix: </p>
+                    <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                      <span class="final-class" data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.prix %>€</span>
+                      <i class="fa-solid fa-pencil"></i>
+                    </p>
+                  </div>
+
+                  <div class="city">
+                  <p>Lieu: </p>
+                    <p  id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
+                        <span class="final-class" data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><span class="text-black"></span><%= @session.adresse %></span>
+                        <i class="fa-solid fa-pencil"></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="sec-back-plate intervenant">
+                  <div class="card-intervenant-img">
+                    <% if @session.intervenant.photo.key %>
+                      <%= cl_image_tag @session.intervenant.photo.key, width: 50, height: 50 %>
+                    <% else %>
+                      <i class="fa-solid fa-user-tie"></i>
+                    <% end %>
+                  </div>
+                  <div class="intervenant-name">
+                      <%= link_to intervenant_path(@session.intervenant) do %>
+                      <%= @session.intervenant.nom.upcase %> <%= @session.intervenant.prenom.capitalize %>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+
 
               <%# PRIX %>
-              <p id="session-prix-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                  <span data-show-session-edit-column-value="prix" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.prix %>€</span>
-                  <i class="fa-solid fa-pencil"></i>
-              </p>
+
 
               <%# ADRESSE %>
-              <p id="session-adresse-<%= @session.id %>" class="show-session-details-items" data-controller="show-session-edit">
-                  <span data-show-session-edit-column-value="adresse" data-show-session-edit-id-value="<%= @session.id %>"  data-action="click->show-session-edit#openEdit"><%= @session.adresse %></span>
-                  <i class="fa-solid fa-pencil"></i>
-              </p>
             </div>
           </div>
       </div>

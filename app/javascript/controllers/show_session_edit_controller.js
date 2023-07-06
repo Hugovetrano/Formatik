@@ -23,6 +23,7 @@ export default class extends Controller {
     // affiche l'élément input avec la classe CSS appropriée
     this.element.insertAdjacentHTML('beforeend', `<input type='text' class='${inputClass}' data-action='blur->show-session-edit#updateDetails keyup.enter->show-session-edit#updateDetails'>`);
     this.inputElement = this.element.querySelector('input');
+    this.element.querySelector('i').classList.add('d-none');
     this.inputElement.value = this.spanElement.innerText.includes("€") ? this.spanElement.innerText.replace("€", "") : this.spanElement.innerText;
     this.inputElement.focus();
   }
@@ -46,6 +47,7 @@ export default class extends Controller {
         if (data.status === 'ok') {
           // supprime l'input
           this.inputElement.remove();
+          this.element.querySelector('i').classList.remove('d-none');
 
           // met à jour le texte de l'élément span et l'affiche
           this.spanElement.innerHTML = data.new_line;
