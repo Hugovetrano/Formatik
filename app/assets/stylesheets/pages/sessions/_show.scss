@@ -8,31 +8,106 @@
     flex-wrap: wrap;
     gap: 35px;
     margin: 60px !important;
+    .widthintervenant {
+      display: flex;
+    }
+    .grosse-plate {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: 82px !important;
+      padding: 0px  !important;
+      .final-class {
+        font-weight: lighter;
+      }
+    }
+    .intervenant-name {
+      a {
+        margin-top: 10px !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
+      }
+    }
+    .blablabla {
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-info {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      p {
+        font-weight: bold;
+        margin: 0;
+      }
+      .sec-back-plate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .city {
+        display: flex;
+        gap: 10px;
+      }
 
+      .price {
+        display: flex;
+        gap: 10px;
+      }
+      .intervenant {
+        height: 82px;
+        width: 50% !important;
+        padding: 5px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          margin-left: 0px !important;
+        }
+      }
+
+    }
+    table {
+      width: 100% !important;
+      margin: 0 !important;
+    }
     .text-black {
       color: $black;
       font-weight: 550;
     }
-
+    .separator {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 15px 15px;
+      margin-top: 0px;
+    }
+    .session-text {
+      font-size: 15px !important;
+    }
     .non-validé {
-      color: rgba(128, 128, 128, 0.598);
+      color: rgba(171, 171, 171, 0.598);
     }
     .strong {
       font-weight: bold;
     }
     .inline-p {
       display: flex;
+      justify-content: center;
       gap: 5px;
       font-size: medium;
+
     }
     .mapbox {
       border-radius: $medium-radius;
       width: 400px;
       height: 100%;
     }
-
     .session-info-flex {
       display: flex;
+      justify-content: center;
+      width: 100% !important;
     }
     .session-show-inscriptions-header {
         width: 100%;
@@ -69,13 +144,14 @@
     }
 
     .show-session-details {
-
-      margin-top: 30px;
+      width: 100%;
+      margin-top: 20px;
       color: black
     }
     .session-show-details-container {
         color: $pri-color;
         display: flex;
+        justify-content: center;
         padding: 30px;
         width: 650px;
         margin-right: 48px;
@@ -104,28 +180,37 @@
                 margin-bottom: 0;
             }
         }
-
+        .text-intervenant {
+          color: black;
+          font-size: 12px;
+          text-align: center;
+          margin-top: -15px  !important;
+        }
         .input-long {
-            width: 450px;
+            width: 100px;
             outline: none;
             border: none;
+            border-bottom: dashed 1px $pri-color;
         }
 
         .input-short {
             width: 100px;
             outline: none;
             border: none;
+            border-bottom: dashed 1px $pri-color;
         }
 
         .input-medium {
             width: 325px;
             outline: none;
             border: none;
+            border-bottom: dashed 1px $pri-color;
         }
 
     }
 
     .show-session-details-items {
+      color: black;
         &:hover {
             cursor: pointer;
         }
@@ -139,10 +224,6 @@
         justify-content: center;
         gap: 35px;
 
-        h1 {
-            width: 100%;
-            color: $pri-color;
-        }
 
         .session-show-apprenants-items {
             width: 332px;

@@ -66,9 +66,9 @@ class SessionsController < ApplicationController
     def json_for_dates(column_name, new_value)
         "<span class='show-session-details-items'>
         #{column_name.include?('debut') ?
-        "Du #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
+        "<span class='text-black'>Du</span> #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
         :
-        "au #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
+        "<span class='text-black'>au</span> #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
       }
       <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
       data-show-session-flatpickr-column-value='#{column_name.to_s}'
