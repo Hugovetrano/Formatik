@@ -24,9 +24,5 @@ Rails.application.routes.draw do
   get "sessions/:session_id/preinscriptions/:id", to: "pre_inscriptions#show", as: :pre_inscription
   post "/preinscriptions/sessions/:session_id", to: "pre_inscriptions#create", as: :create_pre_inscriptions
   get '/pre_inscription/check_preinscriptions', to: 'pre_inscriptions#check_preinscription'
-<<<<<<< HEAD
-  get "/landing", to: "pages#landingpage"
-=======
->>>>>>> bd0cab8019d1121aeeb19fba16b535e18e114083
 
 end
