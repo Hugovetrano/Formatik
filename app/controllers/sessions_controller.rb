@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
         start_date = params.fetch(:start_date, Date.today).to_date
         # date_debut appartient au model
         @sessions = Session.where(date_debut: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).order(:date_debut)
+        @colors = getColors
     end
 
     def create
@@ -30,7 +31,7 @@ class SessionsController < ApplicationController
         @markers = Session.where(id: params[:id]).geocoded.map do |session| {
             lat: session.latitude,
             lng: session.longitude
-          }
+            }
         end
     end
 
@@ -69,13 +70,12 @@ class SessionsController < ApplicationController
         "<span class='text-black'>Du</span> #{@session.date_debut.strftime('%d/%m/%y %Hh%M')}"
         :
         "<span class='text-black'>au</span> #{@session.date_fin.strftime('%d/%m/%y %Hh%M')}"
-      }
-      <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
-      data-show-session-flatpickr-column-value='#{column_name.to_s}'
-      data-controller='show-session-flatpickr'></i>
+        }
+        <i class='fa-solid fa-pencil' data-show-session-flatpickr-id-value='#{@session.id}'
+        data-show-session-flatpickr-column-value='#{column_name.to_s}'
+        data-controller='show-session-flatpickr'></i>
         </span>"
     end
-
 
     def json_for_other(column_name, new_value)
         "#{case column_name
@@ -88,9 +88,6 @@ class SessionsController < ApplicationController
         end}"
     end
 
-
-
-
     def redirect_unlogged_user
         unless current_user
             redirect_to root_path
@@ -99,5 +96,51 @@ class SessionsController < ApplicationController
 
     def session_params
         params.require(:session).permit(:nom, :date_debut, :date_fin, :programme_id, :intervenant_id, :prix, :adresse)
+    end
+
+    def getColors
+        colors = [
+            '#FF6384',
+            '#36A2EB',
+            '#9966FF',
+            '#FF9F40',
+            '#43A047',
+            '#FF8A65',
+            '#AB47BC',
+            '#66BB6A',
+            '#FF5252',
+            '#7E57C2',
+            '#4DD0E1',
+            '#FFA726',
+            '#0097A7',
+            '#FF4500',
+            '#FF6384',
+            '#36A2EB',
+            '#9966FF',
+            '#FF9F40',
+            '#43A047',
+            '#FF8A65',
+            '#AB47BC',
+            '#66BB6A',
+            '#FF5252',
+            '#7E57C2',
+            '#4DD0E1',
+            '#FFA726',
+            '#0097A7',
+            '#FF4500',
+            '#36A2EB',
+            '#9966FF',
+            '#FF9F40',
+            '#43A047',
+            '#FF8A65',
+            '#AB47BC',
+            '#66BB6A',
+            '#FF5252',
+            '#7E57C2',
+            '#4DD0E1',
+            '#FFA726',
+            '#0097A7',
+            '#FF4500',
+        ]
     end
 end

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   openEdit(event) {
-    // cache l'élément span
+    // cache le span
     this.spanElement = this.element.querySelector('span');
     this.spanElement.style.display = 'none';
 

@@ -705,6 +705,19 @@ hugop = {
   genre: "Homme",
   nom: "Petament",
   prenom: "Hugo",
+  email: "test@test.com",
+  password: "password",
+  fonction: "Co-fondateur"
+}
+hugop = User.create!(hugop)
+hugop.photo.attach(io: file, filename: "photo", content_type: "image/jpg")
+puts "------Created User :#{hugop.prenom} #{hugop.nom}------"
+
+file = File.open("db/image/HugoP.jpg")
+hugop = {
+  genre: "Homme",
+  nom: "Petament",
+  prenom: "Hugo",
   email: "h.petament@icloud.com",
   password: "password",
   fonction: "Co-fondateur"
